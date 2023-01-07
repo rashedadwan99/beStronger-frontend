@@ -1,0 +1,63 @@
+.hashtags-input {
+
+
+  height: 105px;
+  margin-bottom: 2px;
+  align-items: flex-start;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+
+
+}
+
+.hashtags {
+  height: 100%;
+  width: 100%;
+}
+
+.hashtags-input button {
+  width: 50%;
+}
+
+.hashtags-input #hashtags {
+  width: 100%;
+}
+
+.hashtags-list {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hashtags-list div {
+  background-color: #d2d2d2;
+  padding: 5px;
+  border-radius: 0.5vw;
+  margin: 2px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hashtags-list span {
+  margin-right: 5px;
+}
+
+.hashtags-list svg {
+  /* font-size: 30px; */
+  cursor: pointer;
+}
+
+@media (max-width:600px) {
+
+
+
+  .hashtags-input .form-floating>label {
+    font-size: 13px;
+    width: 124%;
+    padding: 0.6rem;
+  }
+}

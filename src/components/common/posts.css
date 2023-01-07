@@ -1,0 +1,166 @@
+.posts-container {
+  flex: 1;
+  height: 80vh;
+  overflow-y: scroll;
+  padding: 5px;
+
+}
+
+
+.post-card,
+.comment-card {
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.publiser-info {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.publiser-info .name-profile-image img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+.publiser-info .name-profile-image span {
+  padding-left: 5px;
+}
+
+.publiser-info .name-profile-image {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: bold;
+  flex: 2;
+}
+
+.publiser-info .tooltip-list {
+  box-shadow: initial;
+  justify-content: flex-end;
+}
+
+.publiser-info .active {
+  background-color: #ffffff;
+  color: #3e45ce;
+  transform: scale(1.1);
+}
+
+.publiser-info .tooltip-list .active {
+  background-color: #ffffff;
+}
+
+.publiser-info .three-dots-options {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.three-dots-options .options-list {
+  width: 50%;
+}
+
+.three-dots-options .options-list li {
+  padding: 10px 5px;
+}
+
+.three-dots-options .options-list span,
+.three-dots-options .options-list svg {
+  font-size: 15px;
+}
+
+.post-or-comment-content {
+  display: flex;
+  flex-direction: column;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+
+}
+
+.post-or-comment-content p {
+  padding: 5px;
+  padding-top: 15px;
+  padding-bottom: 0px;
+}
+
+.post-or-comment-content img {
+  border-top: 1px solid #d2d2d2;
+  height: 20em;
+
+}
+
+.like-and-comment {
+  width: 100%;
+  display: flex;
+  border-top: 1px solid #d2d2d2;
+  padding-bottom: 0;
+
+
+  margin-top: 15px;
+}
+
+.like-and-comment .post-statistic:first-child {
+  border-right: 1px solid #d2d2d2;
+}
+
+.post-statistic {
+
+  padding: 2px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.is-liked .like:first-child {
+  color: #3e45ce
+}
+
+.post-statistic p {
+  padding: 0;
+  margin: 0;
+  margin-right: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.see-more-less {
+  text-decoration: underline;
+  color: #3e45ce;
+  padding-left: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.num-of-likes:hover {
+  text-decoration: underline;
+
+  font-weight: bold;
+}
+
+@media (max-width:768px) {
+  .three-dots-options .options-list {
+    width: 86%;
+  }
+
+  .three-dots-options .options-list li {
+    padding: 5px;
+  }
+
+  /* 
+  .three-dots-options .options-list li svg {
+    display: none;
+  } */
+}

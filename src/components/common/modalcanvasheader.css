@@ -1,0 +1,23 @@
+.modal-canvas-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d2d2d2;
+  padding: 15px;
+}
+
+
+.modal-canvas-header h4 {
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-canvas-header svg {
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

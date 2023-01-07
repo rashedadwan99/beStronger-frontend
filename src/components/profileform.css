@@ -1,0 +1,36 @@
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.profile-form .profile-image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-form img {
+  width: 150px;
+  height: 150px;
+}
+
+.profile-form form {
+  width: 100%;
+  padding: 0 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.profile-form .input-container {
+  margin: 0;
+  margin-top: 20px;
+}
+
+.profile-form button {
+
+  display: block;
+
+}

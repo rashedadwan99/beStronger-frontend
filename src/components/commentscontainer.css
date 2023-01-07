@@ -1,0 +1,42 @@
+.comments-container {
+
+  height: 100%;
+  position: relative;
+  min-height: 0;
+}
+
+.scrollable-comments {
+  display: flex;
+  flex-direction: column-reverse;
+  max-height: 95%;
+  overflow-y: scroll;
+}
+
+.comments-list {
+  max-height: 95%;
+  padding: 0 15px;
+}
+
+.comment-creation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  bottom: -30px;
+  padding: 0 15px;
+
+}
+
+
+.comment-creation input {
+  width: 95%;
+  padding: 7px;
+
+}
+
+.modal-container.comments-modal {
+  top: 5%;
+  bottom: 5%;
+
+}

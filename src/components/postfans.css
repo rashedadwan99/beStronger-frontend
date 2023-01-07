@@ -1,0 +1,8 @@
+.post-fans {
+  height: 25em;
+  overflow-y: scroll;
+}
+
+.post-fans .user-container {
+  margin: 0;
+}

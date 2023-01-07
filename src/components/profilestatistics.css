@@ -1,0 +1,46 @@
+.profile-statistics {
+  color: #000000;
+
+  background-color: #ffffff;
+  min-width: 95%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.profile-statistics .top,
+.profile-statistics .bottom {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-statistics span {
+  display: inline-block;
+  min-width: 25%;
+  flex: 1;
+  text-align: center;
+  border: 1px solid #d2d2d2;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+.profile-statistics .top span {
+  border-top: 0;
+}
+
+.profile-statistics .bottom span {
+
+  border-bottom: 0;
+}
+
+.profile-statistics .top span:first-child,
+.profile-statistics .bottom span:first-child {
+  border-left: 0;
+}
+
+.profile-statistics .top span:last-child,
+.profile-statistics .bottom span:last-child {
+  border-right: 0;
+}

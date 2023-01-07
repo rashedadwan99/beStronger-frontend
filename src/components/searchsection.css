@@ -1,0 +1,31 @@
+.search-section {
+  width: 100%;
+
+}
+
+.search-input {
+  width: 100%;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  align-items: center;
+}
+
+.search-input input {
+  padding: 5px;
+  max-width: 95%;
+}
+
+.search-results {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.search-results h6 {
+  width: 100%;
+  padding-left: 15px;
+}

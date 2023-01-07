@@ -1,0 +1,169 @@
+.comunication-section {
+  height: 88vh;
+  display: flex;
+  background-color: #d2d2d2;
+}
+
+.middle-communication-section,
+.left-communication-section,
+.right-communication-section {
+  flex: 1;
+  padding: 10px 0;
+  width: 33.5vw;
+}
+
+.middle-communication-section {
+  max-height: 100%;
+  flex: 1;
+}
+
+.left-communication-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+
+.post-creation-section {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.post-creation-section-top {
+  background-color: #ffffff;
+  padding: 15px;
+  margin: 0 5px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color;
+  transition-duration: 1s;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 10;
+}
+
+.post-creation-section-top:hover {
+  background-color: #3e45ce;
+  color: #ffffff
+}
+
+.post-creation-section-top .profile-image img {
+  height: 50px;
+  width: 50px;
+  margin-right: 5px;
+  border-radius: 100%;
+}
+
+.post-creation-section-top .share-your-experince {
+  padding-left: 5px;
+}
+
+.no-posts {
+  background-color: #ffffff;
+  height: 16em;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  flex-direction: column;
+  font-size: 26px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  position: relative;
+}
+
+.no-posts p {
+  text-align: center;
+
+  position: relative;
+  margin: 0;
+}
+
+.right-communication-section {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.right-communication-section .profile-card {
+  display: none;
+  margin: 0 20px;
+
+  min-height: 22em;
+  margin-bottom: 10px;
+
+}
+
+.right-communication-section .profile-card .profile-statistics {
+  top: 70%
+}
+
+.nutritionists-trainers {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: #ffffff;
+  margin: 0 20px;
+  min-height: 20em;
+
+  height: 20em;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: space-between;
+}
+
+.nutritionists-trainers_title {
+  padding: 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #d2d2d2;
+}
+
+.nutritionists-trainers_body {
+  height: 90%;
+  padding: 5px 15px;
+  overflow-y: scroll;
+}
+
+
+.nutritionists-trainers_body .user-container {
+  margin: 0
+}
+
+.nutritionists-trainers_title p {
+  text-transform: capitalize;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+}
+
+@media (max-width:991px) {
+  .left-communication-section {
+
+    display: none;
+  }
+
+  .right-communication-section .profile-card {
+    display: flex;
+  }
+
+  .right-communication-section .profile-card img {
+    height: 130px;
+    width: 130px;
+  }
+}
+
+@media (max-width:645px) {
+
+  .left-communication-section,
+  .right-communication-section {
+    display: none;
+  }
+}

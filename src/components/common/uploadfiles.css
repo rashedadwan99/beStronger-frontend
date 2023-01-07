@@ -1,0 +1,51 @@
+/* @import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300); */
+
+.center {
+  z-index: 5555;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 260px;
+  border-radius: 3px;
+  box-shadow: 8px 10px 15px 0 rgba(0, 0, 0, 0.2);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.dropzone {
+
+  width: 100px;
+  height: 80px;
+  border: 1px dashed #999;
+  border-radius: 0.5vw;
+  text-align: center;
+}
+
+.dropzone svg {
+  font-size: 3rem;
+  margin: auto;
+  cursor: pointer;
+
+
+}
+
+.upload-icon {
+  margin: 25px 2px 2px 2px;
+  cursor: pointer;
+}
+
+.upload-input {
+  position: relative;
+  top: -62%;
+  left: 0;
+  width: 80%;
+  height: 55%;
+  opacity: 0;
+  cursor: pointer;
+
+}

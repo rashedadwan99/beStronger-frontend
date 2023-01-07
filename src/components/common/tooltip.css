@@ -1,0 +1,58 @@
+.tooltip-container {
+  position: relative;
+}
+
+.tooltip-list {
+  background-color: #ffffff;
+  padding: 6px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-property: background-color;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.4s;
+
+
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.tooltip-list img {
+  height: 35px;
+  width: 35px;
+  border-radius: 100%;
+}
+
+.tooltip-list.active {
+  background-color: #3e45ce;
+  color: #ffffff;
+}
+
+.tooltip-list.active .arrow-drop-down-icon {
+  transform: rotateX(180deg);
+}
+
+
+.tooltip-list span {
+  padding: 0 5px;
+}
+
+.tooltip-list svg {
+  font-size: 20px;
+  padding: 0;
+}
+
+.tooltip-list:hover {
+  cursor: pointer;
+}
+
+
+@media (max-width:600px) {
+  .tooltip-list img {
+    height: 35px;
+    width: 35px
+  }
+
+}

@@ -1,0 +1,55 @@
+.user-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 5px;
+  margin: 0 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.user-container:hover {
+  background-color: #d2d2d2;
+  cursor: pointer;
+}
+
+.user-container img {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  /* margin-right: 5px; */
+}
+
+.user-container .profile-image-container {
+  margin-right: 5px;
+}
+
+.user-container button {
+  display: flex;
+  z-index: 5;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.user-picture-name,
+.user-container .button {
+  flex: 1;
+  display: flex;
+}
+
+.user-picture-name {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.user-picture-name span:hover {
+  color: #3e45ce;
+  cursor: pointer;
+}
+
+.user-container .button {
+  justify-content: flex-end;
+  align-items: center;
+}

@@ -1,0 +1,19 @@
+.list-items {
+  padding-left: 0px;
+  list-style-type: none;
+  text-transform: capitalize;
+}
+.list-items a {
+  text-decoration: none;
+  color: #ffff;
+}
+.list-items a:hover,
+.list-items span:hover {
+  color: #3e45ce;
+}
+a.active {
+  color: #3e45ce;
+}
+.list-items span {
+  cursor: pointer;
+}

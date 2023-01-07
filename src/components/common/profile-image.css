@@ -1,0 +1,19 @@
+.profile-image-container {
+  display: flex;
+  position: relative;
+  border-radius: 100%;
+  padding: 1px;
+  max-height: 200px;
+  overflow: hidden;
+  z-index: 2;
+  justify-content: center;
+
+  align-items: center;
+}
+
+
+.profile-image-container img {
+  margin-right: 0 !important;
+  z-index: 2;
+  border-radius: 100%;
+}

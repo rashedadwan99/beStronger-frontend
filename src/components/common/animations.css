@@ -1,0 +1,63 @@
+.animations {
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  /* flex-direction: column; */
+  flex-direction: row;
+  list-style-type: none;
+  width: 100%;
+  padding-left: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.animations li {
+  animation-name: auth-animation;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  animation-duration: 6s;
+  overflow: hidden;
+  padding: 30px;
+}
+
+.animations svg {
+  font-size: 50px !important;
+}
+
+@keyframes auth-animation {
+  0% {
+
+    transform: translateY(-35%);
+
+  }
+
+  50% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(-35%);
+
+
+  }
+}
+
+.icon-1 {
+  animation-delay: 0s;
+}
+
+.icon-2 {
+  animation-delay: 3s;
+}
+
+.icon-3 {
+  animation-delay: 0s;
+}
+
+.icon-4 {
+  animation-delay: 3s;
+}
