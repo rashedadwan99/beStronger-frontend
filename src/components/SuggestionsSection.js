@@ -1,31 +1,23 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { toast } from "react-toastify";
+import { Toast } from "./common/Toast";
 import { getPublicUsers } from "../services/userService";
 import ProfileCard from "./common/ProfileCard";
 import UserList from "./common/UsersList";
-
+import UserListSkeleton from "./skeleton/UserListSkeleton";
 function SuggestionsSection() {
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const getNutritionistsAndTrainers = async () => {
       try {
+        setIsLoading(true);
         const { data: users } = await getPublicUsers();
+        setIsLoading(false);
         setUsers(users);
       } catch (error) {
-        if (error.response && error.response.status === 400) {
-          return toast.error(error.response.data.message, {
-            position: "bottom-left",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
-        }
+        Toast("error", error);
       }
     };
     getNutritionistsAndTrainers();
@@ -38,7 +30,11 @@ function SuggestionsSection() {
           <p>nutritionists and trainers</p>
         </div>
         <div className="nutritionists-trainers_body">
-          <UserList users={users} />
+          {!isLoading ? (
+            <UserList users={users} />
+          ) : (
+            <UserListSkeleton number={3} />
+          )}
         </div>
       </div>
     </div>

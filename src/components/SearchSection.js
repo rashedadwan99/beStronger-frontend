@@ -8,6 +8,7 @@ import Button from "./common/button";
 import RenderInputField from "./common/Forms";
 import UserList from "./common/UsersList";
 import "./searchsection.css";
+import UserListSkeleton from "./skeleton/UserListSkeleton";
 function SearchSection() {
   const [searchQuery, setSearchQuery] = useState("");
   const [results, setResults] = useState([]);
@@ -79,7 +80,11 @@ function SearchSection() {
         />
       </div>
       <div className="search-results">
-        {!isLoading ? <UserList users={results} /> : <h6>loading...</h6>}
+        {!isLoading ? (
+          <UserList users={results} />
+        ) : (
+          <UserListSkeleton number={5} />
+        )}
         {isEmptyResult && !isLoading && <h6>there are not results</h6>}
       </div>
     </div>

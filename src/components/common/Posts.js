@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getPostsAction,
   getProfilePosts,
-  NO_POSTS,
 } from "../../redux/actions/postActions";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import PostsCard from "../PostsCard";
 import NoPosts from "../NoPosts";
 
 import "./posts.css";
+import PostSkeleton from "../skeleton/PostSkeleton";
 
 function Posts() {
   const { location } = useHistory();
@@ -40,7 +40,7 @@ function Posts() {
 
   return (
     <div className="posts-container" id="posts-container">
-      {!isLoading ? <PostsCard /> : <p>loading...</p>}
+      {!isLoading ? <PostsCard /> : <PostSkeleton />}
       {noPosts && <NoPosts />}
     </div>
   );

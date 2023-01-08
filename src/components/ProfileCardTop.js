@@ -4,6 +4,7 @@ import ProfileImage from "./common/ProfileImage";
 
 function ProfileCardTop() {
   const profileCardUser = useSelector((state) => state.profileCardUser.value);
+  const isLoading = useSelector((state) => state.profileCardUser.isLoading);
 
   return (
     <div className="profile-card-top">

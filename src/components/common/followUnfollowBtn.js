@@ -48,9 +48,15 @@ function FollowUnfollowBtn({ user }) {
 
   return (
     <Button
+      onMouseEnter={() => {
+        setDisabledButton([]);
+        setDisabledButton([user._id]);
+      }}
+      onMouseLeave={() => setDisabledButton([])}
       label={handleButtonLabel()}
       onClick={!isSendingRequest ? handleClickFollowUnFollow : () => {}}
       className={toggleClasses()}
+      disabled={isSendingRequest && disabledButton.includes(user._id)}
     />
   );
 }

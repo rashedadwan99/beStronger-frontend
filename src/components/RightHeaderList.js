@@ -1,6 +1,4 @@
 import React from "react";
-import { AiOutlineLogout } from "react-icons/ai";
-import { FaRegUserCircle } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { toggleAppDependency } from "../redux/actions/appUseEffectDependencyAction";

@@ -7,6 +7,7 @@ function SharePostsSection() {
     <div className="middle-communication-section">
       <div className="post-creation-section">
         <PostTopCreationSection />
+
         <Posts />
       </div>
     </div>

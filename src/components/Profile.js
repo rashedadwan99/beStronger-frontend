@@ -1,5 +1,4 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import Posts from "./common/Posts";
 import ProfileCard from "./common/ProfileCard";
 import "./profile.css";

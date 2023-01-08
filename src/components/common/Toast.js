@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-export function Toast(status = "", value, position = "bottom-left") {
+export function Toast(status = "", value, position = "top-left") {
   const options = {
     position,
     autoClose: 2000,
