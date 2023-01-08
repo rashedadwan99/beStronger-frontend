@@ -3,7 +3,7 @@ import {
   USER_LOGGED_OUT,
   UPDATE_USER_DATA,
   TOGGLE_LOADING,
-  IS_SENDING_REQUEST,
+  IS_SENDING_USER_REQUEST,
 } from "../actions/userActions";
 
 const initialState = {
@@ -23,7 +23,7 @@ export const usersReducers = (state = initialState, action) => {
       };
     case USER_LOGGED_OUT:
       return { ...state, value: {}, isLoading: false, isSendingRequest: false };
-    case IS_SENDING_REQUEST:
+    case IS_SENDING_USER_REQUEST:
       return { ...state, isSendingRequest: !state.isSendingRequest };
     case UPDATE_USER_DATA:
       return { ...state, value: action.payload, isSendingRequest: false };

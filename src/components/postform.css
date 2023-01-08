@@ -1,6 +1,6 @@
 .post-form-container {
   padding: 0px 25px;
-  height: 100%;
+  min-height: 23em;
 }
 
 .post-form-container textarea {

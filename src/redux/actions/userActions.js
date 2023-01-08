@@ -9,7 +9,7 @@ import * as auth from "../../services/authService";
 import { Toast } from "../../components/common/Toast";
 import { TOGGLE_APP_DEPENCY } from "./appUseEffectDependencyAction";
 import { UPDATE_PROFILE_DATA } from "./ProfileCardActions";
-import { uploadPicture } from "../../services/uploadPictueService";
+import { uploadPicture } from "../../services/uploadPictureService";
 import { GET_PROFILE_POSTS, NO_POSTS } from "./postActions";
 import { closeModal } from "./modalActions";
 
@@ -21,7 +21,7 @@ export const USER_LOGGED_IN = "USER_LOGGED_IN";
 export const USER_LOGGED_OUT = "USER_LOGGED_OUT";
 
 export const UPDATE_USER_DATA = "UPDATE_USER_DATA";
-export const IS_SENDING_REQUEST = "IS_SENDING_REQUEST";
+export const IS_SENDING_USER_REQUEST = "IS_SENDING_USER_REQUEST";
 
 export const loginAction = (data) => {
   return async (dispatch) => {
@@ -85,7 +85,7 @@ export const registerUserAction = (data) => {
 export const sendFollowOrUFollowAction = (reciverUserId, isNotMe, unFollow) => {
   return async (dispatch) => {
     try {
-      dispatch({ type: IS_SENDING_REQUEST });
+      dispatch({ type: IS_SENDING_USER_REQUEST });
       let response;
       if (unFollow) response = await sendUnFollowRequest(reciverUserId);
       else response = await sendFollowRequest(reciverUserId);
@@ -102,7 +102,7 @@ export const sendFollowOrUFollowAction = (reciverUserId, isNotMe, unFollow) => {
 
       updateUserInLocalStorage(data.senderUser);
     } catch (error) {
-      dispatch({ type: IS_SENDING_REQUEST });
+      dispatch({ type: IS_SENDING_USER_REQUEST });
       Toast("error", error);
     }
   };
@@ -111,7 +111,7 @@ export const editUserInfoAction = (name, picture, user) => {
   return async (dispatch) => {
     try {
       let editResponse;
-      dispatch({ type: IS_SENDING_REQUEST });
+      dispatch({ type: IS_SENDING_USER_REQUEST });
       const isSamePicture = user.picture === picture;
       if (!isSamePicture) {
         const response = await uploadPicture(picture);
@@ -132,7 +132,7 @@ export const editUserInfoAction = (name, picture, user) => {
 
       dispatch(closeModal());
     } catch (error) {
-      dispatch({ type: IS_SENDING_REQUEST });
+      dispatch({ type: IS_SENDING_USER_REQUEST });
       Toast("error", error);
     }
   };

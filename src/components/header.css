@@ -42,18 +42,17 @@
 
 
 
-.header-icon-section svg {
-  font-size: 20px;
+.header-right-section svg {
+  font-size: 19px;
 }
 
 .notifications-section {
   padding-right: 15px;
-  font-size: 22px;
+
 }
 
 .home-icon svg {
-  font-size: 22px;
-  margin-right: 15px;
+  margin-right: 10px;
 }
 
 .notifications-section svg,
@@ -64,6 +63,15 @@
 
 .header-right-section .options-list {
   top: 80%
+}
+
+.header-right-section a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.header-right-section a.active {
+  color: #3e45ce
 }
 
 @media (max-width:768px) {

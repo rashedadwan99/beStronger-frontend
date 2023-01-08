@@ -11,7 +11,7 @@ import {
   GET_POST_COMMENTS,
   TOGGLE_LOADING_POSTS,
   NO_POSTS,
-  IS_SENDING_REQUEST,
+  IS_SENDING_POSTS_REQUEST,
   GET_PROFILE_POSTS,
 } from "../actions/postActions";
 
@@ -26,11 +26,10 @@ export const postsReducer = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_LOADING_POSTS:
       return { ...state, isLoading: !state.isLoading, noPosts: false };
-    case IS_SENDING_REQUEST:
+    case IS_SENDING_POSTS_REQUEST:
       return {
         ...state,
         isSendingRequest: action.payload,
-        noPosts: false,
       };
     case NO_POSTS:
       return { ...state, noPosts: action.payload };

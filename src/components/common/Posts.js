@@ -39,7 +39,7 @@ function Posts() {
   }
 
   return (
-    <div className="posts-container">
+    <div className="posts-container" id="posts-container">
       {!isLoading ? <PostsCard /> : <p>loading...</p>}
       {noPosts && <NoPosts />}
     </div>

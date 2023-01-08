@@ -37,22 +37,40 @@
   bottom: initial
 }
 
+
+.modal-container.comments-modal {
+  right: 33%;
+  left: 33%;
+}
+
 @media (max-width:992px) {
-  .modal-container {
+
+  .modal-container,
+  .modal-container.comments-modal {
     left: 20%;
     right: 20%;
+  }
+
+  .profile-form-modal {
+    left: 30%;
+    right: 30%;
   }
 }
 
 @media (max-width:768px) {
-  .modal-container {
+
+  .modal-container,
+  .modal-container.comments-modal {
     left: 15%;
     right: 15%;
+
   }
 }
 
 @media (max-width:600px) {
-  .modal-container {
+
+  .modal-container,
+  .modal-container.comments-modal {
     left: 5%;
     right: 5%;
   }

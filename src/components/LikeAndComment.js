@@ -75,7 +75,7 @@ function LikeAndComment({ post }) {
               onClick={
                 postStatistic.label === "like"
                   ? () => handleShowPostFans(post)
-                  : () => {}
+                  : () => handleClickComment()
               }
               className={
                 postStatistic.label === "like" && post.numOfLikes

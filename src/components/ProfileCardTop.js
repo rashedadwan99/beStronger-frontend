@@ -14,7 +14,13 @@ function ProfileCardTop() {
             alt={`${profileCardUser.name}'s picture`}
           />
         </ProfileImage>
-        <span>{profileCardUser.name}</span>
+        {profileCardUser.name && (
+          <span>
+            {profileCardUser.name.length > 17
+              ? profileCardUser.name.slice(0, 17)
+              : profileCardUser.name}
+          </span>
+        )}
       </div>
     </div>
   );

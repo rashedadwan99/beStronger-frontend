@@ -8,7 +8,7 @@ import { closeModal } from "../../redux/actions/modalActions";
 import "./userlist.css";
 function UsersList({ users }) {
   const history = useHistory();
-  const currentUserId = useSelector((state) => state.user._id);
+  const currentUserId = useSelector((state) => state.user.value._id);
   const isCanvasShowed = useSelector((state) => state.canvas.show);
   const isModalShowed = useSelector((state) => state.modal.show);
   const dispatch = useDispatch();

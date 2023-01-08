@@ -29,7 +29,7 @@ function PostForm({ isEditForm, post }) {
   };
 
   const handleClickPost = async () => {
-    const contentPattern = "^[a-zA-Z0-9]+";
+    const contentPattern = "^[a-zA-Z0-9]+|[\u0621-\u064A]+";
     const regex = new RegExp(contentPattern);
     const isValidContent = regex.test(postContent);
     if (!isValidContent) {

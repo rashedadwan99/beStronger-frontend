@@ -1,16 +1,13 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Button from "./button";
-import { sendFollowOrUFollowAction } from "../../redux/actions/userActions";
-import "./followunfollowbtn.css";
-
+import React, { useState } from "react";
 import { useRouteMatch } from "react-router-dom";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { sendFollowOrUFollowAction } from "../../redux/actions/userActions";
+import Button from "./button";
+import "./followunfollowbtn.css";
 function FollowUnfollowBtn({ user }) {
-  const [activeButton, setActiveButton] = useState([]);
-
   const currentUser = useSelector((state) => state.user.value);
   const isSendingRequest = useSelector((state) => state.user.isSendingRequest);
+  const [disabledButton, setDisabledButton] = useState([]);
   const { params } = useRouteMatch();
   const dispatch = useDispatch();
   const followEachOther =
@@ -51,12 +48,9 @@ function FollowUnfollowBtn({ user }) {
 
   return (
     <Button
-      onMouseEnter={() => setActiveButton([user._id])}
-      onMouseLeave={() => setActiveButton([])}
       label={handleButtonLabel()}
-      onClick={handleClickFollowUnFollow}
+      onClick={!isSendingRequest ? handleClickFollowUnFollow : () => {}}
       className={toggleClasses()}
-      disabled={isSendingRequest && activeButton.includes(user._id)}
     />
   );
 }

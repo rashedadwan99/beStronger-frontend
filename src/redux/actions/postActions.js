@@ -13,8 +13,9 @@ import {
   getPostFans,
   getUserPosts,
 } from "../../services/postService";
-import { uploadPicture } from "../../services/uploadPictueService";
+import { uploadPicture } from "../../services/uploadPictureService";
 import { closeModal, CLOSE_MODAL } from "./modalActions";
+import $ from "jquery";
 
 export const CREATE_POST = "CREATE_POST";
 export const GET_ALL_POSTS = "GET_ALL_POSTS";
@@ -29,12 +30,12 @@ export const UPDATE_POST_LIKES = "UPDATE_POST_LIKES";
 export const GET_POST_COMMENTS = "GET_POST_COMMENTS";
 export const ADD_COMMENT = "ADD_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
-export const IS_SENDING_REQUEST = "IS_SENDING_REQUEST";
+export const IS_SENDING_POSTS_REQUEST = "IS_SENDING_POSTS_REQUEST";
 export const GET_PROFILE_POSTS = "GET_PROFILE_POSTS";
 
-export const addPost = ({ postContent, picture }) => {
+export const addPost = ({ postContent, picture }, originalPost) => {
   return async (dispatch) => {
-    dispatch({ type: IS_SENDING_REQUEST, payload: true });
+    dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: true });
     let postResponse;
     try {
       const response = await uploadPicture(picture);
@@ -52,10 +53,16 @@ export const addPost = ({ postContent, picture }) => {
       const { data: post } = postResponse;
       dispatch({ type: CREATE_POST, payload: { post } });
 
+      $("#posts-container").animate(
+        {
+          scrollTop: 0,
+        },
+        300
+      );
       dispatch({ type: CLOSE_MODAL });
       Toast("info", "the post was published successfully!");
     } catch (error) {
-      dispatch({ type: IS_SENDING_REQUEST, payload: false });
+      dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
       Toast("error", error);
     }
   };
@@ -86,23 +93,24 @@ export const getOnlyOnePost = (postId) => {
 
 export const editPostHandler = (originalPost, { postContent, picture }) => {
   return async (dispatch) => {
-    dispatch({ type: IS_SENDING_REQUEST, payload: true });
+    dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: true });
     let postResponse;
     try {
-      const response = await uploadPicture(picture);
-      if (response === undefined) {
+      if (originalPost.picture !== picture) {
+        const response = await uploadPicture(picture);
+        if (response) {
+          postResponse = await editPost(originalPost._id, {
+            content: postContent,
+            picture: response.data.url,
+          });
+        }
+      } else {
         postResponse = await editPost(originalPost._id, {
           content: postContent,
           picture,
         });
       }
 
-      if (response) {
-        postResponse = await editPost(originalPost._id, {
-          content: postContent,
-          picture: response.data.url,
-        });
-      }
       const { data: updatedPost } = postResponse;
 
       dispatch({
@@ -116,7 +124,7 @@ export const editPostHandler = (originalPost, { postContent, picture }) => {
       dispatch(closeModal());
       Toast("info", "the post was editted successfully!");
     } catch (error) {
-      dispatch({ type: IS_SENDING_REQUEST, payload: false });
+      dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
       Toast("error", error);
     }
   };
@@ -138,7 +146,7 @@ export const handleDeletePost = (postId) => {
 
 export const likeAction = (originalPost) => {
   return async (dispatch) => {
-    dispatch({ type: IS_SENDING_REQUEST, payload: true });
+    dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: true });
     try {
       const { data: updatedPost } = await onClickLike(originalPost._id);
       dispatch({
@@ -146,14 +154,14 @@ export const likeAction = (originalPost) => {
         payload: { updatedPost, originalPost },
       });
     } catch (error) {
-      dispatch({ type: IS_SENDING_REQUEST, payload: false });
+      dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
       Toast("error", error);
     }
   };
 };
 export const disLikeAction = (originalPost) => {
   return async (dispatch) => {
-    dispatch({ type: IS_SENDING_REQUEST, payload: true });
+    dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: true });
     try {
       const { data: updatedPost } = await onClickDisLike(originalPost._id);
       dispatch({
@@ -161,7 +169,7 @@ export const disLikeAction = (originalPost) => {
         payload: { updatedPost, originalPost },
       });
     } catch (error) {
-      dispatch({ type: IS_SENDING_REQUEST, payload: false });
+      dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
       Toast("error", error);
     }
   };
@@ -182,7 +190,7 @@ export const getPostCommentsHandler = (originalPost) => {
 };
 export const addCommentAction = (post, comment) => {
   return async (dispatch) => {
-    dispatch({ type: IS_SENDING_REQUEST, payload: true });
+    dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: true });
     try {
       const { data: updatedPost } = await addComment(post._id, comment);
       dispatch({
@@ -190,7 +198,7 @@ export const addCommentAction = (post, comment) => {
         payload: { updatedPost, originalPost: post },
       });
     } catch (error) {
-      dispatch({ type: IS_SENDING_REQUEST, payload: false });
+      dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
       Toast("error", error);
     }
   };

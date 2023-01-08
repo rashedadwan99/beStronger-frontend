@@ -7,20 +7,19 @@ import RightHeaderList from "./RightHeaderList";
 import OutsideAlerter from "./utils/clickOutSideAlert";
 import ProfileImage from "./common/ProfileImage";
 import { AiFillHome } from "react-icons/ai";
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 function HeaderRightSection() {
   const user = useSelector((state) => state.user.value);
   const [showList, setShowList] = useState(false);
   const history = useHistory();
+
   return (
     <div className="header-right-section">
       <div className="home-icon">
-        <AiFillHome
-          onClick={() =>
-            history.location.pathname !== "/posts" && history.push("/posts")
-          }
-        />
+        <NavLink to="/posts">
+          <AiFillHome />
+        </NavLink>
       </div>
       <div className="notifications-section">
         <BsBellFill />
