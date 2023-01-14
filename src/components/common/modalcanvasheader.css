@@ -9,14 +9,14 @@
 
 
 .modal-canvas-header h4 {
-  font-weight: bold;
+  font-weight: var(--font-weight);
   padding: 0;
   margin: 0;
 }
 
 .modal-canvas-header svg {
   cursor: pointer;
-  font-weight: bold;
+  font-weight: var(--font-weight);
   display: flex;
   justify-content: center;
   align-items: center;

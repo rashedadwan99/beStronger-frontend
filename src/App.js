@@ -9,6 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Canvas from "./components/common/Canvas";
 import Modal from "./components/common/Modal";
 import NotFound from "./pages/NotFound";
+import { getSocketAction } from "./redux/actions/socketAction";
+import { io } from "socket.io-client";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +22,10 @@ function App() {
       dispatch(userLoggedIn());
     } else dispatch(userLoggedOut());
   }, [appDependency]);
+  useEffect(() => {
+    dispatch(getSocketAction(io("http://localhost:5000")));
+  }, []);
+
   return (
     <>
       <ToastContainer />

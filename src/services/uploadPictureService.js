@@ -1,4 +1,4 @@
-import http from "./httpService";
+import { http } from "./httpService";
 
 export const uploadPicture = async (picture) => {
   if (!picture) return;

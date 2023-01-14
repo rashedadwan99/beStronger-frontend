@@ -1,4 +1,4 @@
-import http from "./httpService";
+import { http } from "./httpService";
 import config from "../config.json";
 import { getJwt, userKey } from "./authService";
 

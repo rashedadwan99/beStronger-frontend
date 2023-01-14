@@ -11,7 +11,7 @@
   position: absolute;
   top: 100%;
   right: 2%;
-  background-color: #ffffff;
+  background-color: var(--white);
   border: 1px solid #d2d2d2;
   border-radius: 0.5vw;
   width: 7vw;
@@ -43,11 +43,11 @@
 
 .active-arrow-icon {
   animation: rotate 0s ease-in-out 0s 1 forwards;
-  color: #3e45ce !important;
+  color: var(--blue) !important;
 }
 
 .active-dots {
-  color: #3e45ce;
+  color: var(--blue);
   transform: scale(1.3);
 }
 

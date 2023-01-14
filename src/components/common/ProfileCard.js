@@ -5,6 +5,7 @@ import { getProfileCardUser } from "../../redux/actions/ProfileCardActions";
 import ProfileCardBottom from "../ProfileCardBottom";
 import ProfileCardMiddle from "../ProfileCardMiddle";
 import ProfileCardTop from "../ProfileCardTop";
+import ProfileCardSkeleton from "../skeleton/ProfileCardSkeleton";
 import "./profilecard.css";
 function ProfileCard() {
   const user = useSelector((state) => state.user.value);
@@ -12,20 +13,20 @@ function ProfileCard() {
   const dispatch = useDispatch();
   const { params } = useRouteMatch();
   useEffect(() => {
-    if (params.userId) {
+    if (params.userId && params.userId !== user._id) {
       dispatch(getProfileCardUser({ _id: params.userId }));
     } else {
       dispatch(getProfileCardUser(user));
     }
-  }, []);
-  return (
-    !isLoading && (
-      <div className="profile-card">
-        <ProfileCardTop />
-        <ProfileCardMiddle />
-        <ProfileCardBottom />
-      </div>
-    )
+  }, [params.userId]);
+  return !isLoading ? (
+    <div className="profile-card">
+      <ProfileCardTop />
+      <ProfileCardMiddle />
+      <ProfileCardBottom />
+    </div>
+  ) : (
+    <ProfileCardSkeleton />
   );
 }
 

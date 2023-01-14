@@ -9,9 +9,9 @@
 
 .post-card,
 .comment-card {
-  background-color: #ffffff;
+  background-color: var(--white);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   margin: 10px 0;
   padding: 15px 0;
   display: flex;
@@ -30,7 +30,7 @@
 .publiser-info .name-profile-image img {
   width: 40px;
   height: 40px;
-  border-radius: 100%;
+  border-radius: var(--circle-border-radius);
 }
 
 .publiser-info .name-profile-image span {
@@ -41,7 +41,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-weight: bold;
+  font-weight: var(--font-weight);
   flex: 2;
 }
 
@@ -51,13 +51,13 @@
 }
 
 .publiser-info .active {
-  background-color: #ffffff;
-  color: #3e45ce;
+  background-color: var(--white);
+  color: var(--blue);
   transform: scale(1.1);
 }
 
 .publiser-info .tooltip-list .active {
-  background-color: #ffffff;
+  background-color: var(--white);
 }
 
 .publiser-info .three-dots-options {
@@ -127,7 +127,7 @@
 }
 
 .is-liked .like:first-child {
-  color: #3e45ce
+  color: var(--blue)
 }
 
 .post-statistic p {
@@ -141,16 +141,16 @@
 
 .see-more-less {
   text-decoration: underline;
-  color: #3e45ce;
+  color: var(--blue);
   padding-left: 5px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: var(--font-weight);
 }
 
 .num-of-likes:hover {
   text-decoration: underline;
 
-  font-weight: bold;
+  font-weight: var(--font-weight);
 }
 
 @media (max-width:768px) {

@@ -1,8 +1,8 @@
 .profile-card {
   min-height: 25em;
   min-width: 85%;
-  background-color: #ffffff;
-  border-radius: 10px;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -19,10 +19,10 @@
 
 
 .profile-card-top {
-  background-color: #3e45ce;
+  background-color: var(--blue);
   justify-content: center;
   align-items: center;
-  font-weight: bold;
+  font-weight: var(--font-weight);
   flex: 0;
   padding: 15px;
   position: relative;
@@ -41,7 +41,7 @@
 .profile-image-name img {
   height: 150px;
   width: 150px;
-  border-radius: 100%;
+  border-radius: var(--circle-border-radius);
 }
 
 .profile-card-middle {
@@ -64,14 +64,14 @@
 }
 
 .profile-card-bottom a {
-  color: #000000;
+  color: var(--var(--black));
   text-decoration: none;
   padding-bottom: 15px;
-  font-weight: bold;
+  font-weight: var(--font-weight);
 }
 
 .profile-card-bottom a:hover {
-  color: #3e45ce;
+  color: var(--blue);
 
 }
 
@@ -79,6 +79,6 @@
   .profile-image-name img {
     height: 120px;
     width: 120px;
-    border-radius: 100%;
+    border-radius: var(--circle-border-radius);
   }
 }

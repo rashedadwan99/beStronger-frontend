@@ -15,6 +15,6 @@
 }
 
 .tabs .active-tab {
-  color: #3e45ce;
+  color: var(--blue);
 
 }

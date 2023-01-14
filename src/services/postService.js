@@ -1,4 +1,4 @@
-import http from "./httpService";
+import {http} from "./httpService";
 import config from "../config.json";
 import { getJwt } from "./authService";
 const apiEndPoint = config.apiUrl + "/posts";

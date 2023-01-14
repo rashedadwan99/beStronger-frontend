@@ -4,8 +4,8 @@
   width: 100%;
   padding: 10px 5px;
   margin: 0 10px;
-  border-radius: 10px;
-  font-weight: bold;
+  border-radius: var(--border-radius);
+  font-weight: var(--font-weight);
 }
 
 .user-container:hover {
@@ -16,7 +16,7 @@
 .user-container img {
   height: 40px;
   width: 40px;
-  border-radius: 100%;
+  border-radius: var(--circle-border-radius);
 }
 
 .user-container .profile-image-container {
@@ -24,12 +24,13 @@
 }
 
 .user-container button {
+  /* color: var(--black); */
   display: flex;
   z-index: 5;
   justify-content: center;
   align-items: center;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: var(--font-weight);
 }
 
 .user-picture-name,
@@ -44,7 +45,7 @@
 }
 
 .user-picture-name span:hover {
-  color: #3e45ce;
+  color: var(--blue);
   cursor: pointer;
 }
 

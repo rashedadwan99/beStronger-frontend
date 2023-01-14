@@ -47,7 +47,7 @@
 .post-form-image-container img {
   height: 50px;
   width: 50px;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   margin-left: 5px;
 }
 
@@ -68,7 +68,7 @@
 .image-delete-icon {
 
   padding: 1px;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
 }
 
 .image-delete-icon svg {
@@ -78,7 +78,7 @@
 }
 
 .image-delete-icon svg:hover {
-  color: #3e45ce;
-  font-weight: bold;
+  color: var(--blue);
+  font-weight: var(--font-weight);
   cursor: pointer;
 }

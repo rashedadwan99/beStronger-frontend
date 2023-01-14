@@ -3,11 +3,11 @@
 }
 
 .tooltip-list {
-  background-color: #ffffff;
+  background-color: var(--white);
   padding: 6px;
   box-sizing: border-box;
-  border-radius: 10px;
-  font-weight: bold;
+  border-radius: var(--border-radius);
+  font-weight: var(--font-weight);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,12 +22,12 @@
 .tooltip-list img {
   height: 35px;
   width: 35px;
-  border-radius: 100%;
+  border-radius: var(--circle-border-radius);
 }
 
 .tooltip-list.active {
-  background-color: #3e45ce;
-  color: #ffffff;
+  background-color: var(--blue);
+  color: var(--white);
 }
 
 .tooltip-list.active .arrow-drop-down-icon {

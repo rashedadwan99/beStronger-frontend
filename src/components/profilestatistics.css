@@ -1,7 +1,7 @@
 .profile-statistics {
-  color: #000000;
+  color: var(--var(--black));
 
-  background-color: #ffffff;
+  background-color: var(--white);
   min-width: 95%;
 
   display: flex;

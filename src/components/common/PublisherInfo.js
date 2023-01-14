@@ -21,17 +21,19 @@ function PublisherInfo({ data, publisher, options, showDots }) {
             : publisher.name}
         </span>
       </div>
-      <div className="three-dots-options">
-        <OutsideAlerter handleHiddingElement={() => setShowOptionsList(false)}>
-          <Tooltip show={showOptionsList} setshow={setShowOptionsList}>
-            <BsThreeDots />
-          </Tooltip>
-        </OutsideAlerter>
+      {showDots && (
+        <div className="three-dots-options">
+          <OutsideAlerter
+            handleHiddingElement={() => setShowOptionsList(false)}
+          >
+            <Tooltip show={showOptionsList} setshow={setShowOptionsList}>
+              <BsThreeDots />
+            </Tooltip>
+          </OutsideAlerter>
 
-        {showDots && showOptionsList && (
-          <OptionsList options={options} data={data} />
-        )}
-      </div>
+          {showOptionsList && <OptionsList options={options} data={data} />}
+        </div>
+      )}
     </div>
   );
 }

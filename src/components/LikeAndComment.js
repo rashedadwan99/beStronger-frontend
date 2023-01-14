@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineLike } from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
@@ -8,6 +8,7 @@ import CommentsContainer from "./CommentsContainer";
 import PostFans from "./PostFans";
 function LikeAndComment({ post }) {
   const user = useSelector((state) => state.user.value);
+  const socket = useSelector((state) => state.socket);
   const isSendingRequest = useSelector((state) => state.posts.isSendingRequest);
   const postStatistics = [
     {
@@ -21,6 +22,7 @@ function LikeAndComment({ post }) {
       number: post.numOfComments,
     },
   ];
+
   const dispatch = useDispatch();
   const handleClickComment = () => {
     dispatch(
@@ -35,10 +37,10 @@ function LikeAndComment({ post }) {
     if (isSendingRequest) return;
 
     if (!post.likes.includes(user._id)) {
-      dispatch(likeAction(post));
+      dispatch(likeAction(post, socket, user));
     }
     if (post.likes.includes(user._id)) {
-      dispatch(disLikeAction(post));
+      dispatch(disLikeAction(post, socket, user));
     }
   };
 

@@ -1,6 +1,6 @@
 .skeleton-user-container {
   background-color: #d2d2d2;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   animation: opacity 0.5s linear 0s infinite forwards alternate;
   margin-bottom: 10px;
   width: 100%;
@@ -12,8 +12,8 @@
   width: 100%;
   padding: 10px 0px;
   margin: 0 10px;
-  border-radius: 10px;
-  font-weight: bold;
+  border-radius: var(--border-radius);
+  font-weight: var(--font-weight);
   margin-bottom: 10px;
 }
 
@@ -27,32 +27,32 @@
 .user-list-image {
   height: 40px;
   width: 40px;
-  border-radius: 100%;
+  border-radius: var(--circle-border-radius);
   margin-right: 5px;
-  background-color: #ffffff;
+  background-color: var(--white);
 }
 
 .user-list-name {
   height: 30px;
   width: 50%;
-  border-radius: 10px;
-  background-color: #ffffff;
+  border-radius: var(--border-radius);
+  background-color: var(--white);
 }
 
 .user-list-button {
   height: 30px;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   margin-right: 15px;
   width: 20%;
-  font-weight: bold;
-  background-color: #ffffff;
+  font-weight: var(--font-weight);
+  background-color: var(--white);
 }
 
 
 .post-skeleton {
-  background-color: #ffffff;
+  background-color: var(--white);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   margin: 10px 0;
   padding: 15px 0;
   display: flex;
@@ -67,7 +67,7 @@
   margin: 0 auto;
   animation: initial;
   align-items: center;
-  background-color: #ffffff;
+  background-color: var(--white);
 }
 
 .post-skeleton .user-list-image,
@@ -86,6 +86,55 @@
   font-size: 15em;
   color: #d2d2d2;
 }
+
+.profile-card-skeleton {
+  min-height: 25em;
+  min-width: 85%;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: opacity 0.5s linear 0s infinite forwards alternate;
+}
+
+.profile-card-top-skeleton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: var(--font-weight);
+  flex: 0;
+  padding: 15px;
+  position: relative;
+  min-height: 120px;
+  width: 100%;
+}
+
+.skeleton-image-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 40%
+}
+
+.skeleton-image-name .image {
+  height: 150px;
+  width: 150px;
+  border-radius: var(--circle-border-radius);
+  background-color: #d2d2d2;
+}
+
+.skeleton-image-name span {
+  background-color: #d2d2d2;
+  display: inline-block;
+  height: 25px;
+  width: 100%;
+  margin-top: 5px;
+}
+
+
 
 @keyframes opacity {
   0% {

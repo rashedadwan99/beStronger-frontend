@@ -3,17 +3,21 @@
   list-style-type: none;
   text-transform: capitalize;
 }
+
 .list-items a {
   text-decoration: none;
-  color: #ffff;
+  color: var(--white);
 }
+
 .list-items a:hover,
 .list-items span:hover {
-  color: #3e45ce;
+  color: var(--blue);
 }
+
 a.active {
-  color: #3e45ce;
+  color: var(--blue);
 }
+
 .list-items span {
   cursor: pointer;
 }

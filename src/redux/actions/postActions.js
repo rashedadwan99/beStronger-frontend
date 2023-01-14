@@ -16,6 +16,11 @@ import {
 import { uploadPicture } from "../../services/uploadPictureService";
 import { closeModal, CLOSE_MODAL } from "./modalActions";
 import $ from "jquery";
+import {
+  deleteNotificationBuTargetId,
+  sendNotificationAction,
+} from "./notificationsActions";
+import { deleteNotification } from "../../services/notificiationServices";
 
 export const CREATE_POST = "CREATE_POST";
 export const GET_ALL_POSTS = "GET_ALL_POSTS";
@@ -135,6 +140,7 @@ export const handleDeletePost = (postId) => {
     try {
       const { data: post } = await deletePost(postId);
       dispatch({ type: DELETE_POST, payload: { post } });
+      dispatch(deleteNotificationBuTargetId(post._id));
       Toast("info", "the post was deleted successfully!");
     } catch (error) {
       const backToOriginalPosts = true;
@@ -144,7 +150,7 @@ export const handleDeletePost = (postId) => {
   };
 };
 
-export const likeAction = (originalPost) => {
+export const likeAction = (originalPost, socket, senderUser) => {
   return async (dispatch) => {
     dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: true });
     try {
@@ -153,13 +159,23 @@ export const likeAction = (originalPost) => {
         type: UPDATE_POST_LIKES,
         payload: { updatedPost, originalPost },
       });
+      if (senderUser._id !== originalPost.publisher._id) {
+        dispatch(
+          sendNotificationAction(
+            ` liked your post`,
+            originalPost.publisher._id,
+            originalPost._id,
+            socket
+          )
+        );
+      }
     } catch (error) {
       dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
       Toast("error", error);
     }
   };
 };
-export const disLikeAction = (originalPost) => {
+export const disLikeAction = (originalPost, socket, user) => {
   return async (dispatch) => {
     dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: true });
     try {
@@ -168,6 +184,17 @@ export const disLikeAction = (originalPost) => {
         type: UPDATE_POST_LIKES,
         payload: { updatedPost, originalPost },
       });
+      if (user._id !== originalPost.publisher._id) {
+        const { data: notification } = await deleteNotification(
+          user._id,
+          originalPost._id
+        );
+        socket.emit(
+          "delete notification",
+          originalPost.publisher._id,
+          notification._id
+        );
+      }
     } catch (error) {
       dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
       Toast("error", error);

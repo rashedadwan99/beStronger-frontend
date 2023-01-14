@@ -30,7 +30,7 @@
 }
 
 .header-middle-section h3 {
-  font-weight: bold;
+  font-weight: var(--font-weight);
 }
 
 .header-right-section {
@@ -48,6 +48,92 @@
 
 .notifications-section {
   padding-right: 15px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notifications-list {
+  position: absolute;
+  top: 90%;
+  right: 5%;
+  min-width: 30vw;
+  min-height: 40vh;
+
+  background-color: var(--white);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: var(--border-radius);
+}
+
+.notifications-list .list {
+  margin: 0;
+  width: 100%;
+  padding: 10px;
+}
+
+.notifications-list .sender-name {
+  font-weight: var(--font-weight);
+}
+
+.notifications-list .sender-name:hover {
+  color: var(--blue);
+  cursor: pointer;
+}
+
+.notifications-list img {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--circle-border-radius);
+  margin-right: 5px;
+}
+
+.notifications-list .notification-message {
+  border-bottom: 1px solid #d2d2d2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.notification-message:hover {
+  background-color: #d2d2d2;
+  border-radius: var(--border-radius);
+}
+
+.notification-message span {
+  margin-right: 5px;
+}
+
+.notifications-list .notification-message:last-child {
+  border-bottom: none;
+}
+
+.notification-message {
+  padding: 10px;
+}
+
+.notifications-list .title {
+  font-weight: var(--font-weight);
+  width: 100%;
+  border-bottom: 1px solid #d2d2d2;
+  padding: 10px;
+}
+
+.notifications-section .notifications-number {
+  background-color: var(--blue);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: var(--font-weight);
+  border-radius: 5px;
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 61%;
+  right: 23%;
+
 
 }
 
@@ -67,11 +153,11 @@
 
 .header-right-section a {
   text-decoration: none;
-  color: #000000;
+  color: var(--var(--black));
 }
 
 .header-right-section a.active {
-  color: #3e45ce
+  color: var(--blue)
 }
 
 @media (max-width:768px) {
@@ -126,5 +212,8 @@
     font-size: 15px;
   }
 
-
+  .notifications-list {
+    /* right: 2%; */
+    min-width: 80vw;
+  }
 }

@@ -8,6 +8,7 @@ import OutsideAlerter from "./utils/clickOutSideAlert";
 import ProfileImage from "./common/ProfileImage";
 import { AiFillHome } from "react-icons/ai";
 import { NavLink, useHistory } from "react-router-dom";
+import Notifications from "./Notifications";
 
 function HeaderRightSection() {
   const user = useSelector((state) => state.user.value);
@@ -21,9 +22,7 @@ function HeaderRightSection() {
           <AiFillHome />
         </NavLink>
       </div>
-      <div className="notifications-section">
-        <BsBellFill />
-      </div>
+      <Notifications />
       <OutsideAlerter handleHiddingElement={setShowList}>
         <div style={{ position: "relative" }}>
           <ToolTip setshow={setShowList} show={showList}>
