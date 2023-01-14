@@ -36,7 +36,7 @@
 }
 
 .auth-container h3 {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: var(--box-shadow);
   background-color: var(--white);
   border-radius: var(--border-radius);
   padding: 25px;
@@ -82,7 +82,7 @@
   margin: 0 25px;
   position: relative;
   display: flex;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: var(--box-shadow);
   align-self: center;
   border-radius: var(--border-radius);
   background-color: var(--white);

@@ -36,7 +36,7 @@
   padding: 15px;
   margin: 0 5px;
   border-radius: var(--border-radius);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: var(--box-shadow);
   font-weight: var(--font-weight);
   cursor: pointer;
   transition: background-color;
@@ -74,7 +74,7 @@
   flex-direction: column;
   font-size: 26px;
   border-radius: var(--border-radius);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: var(--box-shadow);
   position: relative;
   background-image: url("./images/post.svg");
   background-position: center;
@@ -109,7 +109,7 @@
 
 .nutritionists-trainers {
   border-radius: var(--border-radius);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: var(--box-shadow);
   background-color: var(--white);
   margin: 0 20px;
   min-height: 20em;

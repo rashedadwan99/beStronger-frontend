@@ -10,7 +10,7 @@
 .post-card,
 .comment-card {
   background-color: var(--white);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
   margin: 10px 0;
   padding: 15px 0;

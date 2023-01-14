@@ -16,7 +16,7 @@
   transition-duration: 0.4s;
 
 
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: var(--box-shadow);
 }
 
 .tooltip-list img {

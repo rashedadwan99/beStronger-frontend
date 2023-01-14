@@ -5,7 +5,7 @@
   background-color: var(--white);
   border-radius: var(--border-radius);
   margin-top: 15px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: var(--box-shadow);
   overflow: hidden !important;
   z-index: 5;
 }
