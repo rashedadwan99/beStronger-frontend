@@ -64,7 +64,7 @@
 }
 
 .profile-card-bottom a {
-  color: var(--var(--black));
+  color: var(--black);
   text-decoration: none;
   padding-bottom: 15px;
   font-weight: var(--font-weight);

@@ -13,7 +13,6 @@ export const rootReducer = combineReducers({
   canvas: offCanvasReducer,
   modal: modalReducer,
   posts: postsReducer,
-
   user: usersReducers,
   appUseEffectDependency: appUseEffectDependencyReducder,
   profileCardUser: ProfilCardReucers,

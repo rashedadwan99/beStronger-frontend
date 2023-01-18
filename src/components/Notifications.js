@@ -2,16 +2,72 @@ import React from "react";
 
 import { BsBellFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleShowNotificationsAction } from "../redux/actions/notificationsActions";
+import {
+  getNotificationsAction,
+  reciveNotificiation,
+  removeNotificiation,
+  toggleShowNotificationsAction,
+} from "../redux/actions/notificationsActions";
 import NotificationNum from "./NotificationNum";
 
 import NotificationsContainer from "./NotificationsContainer";
+
+import "./notifications.css";
+import { useState } from "react";
+import { useEffect } from "react";
+import {
+  decreaseFollowersList,
+  increaseFollowersList,
+} from "../redux/actions/userActions";
+import { getSocketAction } from "../redux/actions/socketAction";
+import { io } from "socket.io-client";
 function Notifications() {
+  const socket = useSelector((state) => state.socket);
+  const user = useSelector((state) => state.user.value);
+  const [socketConnected, setSocketConnected] = useState(false);
+  const notifications = useSelector((state) => state.notifications.value);
   const dispatch = useDispatch();
   const showNotifications = useSelector((state) => state.notifications.show);
   const handleHideNotifications = (showState) => {
     dispatch(toggleShowNotificationsAction(showState));
   };
+  useEffect(() => {
+    dispatch(getSocketAction(io("http://localhost:5000")));
+
+    dispatch(getNotificationsAction());
+  }, []);
+  useEffect(() => {
+    if (!socket) return;
+    socket.emit("setup", user._id);
+
+    socket.on("connected", () => {
+      setSocketConnected(socket.connected);
+    });
+    socket.on("disconnect", () => {
+      setSocketConnected(socket.connected);
+    });
+
+    const updateUserFollowersList = (
+      notification,
+      userId,
+      decrease = false
+    ) => {
+      if (notification.targetId === userId) {
+        if (!decrease) dispatch(increaseFollowersList(notification.sender._id));
+        else dispatch(decreaseFollowersList(notification.sender._id));
+      }
+    };
+    socket.on("notification recived", (notification) => {
+      if (!notifications.includes(notification)) {
+        dispatch(reciveNotificiation(notification));
+        updateUserFollowersList(notification, user._id);
+      }
+    });
+    socket.on("remove notification", (notification) => {
+      dispatch(removeNotificiation(notification._id));
+      updateUserFollowersList(notification, user._id, true);
+    });
+  }, [socket]);
 
   return (
     <>

@@ -7,7 +7,6 @@ import {
   GET_ONLY_ONE_POST,
   ADD_COMMENT,
   DELETE_COMMENT,
-  FETCH_ONLY_ONE_POST,
   GET_POST_COMMENTS,
   TOGGLE_LOADING_POSTS,
   NO_POSTS,
@@ -101,11 +100,12 @@ export const postsReducer = (state = initialState, action) => {
     case DELETE_COMMENT:
       return handleLikesOrComments(state, action, "comments", "numOfComments");
 
-    case FETCH_ONLY_ONE_POST:
-      return [];
-
     case GET_ONLY_ONE_POST:
-      return [...state, ...action.payload.post];
+      return {
+        ...state,
+        value: [...action.payload.post],
+        isLoading: false,
+      };
 
     default:
       return state;

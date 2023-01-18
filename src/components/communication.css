@@ -59,8 +59,17 @@
   border-radius: var(--circle-border-radius);
 }
 
-.post-creation-section-top .share-your-experince {
+.post-creation-section-top .share-your-experince,
+.post-creation-section {
   padding-left: 5px;
+}
+
+.return-home-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
 }
 
 .no-posts {

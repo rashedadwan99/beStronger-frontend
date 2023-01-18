@@ -5,6 +5,7 @@ import { sendFollowOrUFollowAction } from "../../redux/actions/userActions";
 import Button from "./button";
 import "./followunfollowbtn.css";
 function FollowUnfollowBtn({ user }) {
+  const socket = useSelector((state) => state.socket);
   const currentUser = useSelector((state) => state.user.value);
   const isSendingRequest = useSelector((state) => state.user.isSendingRequest);
   const [disabledButton, setDisabledButton] = useState([]);
@@ -30,7 +31,8 @@ function FollowUnfollowBtn({ user }) {
       sendFollowOrUFollowAction(
         user._id,
         params.userId,
-        followEachOther || followHim
+        followEachOther || followHim,
+        socket
       )
     );
   };

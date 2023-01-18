@@ -1,5 +1,6 @@
 import { Toast } from "../../components/common/Toast";
 import {
+  deleteNotification,
   getUserNotifications,
   sendNotifications,
 } from "../../services/notificiationServices";
@@ -9,6 +10,8 @@ export const SEND_USER_NOTIFICATIONS = "SEND_USER_NOTIFICATIONS";
 export const IS_LOADING_NOTIFICATION = "IS_LOADING_NOTIFICATION";
 export const RECIVE_NOTIFICATION = "RECIVE_NOTIFICATION";
 export const REMOVE_NOTIFICATION = "REMOVE_NOTIFICATION";
+export const IS_SENDING_NOTIFICATION_REQUEST =
+  "IS_SENDING_NOTIFICATION_REQUEST";
 export const REMOVE_NOTIFICATION_BY_TARGETID =
   "REMOVE_NOTIFICATION_BY_TARGETID";
 export const TOGGLE_SHOW_NOTIFICATIONS = "TOGGLE_SHOW_NOTIFICATIONS";
@@ -52,14 +55,14 @@ export const reciveNotificiation = (notification) => {
     payload: notification,
   };
 };
-export const removeNotificiationFromAnotherUser = (notificationId) => {
+export const removeNotificiation = (notificationId) => {
   return {
     type: REMOVE_NOTIFICATION,
     payload: { notificationId },
   };
 };
 
-export const deleteNotificationBuTargetId = (targetId) => {
+export const deleteNotificationByTargetId = (targetId) => {
   return {
     type: REMOVE_NOTIFICATION_BY_TARGETID,
     payload: { targetId },
@@ -72,4 +75,20 @@ export const toggleShowNotificationsAction = (show) => {
     payload: show,
   };
 };
-export const unSendNotificatin = () => {};
+export const deleteNotificationByReciverUser = (targetId, senderId) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: IS_SENDING_NOTIFICATION_REQUEST });
+      const { data: notification } = await deleteNotification(
+        senderId,
+        targetId
+      );
+      dispatch(removeNotificiation(notification._id));
+      dispatch({ type: IS_SENDING_NOTIFICATION_REQUEST });
+      Toast("info", "the notification was deletted successfully");
+    } catch (error) {
+      dispatch({ type: IS_SENDING_NOTIFICATION_REQUEST });
+      Toast("error", error);
+    }
+  };
+};

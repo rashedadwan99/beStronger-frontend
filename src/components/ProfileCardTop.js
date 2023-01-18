@@ -8,12 +8,14 @@ function ProfileCardTop() {
   return (
     <div className="profile-card-top">
       <div className="profile-image-name">
-        <ProfileImage>
-          <img
-            src={profileCardUser.picture}
-            alt={`${profileCardUser.name}'s picture`}
-          />
-        </ProfileImage>
+        {profileCardUser.picture && (
+          <ProfileImage>
+            <img
+              src={profileCardUser.picture}
+              alt={`${profileCardUser.name}'s picture`}
+            />
+          </ProfileImage>
+        )}
         {profileCardUser.name && (
           <span>
             {profileCardUser.name.length > 17

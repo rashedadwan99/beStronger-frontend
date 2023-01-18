@@ -5,26 +5,21 @@ import { ToastContainer } from "react-toastify";
 import Authentications from "./pages/Authentications";
 import { userLoggedIn, userLoggedOut } from "./redux/actions/userActions";
 import HomePage from "./pages/HomePage";
-import "react-toastify/dist/ReactToastify.css";
 import Canvas from "./components/common/Canvas";
 import Modal from "./components/common/Modal";
 import NotFound from "./pages/NotFound";
-import { getSocketAction } from "./redux/actions/socketAction";
-import { io } from "socket.io-client";
 
 function App() {
   const dispatch = useDispatch();
 
   const data = JSON.parse(localStorage.getItem("user"));
   const appDependency = useSelector((state) => state.appUseEffectDependency);
+
   useEffect(() => {
     if (data && data.user) {
       dispatch(userLoggedIn());
     } else dispatch(userLoggedOut());
   }, [appDependency]);
-  useEffect(() => {
-    dispatch(getSocketAction(io("http://localhost:5000")));
-  }, []);
 
   return (
     <>

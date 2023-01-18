@@ -17,7 +17,7 @@ import { uploadPicture } from "../../services/uploadPictureService";
 import { closeModal, CLOSE_MODAL } from "./modalActions";
 import $ from "jquery";
 import {
-  deleteNotificationBuTargetId,
+  deleteNotificationByTargetId,
   sendNotificationAction,
 } from "./notificationsActions";
 import { deleteNotification } from "../../services/notificiationServices";
@@ -90,9 +90,15 @@ export const getPostsAction = () => {
 
 export const getOnlyOnePost = (postId) => {
   return async (dispatch) => {
-    dispatch({ type: FETCH_ONLY_ONE_POST });
-    const { data: post } = await getOnePost(postId);
-    dispatch({ type: GET_ONLY_ONE_POST, payload: { post } });
+    try {
+      dispatch({ type: TOGGLE_LOADING_POSTS });
+      const { data: post } = await getOnePost(postId);
+      dispatch({ type: GET_ONLY_ONE_POST, payload: { post } });
+    } catch (error) {
+      dispatch({ type: TOGGLE_LOADING_POSTS });
+
+      Toast("error", error);
+    }
   };
 };
 
@@ -140,7 +146,7 @@ export const handleDeletePost = (postId) => {
     try {
       const { data: post } = await deletePost(postId);
       dispatch({ type: DELETE_POST, payload: { post } });
-      dispatch(deleteNotificationBuTargetId(post._id));
+      dispatch(deleteNotificationByTargetId(post._id));
       Toast("info", "the post was deleted successfully!");
     } catch (error) {
       const backToOriginalPosts = true;
@@ -184,20 +190,20 @@ export const disLikeAction = (originalPost, socket, user) => {
         type: UPDATE_POST_LIKES,
         payload: { updatedPost, originalPost },
       });
-      if (user._id !== originalPost.publisher._id) {
-        const { data: notification } = await deleteNotification(
-          user._id,
-          originalPost._id
-        );
-        socket.emit(
-          "delete notification",
-          originalPost.publisher._id,
-          notification._id
-        );
-      }
     } catch (error) {
       dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
       Toast("error", error);
+    }
+    if (user._id !== originalPost.publisher._id) {
+      const { data: notification } = await deleteNotification(
+        user._id,
+        originalPost._id
+      );
+      socket.emit(
+        "delete notification",
+        originalPost.publisher._id,
+        notification
+      );
     }
   };
 };

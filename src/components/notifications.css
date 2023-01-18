@@ -1,0 +1,124 @@
+.notifications-section {
+  padding-right: 15px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notifications-list {
+  position: absolute;
+  z-index: 1000000000000000;
+  top: 90%;
+  right: 5%;
+  min-width: 30vw;
+  min-height: 40vh;
+
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+}
+
+.notifications-list .publiser-info {
+  width: 100%;
+  padding: 10px 2px
+}
+
+.notifications-list .list {
+  margin: 0;
+  width: 100%;
+  padding: 10px;
+}
+
+.notifications-list .sender-name {
+  font-weight: var(--font-weight);
+}
+
+.notifications-list .sender-name:hover {
+  color: var(--blue);
+  cursor: pointer;
+}
+
+.notifications-list img {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--circle-border-radius);
+  margin-right: 5px;
+}
+
+
+
+.notification-message-container:hover {
+  background-color: var(--light-gray);
+  cursor: pointer;
+  border-radius: var(--border-radius);
+}
+
+.notification-message-container .options-list li:hover {
+  background-color: var(--blue);
+  color: var(--white)
+}
+
+.notifications-list .title {
+  font-weight: var(--font-weight);
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.notifications-section .notifications-number {
+  background-color: var(--blue);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: var(--font-weight);
+  border-radius: 5px;
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 61%;
+  right: 23%;
+
+
+}
+
+.notification-message-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-bottom: var(--light-gray);
+}
+
+
+
+.notification-message-container .three-dots-options .options-list {
+  top: 43%;
+  right: 0;
+  width: 60%;
+}
+
+.notification-message-container:hover .tooltip-list {
+  background-color: var(--light-gray);
+}
+
+.notification-message-container .tooltip-list {
+  box-shadow: initial;
+  color: var(--black);
+  transition: none;
+}
+
+.notification-message-container .tooltip-list.active:hover {
+  color: var(--blue);
+  background-color: initial;
+}
+
+.notification-message-container .three-dots-options .options-list li {
+  padding: 2px;
+}
+
+.notification-message-container span {
+  font-size: 14px;
+}

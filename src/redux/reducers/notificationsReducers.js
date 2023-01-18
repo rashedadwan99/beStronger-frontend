@@ -1,6 +1,7 @@
 import {
   GET_USER_NOTIFICATIONS,
   IS_LOADING_NOTIFICATION,
+  IS_SENDING_NOTIFICATION_REQUEST,
   RECIVE_NOTIFICATION,
   REMOVE_NOTIFICATION,
   REMOVE_NOTIFICATION_BY_TARGETID,
@@ -12,6 +13,8 @@ const initialState = {
   value: [],
   isLoading: false,
   show: false,
+  isSendingDeleteRequest: false,
+  noNotifcations: false,
 };
 
 export const notificationsReducers = (state = initialState, action) => {
@@ -21,8 +24,9 @@ export const notificationsReducers = (state = initialState, action) => {
     case GET_USER_NOTIFICATIONS:
       return {
         ...state,
-        value: [...action.payload, ...state.value],
+        value: [...action.payload],
         isLoading: false,
+        isSendingDeleteRequest: false,
       };
 
     case RECIVE_NOTIFICATION: {
@@ -59,6 +63,11 @@ export const notificationsReducers = (state = initialState, action) => {
         ),
       };
     }
+    case IS_SENDING_NOTIFICATION_REQUEST:
+      return {
+        ...state,
+        isSendingDeleteRequest: !state.isSendingDeleteRequest,
+      };
     default:
       return state;
   }

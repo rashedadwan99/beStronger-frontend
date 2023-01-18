@@ -1,9 +1,12 @@
+import { updateUserInLocalStorage } from "../../services/userService";
 import {
   USER_LOGGED_IN,
   USER_LOGGED_OUT,
   UPDATE_USER_DATA,
   TOGGLE_LOADING,
   IS_SENDING_USER_REQUEST,
+  INCREASE_FOLLOWERS_LIST,
+  DECREASE_FOLLOWERS_LIST,
 } from "../actions/userActions";
 
 const initialState = {
@@ -30,6 +33,29 @@ export const usersReducers = (state = initialState, action) => {
 
     case TOGGLE_LOADING:
       return { ...state, isLoading: !state.isLoading };
+
+    case INCREASE_FOLLOWERS_LIST: {
+      const updatedState = state.value;
+      updatedState.followersNum = updatedState.followersNum + 1;
+      updatedState.followersList = [
+        action.payload.followerId,
+        ...updatedState.followersList,
+      ];
+      updateUserInLocalStorage(updatedState);
+
+      return { ...state, value: updatedState };
+    }
+    case DECREASE_FOLLOWERS_LIST: {
+      const updatedState = state.value;
+      updatedState.followersNum = updatedState.followersNum - 1;
+
+      updatedState.followersList = updatedState.followersList.filter(
+        (uId) => uId !== action.payload.followerId
+      );
+      updateUserInLocalStorage(updatedState);
+
+      return { ...state, value: updatedState };
+    }
     default:
       return state;
   }

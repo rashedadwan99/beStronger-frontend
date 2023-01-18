@@ -4,9 +4,12 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Header from "../components/Header";
 import Communication from "../components/Communication";
 import Profile from "../components/Profile";
+import { useEffect } from "react";
 
 function HomePage() {
   const user = useSelector((state) => state.user.value);
+
+  useEffect(() => {}, []);
   if (user._id) {
     return (
       <div className="home-page">

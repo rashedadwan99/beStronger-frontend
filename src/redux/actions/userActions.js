@@ -12,6 +12,8 @@ import { UPDATE_PROFILE_DATA } from "./ProfileCardActions";
 import { uploadPicture } from "../../services/uploadPictureService";
 import { GET_PROFILE_POSTS, NO_POSTS } from "./postActions";
 import { closeModal } from "./modalActions";
+import { sendNotificationAction } from "./notificationsActions";
+import { deleteNotification } from "../../services/notificiationServices";
 
 export const TOGGLE_LOADING = "TOGGLE_LOADING";
 
@@ -23,7 +25,8 @@ export const USER_LOGGED_OUT = "USER_LOGGED_OUT";
 
 export const UPDATE_USER_DATA = "UPDATE_USER_DATA";
 export const IS_SENDING_USER_REQUEST = "IS_SENDING_USER_REQUEST";
-
+export const INCREASE_FOLLOWERS_LIST = "INCREASE_FOLLOWERS_LIST";
+export const DECREASE_FOLLOWERS_LIST = "DECREASE_FOLLOWERS_LIST";
 export const loginAction = (data) => {
   return async (dispatch) => {
     dispatch({ type: TOGGLE_LOADING });
@@ -83,23 +86,43 @@ export const registerUserAction = (data) => {
   };
 };
 
-export const sendFollowOrUFollowAction = (reciverUserId, isNotMe, unFollow) => {
+export const sendFollowOrUFollowAction = (
+  reciverUserId,
+  isNotMe,
+  unFollow,
+  socket
+) => {
   return async (dispatch) => {
     try {
       dispatch({ type: IS_SENDING_USER_REQUEST });
       let response;
-      if (unFollow) response = await sendUnFollowRequest(reciverUserId);
-      else response = await sendFollowRequest(reciverUserId);
+      if (unFollow) {
+        response = await sendUnFollowRequest(reciverUserId);
+        const { data: notification } = await deleteNotification(
+          response.data.senderUser._id,
 
+          reciverUserId
+        );
+        socket.emit("delete notification", reciverUserId, notification);
+      } else {
+        response = await sendFollowRequest(reciverUserId);
+        dispatch(
+          sendNotificationAction(
+            ` started following you`,
+            reciverUserId,
+            reciverUserId,
+            socket
+          )
+        );
+      }
       const { data } = response;
-
       dispatch({ type: UPDATE_USER_DATA, payload: data.senderUser });
-      if (isNotMe)
+      if (isNotMe) {
         dispatch({
           type: UPDATE_PROFILE_DATA,
           payload: data.reciverUser,
         });
-      else dispatch({ type: UPDATE_PROFILE_DATA, payload: data.senderUser });
+      } else dispatch({ type: UPDATE_PROFILE_DATA, payload: data.senderUser });
 
       updateUserInLocalStorage(data.senderUser);
     } catch (error) {
@@ -136,5 +159,18 @@ export const editUserInfoAction = (name, picture, user) => {
       dispatch({ type: IS_SENDING_USER_REQUEST });
       Toast("error", error);
     }
+  };
+};
+
+export const increaseFollowersList = (followerId) => {
+  return {
+    type: INCREASE_FOLLOWERS_LIST,
+    payload: { followerId },
+  };
+};
+export const decreaseFollowersList = (followerId) => {
+  return {
+    type: DECREASE_FOLLOWERS_LIST,
+    payload: { followerId },
   };
 };

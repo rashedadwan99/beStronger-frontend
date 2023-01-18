@@ -5,27 +5,19 @@ import "./header.css";
 import {
   getNotificationsAction,
   reciveNotificiation,
-  removeNotificiationFromAnotherUser,
+  removeNotificiation,
 } from "../redux/actions/notificationsActions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import {
+  decreaseFollowersList,
+  increaseFollowersList,
+} from "../redux/actions/userActions";
 function Header() {
   const dispatch = useDispatch();
-  const notifications = useSelector((state) => state.notifications.value);
   const socket = useSelector((state) => state.socket);
+  const user = useSelector((state) => state.user.value);
 
-  useEffect(() => {
-    dispatch(getNotificationsAction());
-  }, []);
-  useEffect(() => {
-    socket.on("notification recived", (notification) => {
-      if (!notifications.includes(notification))
-        dispatch(reciveNotificiation(notification));
-    });
-    socket.on("remove notification", (notificationId) => {
-      dispatch(removeNotificiationFromAnotherUser(notificationId));
-    });
-  }, []);
   return (
     <div className="header">
       <HeaderLeftSection />
