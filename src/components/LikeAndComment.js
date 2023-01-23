@@ -10,6 +10,8 @@ function LikeAndComment({ post }) {
   const user = useSelector((state) => state.user.value);
   const socket = useSelector((state) => state.socket);
   const isSendingRequest = useSelector((state) => state.posts.isSendingRequest);
+  const posts = useSelector((state) => state.posts.value);
+  const indexOfPost = posts.indexOf(post);
   const postStatistics = [
     {
       label: "like",
@@ -36,10 +38,9 @@ function LikeAndComment({ post }) {
   const handleClickLike = async () => {
     if (isSendingRequest) return;
 
-    if (!post.likes.includes(user._id)) {
+    if (!posts[indexOfPost].likes.includes(user._id)) {
       dispatch(likeAction(post, socket, user));
-    }
-    if (post.likes.includes(user._id)) {
+    } else {
       dispatch(disLikeAction(post, socket, user));
     }
   };
@@ -59,7 +60,7 @@ function LikeAndComment({ post }) {
         return (
           <div
             className={`post-statistic ${
-              post.likes.includes(user._id) && "is-liked"
+              posts[indexOfPost].likes.includes(user._id) && "is-liked"
             }`}
             key={index}
           >
@@ -85,7 +86,7 @@ function LikeAndComment({ post }) {
                   : ""
               }
             >
-              {postStatistic.number}
+              {postStatistic.label === "like" && postStatistic.number}
             </p>
           </div>
         );

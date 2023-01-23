@@ -37,9 +37,8 @@
 }
 
 .post-or-comment-content img {
-  border-top: 1px solid #d2d2d2;
-  min-height: 23em;
-  max-height: 27em;
+
+  max-height: 23em;
 }
 
 .like-and-comment {

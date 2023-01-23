@@ -12,6 +12,7 @@ function Comments({ post }) {
   const ref = useRef();
   const user = useSelector((state) => state.user.value);
   const posts = useSelector((state) => state.posts.value);
+  const socket = useSelector((state) => state.socket);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPostCommentsHandler(post));
@@ -22,7 +23,7 @@ function Comments({ post }) {
       label: "delete",
       icon: <AiTwotoneDelete />,
       onClick: (comment) => {
-        dispatch(deleteCommentHandler(post, comment));
+        dispatch(deleteCommentHandler(post, comment, user, socket));
       },
     },
   ];

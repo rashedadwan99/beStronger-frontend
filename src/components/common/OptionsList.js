@@ -14,7 +14,7 @@ function OptionsList({ options, data }) {
         {options.map((option, index) => {
           return (
             <li key={index} onClick={() => handleClick(option)}>
-              <span className="icon">{option.icon}</span>
+              {option.icon && <span className="icon">{option.icon}</span>}
               <span>{option.label}</span>
             </li>
           );

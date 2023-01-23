@@ -131,8 +131,5 @@
     font-size: 15px;
   }
 
-  .notifications-list {
-    /* right: 2%; */
-    min-width: 80vw;
-  }
+
 }

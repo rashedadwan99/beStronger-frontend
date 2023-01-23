@@ -1,10 +1,12 @@
-import { GET_SOCKET } from "../actions/socketAction";
+import { DIS_CONNECT, GET_SOCKET } from "../actions/socketAction";
 
 const initialState = null;
-export const socketReducers = (state = "", actino) => {
-  switch (actino.type) {
+export const socketReducers = (state = initialState, action) => {
+  switch (action.type) {
     case GET_SOCKET:
-      return actino.payload;
+      return action.payload;
+    case DIS_CONNECT:
+      return null;
     default:
       return state;
   }

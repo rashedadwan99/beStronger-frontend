@@ -8,6 +8,8 @@ import HomePage from "./pages/HomePage";
 import Canvas from "./components/common/Canvas";
 import Modal from "./components/common/Modal";
 import NotFound from "./pages/NotFound";
+import { getSocketAction } from "./redux/actions/socketAction";
+import { io } from "socket.io-client";
 
 function App() {
   const dispatch = useDispatch();
@@ -15,6 +17,9 @@ function App() {
   const data = JSON.parse(localStorage.getItem("user"));
   const appDependency = useSelector((state) => state.appUseEffectDependency);
 
+  useEffect(() => {
+    dispatch(getSocketAction(io("http://localhost:5000")));
+  }, []);
   useEffect(() => {
     if (data && data.user) {
       dispatch(userLoggedIn());

@@ -84,8 +84,21 @@ export const postsReducer = (state = initialState, action) => {
       };
     }
 
-    case UPDATE_POST_LIKES:
-      return handleLikesOrComments(state, action, "likes", "numOfLikes");
+    case UPDATE_POST_LIKES: {
+      const { senderUser, originalPost } = action.payload;
+      const posts = [...state.value];
+      const index = posts.indexOf(originalPost);
+      if (!posts[index].likes.includes(senderUser._id)) {
+        posts[index].likes = [senderUser._id, ...posts[index].likes];
+        posts[index].numOfLikes = posts[index].numOfLikes + 1;
+      } else {
+        posts[index].likes = posts[index].likes.filter(
+          (liker) => liker !== senderUser._id
+        );
+        posts[index].numOfLikes = posts[index].numOfLikes - 1;
+      }
+      return { ...state, value: posts };
+    }
 
     case GET_POST_COMMENTS: {
       const posts = [...state.value];
@@ -95,10 +108,10 @@ export const postsReducer = (state = initialState, action) => {
     }
 
     case ADD_COMMENT:
-      return handleLikesOrComments(state, action, "comments", "numOfComments");
+      return handleComments(state, action, "comments", "numOfComments");
 
     case DELETE_COMMENT:
-      return handleLikesOrComments(state, action, "comments", "numOfComments");
+      return handleComments(state, action, "comments", "numOfComments");
 
     case GET_ONLY_ONE_POST:
       return {
@@ -118,7 +131,7 @@ const findPostIndex = (posts, action) => {
   );
 };
 
-const handleLikesOrComments = (state, action, data, numOfData) => {
+const handleComments = (state, action, data, numOfData) => {
   const posts = [...state.value];
   const index = findPostIndex(posts, action);
   posts[index][`${data}`] = action.payload.updatedPost[`${data}`];

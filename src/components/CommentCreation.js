@@ -8,13 +8,14 @@ import RenderInputField from "./common/Forms";
 
 function CommentCreation({ post }) {
   const dispatch = useDispatch();
+  const socket = useSelector((state) => state.socket);
   const [comment, setComment] = useState("");
   const isSendingRequest = useSelector((state) => state.posts.isSendingRequest);
   const submitComment = async () => {
     if (!comment.length) {
       return;
     }
-    dispatch(addCommentAction(post, comment));
+    dispatch(addCommentAction(post, comment, socket));
     if (!isSendingRequest) setComment("");
   };
   return (

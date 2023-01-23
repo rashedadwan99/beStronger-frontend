@@ -35,26 +35,27 @@ export const usersReducers = (state = initialState, action) => {
       return { ...state, isLoading: !state.isLoading };
 
     case INCREASE_FOLLOWERS_LIST: {
-      const updatedState = state.value;
-      updatedState.followersNum = updatedState.followersNum + 1;
-      updatedState.followersList = [
+      const updatedState = state;
+      updatedState.value.followersNum = updatedState.value.followersNum + 1;
+      updatedState.value.followersList = [
         action.payload.followerId,
-        ...updatedState.followersList,
+        ...updatedState.value.followersList,
       ];
-      updateUserInLocalStorage(updatedState);
+      updateUserInLocalStorage(updatedState.value);
 
-      return { ...state, value: updatedState };
+      return updatedState;
     }
     case DECREASE_FOLLOWERS_LIST: {
-      const updatedState = state.value;
-      updatedState.followersNum = updatedState.followersNum - 1;
+      const updatedState = state;
+      updatedState.value.followersNum = updatedState.value.followersNum - 1;
 
-      updatedState.followersList = updatedState.followersList.filter(
-        (uId) => uId !== action.payload.followerId
-      );
-      updateUserInLocalStorage(updatedState);
+      updatedState.value.followersList =
+        updatedState.value.followersList.filter(
+          (uId) => uId !== action.payload.followerId
+        );
+      updateUserInLocalStorage(updatedState.value);
 
-      return { ...state, value: updatedState };
+      return updatedState;
     }
     default:
       return state;

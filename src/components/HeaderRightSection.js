@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { BsBellFill } from "react-icons/bs";
 import { IoMdArrowDropdown } from "react-icons/io";
 import ToolTip from "./common/Tooltip";
 import RightHeaderList from "./RightHeaderList";
 import OutsideAlerter from "./utils/clickOutSideAlert";
 import ProfileImage from "./common/ProfileImage";
 import { AiFillHome } from "react-icons/ai";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Notifications from "./Notifications";
 
 function HeaderRightSection() {
   const user = useSelector((state) => state.user.value);
   const [showList, setShowList] = useState(false);
-  const history = useHistory();
 
   return (
     <div className="header-right-section">

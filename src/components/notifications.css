@@ -11,8 +11,8 @@
   z-index: 1000000000000000;
   top: 90%;
   right: 5%;
-  min-width: 30vw;
-  min-height: 40vh;
+  min-width: 35vw;
+  max-height: 70vh;
 
   background-color: var(--white);
   box-shadow: var(--box-shadow);
@@ -28,6 +28,8 @@
   margin: 0;
   width: 100%;
   padding: 10px;
+  overflow: scroll;
+  max-height: 80%;
 }
 
 .notifications-list .sender-name {
@@ -121,4 +123,35 @@
 
 .notification-message-container span {
   font-size: 14px;
+}
+
+@media (max-width:992px) {
+  .notifications-list {
+    width: 65%;
+  }
+}
+
+@media (max-width:600px) {
+  .notifications-list {
+    width: 96%;
+    right: 2%;
+    left: 2%;
+  }
+
+  .notifications-list .publiser-info .three-dots-options {
+    flex: 0;
+  }
+
+  .notification-message-container .three-dots-options .options-list {
+    width: 50px
+  }
+
+  .notifications-list .profile-image-container {
+    padding: 0;
+  }
+
+  .notification-message-container span {
+    font-size: 12px !important;
+  }
+
 }
