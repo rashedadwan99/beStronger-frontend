@@ -38,16 +38,14 @@ function Authentications() {
       </div>
       <div className="auth-aboutus">
         <div className="bestonger-info">
-          <h1>beStronger</h1>
+          <p>beStronger</p>
           <p>social media app for body builders community</p>
           <p>
             share posts with your friends and communicate with nutritionists,
             traniers and body builders
           </p>
         </div>
-        <div className="animations-section">
-          <Animations shapes={shapes} />
-        </div>
+        <div className="aboutus-background" />
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import Modal from "./components/common/Modal";
 import NotFound from "./pages/NotFound";
 import { getSocketAction } from "./redux/actions/socketAction";
 import { io } from "socket.io-client";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ function App() {
           }}
           exact
         />
-
+        <Route path="/landing-page" component={LandingPage} />
         <Route path="/not-found" component={NotFound} />
         <Redirect to="/not-found" />
       </Switch>

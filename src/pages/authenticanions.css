@@ -1,10 +1,11 @@
 .auth-page {
-  /* width: 100vw; */
+
   display: flex;
   justify-content: center;
-  min-height: 100vh;
   height: 100vh;
-  overflow: hidden;
+  overflow: scroll;
+
+
 }
 
 .auth-container,
@@ -14,10 +15,9 @@
 }
 
 .auth-aboutus {
-  background-color: var(--blue);
   width: 60%;
 
-  border-left: 5px solid var(--black);
+
 }
 
 
@@ -27,7 +27,6 @@
   width: 40%;
   padding: 0;
   margin-bottom: 0;
-  background-color: var(--blue);
 
 }
 
@@ -62,18 +61,23 @@
 
 .bestonger-info {
   flex-direction: column;
-  /* margin-top: 30px; */
   padding: 30px;
   align-items: flex-start;
   font-weight: var(--font-weight);
-  color: var(--white);
-  background-color: var(--black);
-  height: 20em;
-  border-bottom-right-radius: 80%;
-
 }
 
+.bestonger-info p:first-child {
+  font-size: 35px;
+}
 
+.aboutus-background {
+  background-image: url("../components/images/authBackGround.svg");
+  background-position: center;
+  background-size: contain;
+  height: 50%;
+  width: 100%;
+  background-repeat: no-repeat;
+}
 
 .auth-box {
   z-index: 2;
@@ -133,8 +137,8 @@
 
 .auth-forms {
   min-width: 75%;
-  padding: 15px 0;
-  /* border-left: 1px solid #d2d2d2; */
+
+
 }
 
 .auth-forms .spinner-border {
@@ -185,7 +189,7 @@
   }
 }
 
-@media (max-width:600px) {
+@media (max-width:614px) {
   .auth-container {
     width: 100%;
   }

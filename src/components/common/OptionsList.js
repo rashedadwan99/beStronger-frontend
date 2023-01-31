@@ -1,6 +1,7 @@
 import React from "react";
+import OptionListBody from "../optionListBody";
 import "./optionslist.css";
-function OptionsList({ options, data }) {
+function OptionsList({ options, data, indexOfActive }) {
   const handleClick = (option) => {
     if (data) {
       option.onClick(data);
@@ -13,10 +14,13 @@ function OptionsList({ options, data }) {
       <ul>
         {options.map((option, index) => {
           return (
-            <li key={index} onClick={() => handleClick(option)}>
-              {option.icon && <span className="icon">{option.icon}</span>}
-              <span>{option.label}</span>
-            </li>
+            <OptionListBody
+              indexOfActive={indexOfActive}
+              option={option}
+              handleClick={handleClick}
+              index={index}
+              key={index}
+            />
           );
         })}
       </ul>
