@@ -1,5 +1,9 @@
 .landing-page {
   height: 100vh;
   width: 100%;
-  background-color: var(--white);
+  background-image: url("https://cdn.wallpapersafari.com/19/23/z7MdVL.jpg");
+  color: var(--white);
+  background-position: center;
+  background-size: 100%;
+
 }

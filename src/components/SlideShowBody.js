@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import {
+  initalSlidingCaseHandller,
+  slidingLeft,
+  slidingRight,
+} from "./utils/sliding";
 
 function SlideShowBody({
   slide,
@@ -10,79 +15,52 @@ function SlideShowBody({
   setActiveSlides,
   goPreviousSlide,
 }) {
-  const [className, setClassName] = useState("slide-data");
+  const [className, setClassName] = useState("other-slides-data");
   const activeSlideslength = activeSlides.length;
   const allSlidesLength = slides.length;
+  const slidingArgs = {
+    activeSlides,
+    setActiveSlides,
+    slide,
+    allSlidesLength,
+    activeSlideslength,
+    slides,
+    setClassName,
+  };
   useEffect(() => {
-    if (slide === activeSlides[activeSlideslength - 1]) {
-      setClassName("slide-data");
-    } else {
-      setClassName("other-slides-data");
-    }
+    initalSlidingCaseHandller({
+      setClassName,
+      activeSlides,
+      slide,
+      activeSlideslength,
+    });
   }, []);
   useEffect(() => {
-    if (activeSlideslength > 1 && activeSlideslength <= allSlidesLength) {
-      if (activeSlides[activeSlideslength - 2] === slide)
-        setClassName("slide-data slide-to-left");
-      if (activeSlides[activeSlideslength - 1] === slide)
-        setClassName("slide-from-right");
-      const indexOfFirstActiveSlide = slides.indexOf(
-        activeSlides[activeSlideslength - 2]
-      );
-      const indexOfLastActiveSlide = slides.indexOf(
-        activeSlides[activeSlideslength - 1]
-      );
-      if (indexOfLastActiveSlide - indexOfFirstActiveSlide > 1) {
-        setActiveSlides([
-          ...slides.filter((s, i) => i <= indexOfLastActiveSlide),
-        ]);
-      }
-      return;
-    }
-    if (!slides[activeSlideslength]) {
-      if (activeSlides[allSlidesLength - 1] === slide) {
-        setClassName("slide-data slide-to-right");
-      } else if (activeSlides[0] === slide) setClassName("slide-from-left");
-      else setClassName("other-slides-data");
-      setActiveSlides([slides[0]]);
-    }
+    slidingRight(slidingArgs);
   }, [goNextSlide]);
 
   useEffect(() => {
-    if (
-      activeSlides[0] === slides[allSlidesLength - 1] &&
-      activeSlideslength === 2
-    ) {
-      if (activeSlides[activeSlideslength - 1] === slide)
-        setClassName("slide-data slide-to-left");
-      if (slides[allSlidesLength - 1] === slide)
-        setClassName("slide-from-right");
-      setActiveSlides(slides);
-    } else if (
-      (activeSlideslength > 1 || activeSlideslength === allSlidesLength) &&
-      activeSlides[activeSlideslength - 2]
-    ) {
-      if (activeSlides[activeSlideslength - 2] === slide)
-        setClassName("slide-from-left");
-      if (activeSlides[activeSlideslength - 1] === slide)
-        setClassName("slide-data slide-to-right");
-      setActiveSlides([
-        ...activeSlides.filter(
-          (s) => activeSlides[activeSlideslength - 1] !== s
-        ),
-      ]);
-    }
+    slidingLeft(slidingArgs);
   }, [goPreviousSlide]);
-  const { title, description } = slide;
+  const { title, description, component, picture } = slide;
 
   return (
-    <div className={className} key={index}>
-      <div className="slide-image"></div>
-      <div className="slide-body">
-        <h3>{title}</h3>
-        <p>{description}</p>
+    <>
+      <div className={className} key={index}>
+        {picture && (
+          <div className="slide-image">
+            <img src={picture} alt="" />
+          </div>
+        )}
+        <div className="slide-body">
+          <div className="slide-description">
+            <h1>{title}</h1>
+            <h4>{description}</h4>
+            {component}
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

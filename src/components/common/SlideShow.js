@@ -4,10 +4,10 @@ import {
   MdOutlineArrowForwardIos,
 } from "react-icons/md";
 import SlideShowBody from "../SlideShowBody";
+import { goBack, goForward } from "../utils/sliding";
 import OptionsList from "./OptionsList";
 import "./slide-show.css";
 function SlideShow({ slides, stopSlidingWhenHover }) {
-  // const []
   const [activeSlides, setActiveSlides] = useState([slides[0]]);
   const [goNextSlide, setGoNextSlide] = useState(false);
   const [goPreviousSlide, setGoPreviousSlide] = useState(false);
@@ -26,22 +26,26 @@ function SlideShow({ slides, stopSlidingWhenHover }) {
   });
 
   const forwardHandler = (index) => {
-    if (index >= 0) {
-      setActiveSlides([...activeSlides, slides[index]]);
-    }
-    if (!activeSlides.includes(slides[indexOfSlide + 1]) && index < 0)
-      setActiveSlides([...activeSlides, slides[indexOfSlide + 1]]);
-
-    setGoNextSlide(!goNextSlide);
+    goForward({
+      index,
+      setActiveSlides,
+      activeSlides,
+      slides,
+      setGoNextSlide,
+      goNextSlide,
+      indexOfSlide,
+    });
   };
   const backHandler = (index) => {
-    if (index >= 0) {
-      setActiveSlides([slides[index], activeSlides[activeSlides.length - 1]]);
-    }
-    if (!activeSlides.includes(slides[indexOfSlide - 1]) && index < 0) {
-      setActiveSlides([slides[slides.length - 1], ...activeSlides]);
-    }
-    setGoPreviousSlide(!goPreviousSlide);
+    goBack({
+      index,
+      slides,
+      setActiveSlides,
+      activeSlides,
+      indexOfSlide,
+      goPreviousSlide,
+      setGoPreviousSlide,
+    });
   };
 
   const handleSlidingWithIndex = (index) => {
@@ -67,6 +71,7 @@ function SlideShow({ slides, stopSlidingWhenHover }) {
   };
   return (
     <div className="slide-show">
+      <div className="background" />
       <MdOutlineArrowBackIos
         className="back-icon"
         onClick={() => backHandler(-1)}

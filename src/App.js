@@ -53,7 +53,13 @@ function App() {
           }}
           exact
         />
-        <Route path="/landing-page" component={LandingPage} />
+        <Route
+          path="/landing-page"
+          render={(props) => {
+            if (!data) return <LandingPage {...props} />;
+            return <Redirect to="/posts" />;
+          }}
+        />
         <Route path="/not-found" component={NotFound} />
         <Redirect to="/not-found" />
       </Switch>

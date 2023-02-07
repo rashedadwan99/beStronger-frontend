@@ -1,0 +1,32 @@
+.contact-us-info {
+  display: flex;
+}
+
+.contact-us-item {
+  font-size: 25px;
+  padding: 5px;
+  margin: 0 5px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+.contact-us-item .label {
+  display: block;
+  font-size: 18px;
+  flex: 1;
+
+  position: relative;
+}
+
+.contact-us-item .label span {
+  display: inline-block;
+  transform: rotate(90deg);
+}
+
+.contact-us-info a span {
+  color: var(--white);
+
+}

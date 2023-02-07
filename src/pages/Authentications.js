@@ -8,6 +8,7 @@ import Register from "../components/auth/Register";
 import Tabs from "../components/auth/Tabs";
 import Animations from "../components/common/Animations";
 import "./authenticanions.css";
+import BeStrongerInfo from "../components/BeStrongerInfo";
 
 function Authentications() {
   const tabs = [
@@ -37,14 +38,7 @@ function Authentications() {
         </div>
       </div>
       <div className="auth-aboutus">
-        <div className="bestonger-info">
-          <p>beStronger</p>
-          <p>social media app for body builders community</p>
-          <p>
-            share posts with your friends and communicate with nutritionists,
-            traniers and body builders
-          </p>
-        </div>
+        <BeStrongerInfo />
         <div className="aboutus-background" />
       </div>
     </div>
