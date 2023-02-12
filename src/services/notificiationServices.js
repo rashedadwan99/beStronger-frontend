@@ -23,3 +23,13 @@ export const deleteNotification = (senderId, targetId) => {
     params: { senderId, targetId },
   });
 };
+
+export const readNotification = (notificationId) => {
+  return http.put(
+    apiEndPoint + `/${notificationId}/readNotification`,
+    {},
+    {
+      headers: { "x-auth-token": getJwt() },
+    }
+  );
+};

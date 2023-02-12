@@ -8,6 +8,7 @@ import RenderInputField from "./common/Forms";
 
 function CommentCreation({ post }) {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.value);
   const socket = useSelector((state) => state.socket);
   const [comment, setComment] = useState("");
   const isSendingRequest = useSelector((state) => state.posts.isSendingRequest);
@@ -15,7 +16,7 @@ function CommentCreation({ post }) {
     if (!comment.length) {
       return;
     }
-    dispatch(addCommentAction(post, comment, socket));
+    dispatch(addCommentAction(post, comment, socket, user));
     if (!isSendingRequest) setComment("");
   };
   return (

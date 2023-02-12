@@ -2,6 +2,7 @@ import {
   GET_USER_NOTIFICATIONS,
   IS_LOADING_NOTIFICATION,
   IS_SENDING_NOTIFICATION_REQUEST,
+  READ_NOTIFICATION,
   RECIVE_NOTIFICATION,
   REMOVE_NOTIFICATION,
   REMOVE_NOTIFICATION_BY_TARGETID,
@@ -68,6 +69,17 @@ export const notificationsReducers = (state = initialState, action) => {
         ...state,
         isSendingDeleteRequest: !state.isSendingDeleteRequest,
       };
+
+    case READ_NOTIFICATION: {
+      const notifications = state.value;
+      const notification = notifications.find(
+        (n) => n._id === action.payload.notification._id
+      );
+      const indexOfNotification = notifications.indexOf(notification);
+      notifications[indexOfNotification].isRead = true;
+      console.log(notifications[indexOfNotification]);
+      return { ...state, value: [...notifications] };
+    }
     default:
       return state;
   }

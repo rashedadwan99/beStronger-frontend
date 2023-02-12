@@ -223,7 +223,7 @@ export const getPostCommentsHandler = (originalPost) => {
     }
   };
 };
-export const addCommentAction = (post, comment, socket) => {
+export const addCommentAction = (post, comment, socket, user) => {
   return async (dispatch) => {
     dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: true });
     try {
@@ -232,14 +232,16 @@ export const addCommentAction = (post, comment, socket) => {
         type: ADD_COMMENT,
         payload: { updatedPost, originalPost: post },
       });
-      dispatch(
-        sendNotificationAction(
-          ` commented on your post`,
-          post.publisher._id,
-          post._id,
-          socket
-        )
-      );
+      if (post.publisher._id !== user._id) {
+        dispatch(
+          sendNotificationAction(
+            ` commented on your post`,
+            post.publisher._id,
+            post._id,
+            socket
+          )
+        );
+      }
     } catch (error) {
       dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
       Toast("error", error);
@@ -263,11 +265,13 @@ export const deleteCommentHandler = (originalPost, comment, user, socket) => {
           user._id,
           originalPost._id
         );
-        socket.emit(
-          "delete notification",
-          originalPost.publisher._id,
-          notification
-        );
+        if (originalPost.publisher._id !== user._id) {
+          socket.emit(
+            "delete notification",
+            originalPost.publisher._id,
+            notification
+          );
+        }
       }
     } catch (error) {
       Toast("error", error);

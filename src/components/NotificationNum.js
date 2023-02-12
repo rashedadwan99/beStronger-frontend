@@ -3,13 +3,13 @@ import { useSelector } from "react-redux";
 
 function NotificationNum() {
   const notifications = useSelector((state) => state.notifications.value);
-
-  return notifications.length ? (
+  const unreadNotifications = notifications.filter((n) => !n.isRead);
+  return unreadNotifications.length ? (
     <span
       className="notifications-number"
-      style={notifications.length > 10 ? { padding: "2px 2px" } : {}}
+      style={unreadNotifications.length > 10 ? { padding: "2px 2px" } : {}}
     >
-      {notifications.length}
+      {unreadNotifications.length}
     </span>
   ) : (
     <></>

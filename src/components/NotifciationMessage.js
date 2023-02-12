@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
   deleteNotificationByReciverUser,
+  readNotificationAction,
   toggleShowNotificationsAction,
 } from "../redux/actions/notificationsActions";
 import PublisherInfo from "./common/PublisherInfo";
@@ -35,12 +36,18 @@ function NotifciationMessage({ notification, targetId }) {
       },
     },
   ];
+  const clickNotificationHandler = () => {
+    goToTarget();
+    if (!notification.isRead)
+      dispatch(readNotificationAction(notification._id));
+  };
 
   return (
     <div
-      className="notification-message-container"
-      onClick={!disbleGoToTarget ? goToTarget : () => {}}
-      style={isSendingDeleteRequest ? { opacity: 0.8 } : {}}
+      className={`notification-message-container ${
+        !notification.isRead && "unread-notification"
+      }`}
+      onClick={!disbleGoToTarget ? clickNotificationHandler : () => {}}
     >
       <PublisherInfo
         setDisableParentHandler={setDisableGoToTarget}

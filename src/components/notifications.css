@@ -53,7 +53,6 @@
 .notification-message-container:hover {
   background-color: var(--light-gray);
   cursor: pointer;
-  border-radius: var(--border-radius);
 }
 
 .notification-message-container .options-list li:hover {
@@ -92,9 +91,18 @@
   align-items: center;
   position: relative;
   border-bottom: var(--light-gray);
+  border-radius: var(--border-radius);
+  padding: 5px;
+  margin-bottom: 5px;
 }
 
+.notification-message-container.unread-notification {
+  background-color: var(--light-gray);
+}
 
+.notification-message-container.unread-notification .tooltip-list {
+  background-color: initial;
+}
 
 .notification-message-container .three-dots-options .options-list {
   top: 43%;

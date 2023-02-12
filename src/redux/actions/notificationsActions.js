@@ -2,6 +2,7 @@ import { Toast } from "../../components/common/Toast";
 import {
   deleteNotification,
   getUserNotifications,
+  readNotification,
   sendNotifications,
 } from "../../services/notificiationServices";
 
@@ -15,6 +16,7 @@ export const IS_SENDING_NOTIFICATION_REQUEST =
 export const REMOVE_NOTIFICATION_BY_TARGETID =
   "REMOVE_NOTIFICATION_BY_TARGETID";
 export const TOGGLE_SHOW_NOTIFICATIONS = "TOGGLE_SHOW_NOTIFICATIONS";
+export const READ_NOTIFICATION = "READ_NOTIFICATION";
 export const getNotificationsAction = () => {
   return async (dispatch) => {
     try {
@@ -88,6 +90,17 @@ export const deleteNotificationByReciverUser = (targetId, senderId) => {
       Toast("info", "the notification was deletted successfully");
     } catch (error) {
       dispatch({ type: IS_SENDING_NOTIFICATION_REQUEST });
+      Toast("error", error);
+    }
+  };
+};
+
+export const readNotificationAction = (notificationId) => {
+  return async (dispatch) => {
+    try {
+      const { data: notification } = await readNotification(notificationId);
+      dispatch({ type: READ_NOTIFICATION, payload: { notification } });
+    } catch (error) {
       Toast("error", error);
     }
   };

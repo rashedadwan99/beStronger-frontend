@@ -133,3 +133,27 @@
 
 
 }
+
+@media (max-width:330px) {
+  .header-middle-section h3 {
+    font-size: 12px;
+  }
+
+  .home-icon,
+  .notifications-section {
+    padding: 1px;
+  }
+
+  .home-icon svg,
+  .notifications-section svg {
+    font-size: 15px;
+  }
+
+  .notifications-number {
+    right: 5% !important;
+    font-size: 10px !important;
+    width: 11px !important;
+    top: 75% !important;
+    height: 18px !important;
+  }
+}
