@@ -5,7 +5,6 @@ import { toggleAppDependency } from "../redux/actions/appUseEffectDependencyActi
 import { resetAllNotifications } from "../redux/actions/notificationsActions";
 import { resetAllPosts } from "../redux/actions/postActions";
 import { resetAllProfileCardData } from "../redux/actions/ProfileCardActions";
-import { resetAllReducers } from "../redux/actions/resetState";
 import { disconnectSocket } from "../redux/actions/socketAction";
 import { logout } from "../services/authService";
 import OptionsList from "./common/OptionsList";
@@ -32,11 +31,6 @@ function RightHeaderList({ setShow }) {
         socket.emit("leave room", user._id);
         logout();
         dispatch(toggleAppDependency(!appDependency));
-        dispatch(disconnectSocket(socket));
-        dispatch(resetAllNotifications());
-        dispatch(resetAllPosts());
-        dispatch(resetAllProfileCardData());
-        // dispatch(resetAllReducers());
       },
     },
   ];

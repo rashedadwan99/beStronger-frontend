@@ -42,6 +42,10 @@
     width: 50vw;
   }
 
+  .profile-page_posts .posts-container {
+    width: 100%;
+  }
+
 }
 
 @media (max-width:600px) {

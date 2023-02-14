@@ -8,21 +8,33 @@ import HomePage from "./pages/HomePage";
 import Canvas from "./components/common/Canvas";
 import Modal from "./components/common/Modal";
 import NotFound from "./pages/NotFound";
-import { getSocketAction } from "./redux/actions/socketAction";
+import {
+  disconnectSocket,
+  getSocketAction,
+} from "./redux/actions/socketAction";
 import { io } from "socket.io-client";
 import LandingPage from "./pages/LandingPage";
+import { resetAllNotifications } from "./redux/actions/notificationsActions";
+import { resetAllPosts } from "./redux/actions/postActions";
+import { resetAllProfileCardData } from "./redux/actions/ProfileCardActions";
 
 function App() {
   const dispatch = useDispatch();
 
   const data = JSON.parse(localStorage.getItem("user"));
   const appDependency = useSelector((state) => state.appUseEffectDependency);
-
+  const socket = useSelector((state) => state.socket);
   useEffect(() => {
     if (data && data.user) {
       dispatch(userLoggedIn());
       dispatch(getSocketAction(io("http://localhost:5000")));
-    } else dispatch(userLoggedOut());
+    } else {
+      dispatch(userLoggedOut());
+      dispatch(disconnectSocket(socket));
+      dispatch(resetAllNotifications());
+      dispatch(resetAllPosts());
+      dispatch(resetAllProfileCardData());
+    }
   }, [appDependency]);
 
   return (

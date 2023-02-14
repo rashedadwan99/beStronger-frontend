@@ -17,6 +17,7 @@ const initialState = {
   show: false,
   isSendingDeleteRequest: false,
   noNotifcations: false,
+  noNotifications: false,
 };
 
 export const notificationsReducers = (state = initialState, action) => {
@@ -29,6 +30,7 @@ export const notificationsReducers = (state = initialState, action) => {
         value: [...action.payload],
         isLoading: false,
         isSendingDeleteRequest: false,
+        noNotifcations: false,
       };
 
     case RECIVE_NOTIFICATION: {
@@ -37,6 +39,7 @@ export const notificationsReducers = (state = initialState, action) => {
           ...state,
           value: [action.payload, ...state.value],
           isLoading: false,
+          noNotifcations: false,
         };
       }
       return state;
