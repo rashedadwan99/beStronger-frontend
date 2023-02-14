@@ -25,7 +25,7 @@ export const usersReducers = (state = initialState, action) => {
         isLoading: false,
       };
     case USER_LOGGED_OUT:
-      return { ...state, value: {}, isLoading: false, isSendingRequest: false };
+      return initialState;
     case IS_SENDING_USER_REQUEST:
       return { ...state, isSendingRequest: !state.isSendingRequest };
     case UPDATE_USER_DATA:

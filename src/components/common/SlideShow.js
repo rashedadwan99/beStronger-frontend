@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useRef } from "react";
 import {
   MdOutlineArrowBackIos,
   MdOutlineArrowForwardIos,
@@ -13,16 +14,16 @@ function SlideShow({ slides, stopSlidingWhenHover }) {
   const [goPreviousSlide, setGoPreviousSlide] = useState(false);
   const [stopSlidingSliding, setStopSliding] = useState(stopSlidingWhenHover);
   const indexOfSlide = slides.indexOf(activeSlides[activeSlides.length - 1]);
-  let i;
+  const i = useRef();
   useEffect(() => {
-    i = setInterval(
+    i.current = setInterval(
       () => {
         forwardHandler(-1);
       },
 
       5000
     );
-    return () => clearInterval(i);
+    return () => clearInterval(i.current);
   });
 
   const forwardHandler = (index) => {

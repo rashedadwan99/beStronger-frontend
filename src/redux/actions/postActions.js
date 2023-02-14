@@ -37,6 +37,7 @@ export const ADD_COMMENT = "ADD_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
 export const IS_SENDING_POSTS_REQUEST = "IS_SENDING_POSTS_REQUEST";
 export const GET_PROFILE_POSTS = "GET_PROFILE_POSTS";
+export const RESET_ALL_POSTS = "RESET_ALL_POSTS";
 
 export const addPost = ({ postContent, picture }, originalPost) => {
   return async (dispatch) => {
@@ -304,3 +305,8 @@ export const getProfilePosts = (userId) => {
     }
   };
 };
+export const resetAllPosts=()=>{
+  return {
+    type: RESET_ALL_POSTS,
+  };
+}

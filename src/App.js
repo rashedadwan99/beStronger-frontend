@@ -19,11 +19,9 @@ function App() {
   const appDependency = useSelector((state) => state.appUseEffectDependency);
 
   useEffect(() => {
-    dispatch(getSocketAction(io("http://localhost:5000")));
-  }, []);
-  useEffect(() => {
     if (data && data.user) {
       dispatch(userLoggedIn());
+      dispatch(getSocketAction(io("http://localhost:5000")));
     } else dispatch(userLoggedOut());
   }, [appDependency]);
 

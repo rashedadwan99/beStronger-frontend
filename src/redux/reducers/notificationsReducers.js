@@ -6,6 +6,7 @@ import {
   RECIVE_NOTIFICATION,
   REMOVE_NOTIFICATION,
   REMOVE_NOTIFICATION_BY_TARGETID,
+  RESET_ALL_NOTIFICATIONS,
   SEND_USER_NOTIFICATIONS,
   TOGGLE_SHOW_NOTIFICATIONS,
 } from "../actions/notificationsActions";
@@ -80,6 +81,8 @@ export const notificationsReducers = (state = initialState, action) => {
       console.log(notifications[indexOfNotification]);
       return { ...state, value: [...notifications] };
     }
+    case RESET_ALL_NOTIFICATIONS:
+      return initialState;
     default:
       return state;
   }

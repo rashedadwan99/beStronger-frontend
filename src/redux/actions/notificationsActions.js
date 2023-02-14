@@ -17,6 +17,7 @@ export const REMOVE_NOTIFICATION_BY_TARGETID =
   "REMOVE_NOTIFICATION_BY_TARGETID";
 export const TOGGLE_SHOW_NOTIFICATIONS = "TOGGLE_SHOW_NOTIFICATIONS";
 export const READ_NOTIFICATION = "READ_NOTIFICATION";
+export const RESET_ALL_NOTIFICATIONS = "RESET_ALL_NOTIFICATIONS";
 export const getNotificationsAction = () => {
   return async (dispatch) => {
     try {
@@ -103,5 +104,11 @@ export const readNotificationAction = (notificationId) => {
     } catch (error) {
       Toast("error", error);
     }
+  };
+};
+
+export const resetAllNotifications = () => {
+  return {
+    type: RESET_ALL_NOTIFICATIONS,
   };
 };

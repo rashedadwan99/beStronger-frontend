@@ -12,6 +12,7 @@ import {
   NO_POSTS,
   IS_SENDING_POSTS_REQUEST,
   GET_PROFILE_POSTS,
+  RESET_ALL_POSTS,
 } from "../actions/postActions";
 
 const initialState = {
@@ -119,6 +120,9 @@ export const postsReducer = (state = initialState, action) => {
         value: [...action.payload.post],
         isLoading: false,
       };
+
+    case RESET_ALL_POSTS:
+      return initialState;
 
     default:
       return state;

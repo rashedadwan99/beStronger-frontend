@@ -3,7 +3,7 @@
   width: 100%;
   background-image: url("https://cdn.wallpapersafari.com/19/23/z7MdVL.jpg");
   color: var(--white);
-  background-position: center;
-  background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
 
 }

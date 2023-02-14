@@ -28,8 +28,10 @@ function Notifications() {
     dispatch(toggleShowNotificationsAction(showState));
   };
   useEffect(() => {
-    dispatch(getNotificationsAction());
     socket.emit("setup", user._id);
+  }, []);
+  useEffect(() => {
+    dispatch(getNotificationsAction());
 
     socket.on("connected", () => {
       setSocketConnected(socket.connected);
