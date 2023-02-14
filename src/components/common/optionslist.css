@@ -20,7 +20,7 @@
 
 .options-list li {
   padding: 11px;
-  border-bottom: 1px solid #d2d2d2;
+  border-bottom: 1px solid var(--light-gray);
   font-weight: 300;
   display: flex;
   align-items: flex-end;
@@ -42,6 +42,6 @@
 }
 
 .options-list li:hover {
-  background-color: #d2d2d2;
+  background-color: var(--light-gray);
   cursor: pointer;
 }

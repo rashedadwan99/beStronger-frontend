@@ -1,5 +1,5 @@
 .skeleton-user-container {
-  background-color: #d2d2d2;
+  background-color: var(--light-gray);
   border-radius: var(--border-radius);
   animation: opacity 0.5s linear 0s infinite forwards alternate;
   margin-bottom: 10px;
@@ -73,7 +73,7 @@
 .post-skeleton .user-list-image,
 .post-skeleton .user-list-name,
 .post-skeleton .user-list-button {
-  background-color: #d2d2d2;
+  background-color: var(--light-gray);
 }
 
 .post-skeleton-body {
@@ -84,7 +84,7 @@
 
 .post-skeleton-body svg {
   font-size: 15em;
-  color: #d2d2d2;
+  color: var(--light-gray);
 }
 
 .profile-card-skeleton {
@@ -123,11 +123,11 @@
   height: 150px;
   width: 150px;
   border-radius: var(--circle-border-radius);
-  background-color: #d2d2d2;
+  background-color: var(--light-gray);
 }
 
 .skeleton-image-name span {
-  background-color: #d2d2d2;
+  background-color: var(--light-gray);
   display: inline-block;
   height: 25px;
   width: 100%;

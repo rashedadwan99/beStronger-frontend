@@ -33,7 +33,7 @@
 }
 
 .hashtags-list div {
-  background-color: #d2d2d2;
+  background-color: var(--light-gray);
   padding: 5px;
   border-radius: 0.5vw;
   margin: 2px;

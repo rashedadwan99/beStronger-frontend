@@ -21,7 +21,7 @@
   min-width: 25%;
   flex: 1;
   text-align: center;
-  border: 1px solid #d2d2d2;
+  border: 1px solid var(--light-gray);
   border-collapse: collapse;
   padding: 5px;
 }

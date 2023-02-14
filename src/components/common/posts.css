@@ -44,7 +44,7 @@
 .like-and-comment {
   width: 100%;
   display: flex;
-  border-top: 1px solid #d2d2d2;
+  border-top: 1px solid var(--light-gray);
   padding-bottom: 0;
 
 
@@ -52,7 +52,7 @@
 }
 
 .like-and-comment .post-statistic:first-child {
-  border-right: 1px solid #d2d2d2;
+  border-right: 1px solid var(--light-gray);
 }
 
 .post-statistic {

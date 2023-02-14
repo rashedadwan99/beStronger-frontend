@@ -102,7 +102,7 @@
 }
 
 .auth-box .tabs .default-tab {
-  border-right: 1px solid #d2d2d2;
+  border-right: 1px solid var(--light-gray);
 }
 
 .auth-box .tabs ul {
@@ -120,7 +120,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid #d2d2d2;
+  border-bottom: 1px solid var(--light-gray);
   font-size: 16px;
   font-weight: var(--font-weight)er;
 
@@ -196,7 +196,7 @@
 
   .auth-container .animations {
     display: flex;
-    background-color: #d2d2d2;
+    background-color: var(--light-gray);
   }
 
   .auth-container .computer-view {

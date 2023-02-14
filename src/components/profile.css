@@ -1,7 +1,7 @@
 .profile-page {
   min-width: 100vw;
   min-height: 88vh;
-  background-color: #d2d2d2;
+  background-color: var(--light-gray);
   padding: 0;
   display: flex;
   justify-content: space-around;

@@ -12,7 +12,7 @@
   top: 100%;
   right: 2%;
   background-color: var(--white);
-  border: 1px solid #d2d2d2;
+  border: 1px solid var(--light-gray);
   border-radius: 0.5vw;
   width: 7vw;
   display: flex;
@@ -29,11 +29,11 @@
   font-weight: 500;
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid #d2d2d2;
+  border-bottom: 1px solid var(--light-gray);
 }
 
 .dropdown .dropdown-item:hover {
-  background-color: #d2d2d2;
+  background-color: var(--light-gray);
   cursor: pointer;
 }
 

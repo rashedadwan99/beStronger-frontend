@@ -1,27 +1,33 @@
 .comunication-section {
   height: 88vh;
   display: flex;
-  background-color: #d2d2d2;
+  background-color: var(--light-gray);
 }
 
 .middle-communication-section,
 .left-communication-section,
 .right-communication-section {
-  flex: 1;
+  /* flex: 1; */
   padding: 10px 0;
-  width: 33.5vw;
+  width: 30vw;
 }
 
 .middle-communication-section {
   max-height: 100%;
   flex: 1;
+  width: 40vw;
 }
 
 .left-communication-section {
   display: flex;
   justify-content: center;
+
   align-items: flex-start;
 
+}
+
+.left-communication-section .profile-card {
+  width: 95%;
 }
 
 .post-creation-section {
@@ -99,35 +105,40 @@
 }
 
 .right-communication-section {
-  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  min-height: 100%;
   overflow-y: scroll;
+  justify-content: flex-start;
+  padding-right: 0.5%;
 }
 
 .right-communication-section .profile-card {
   display: none;
-  margin: 0 20px;
 
   min-height: 22em;
   margin-bottom: 10px;
-
+  width: 95%;
 }
 
 .right-communication-section .profile-card .profile-statistics {
-  top: 70%
+  top: 70%;
 }
 
 .nutritionists-trainers {
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   background-color: var(--white);
-  margin: 0 20px;
+  /* margin: 0 20px; */
   min-height: 20em;
-
+  width: 90%;
   height: 20em;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   justify-content: space-between;
+  width: 95%;
 }
 
 .nutritionists-trainers_title {
@@ -135,7 +146,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #d2d2d2;
+  border-bottom: 1px solid var(--light-gray);
 }
 
 .nutritionists-trainers_body {
@@ -158,6 +169,14 @@
 }
 
 @media (max-width:991px) {
+  .right-communication-section {
+    width: 40vw;
+  }
+
+  .middle-communication-section {
+    width: 60vw;
+  }
+
   .left-communication-section {
 
     display: none;
@@ -165,11 +184,16 @@
 
   .right-communication-section .profile-card {
     display: flex;
+    width: 95%;
   }
 
   .right-communication-section .profile-card img {
     height: 130px;
     width: 130px;
+  }
+
+  .nutritionists-trainers {
+    width: 95%;
   }
 }
 
