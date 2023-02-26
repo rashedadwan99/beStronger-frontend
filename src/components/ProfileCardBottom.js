@@ -5,18 +5,19 @@ import { openModal } from "../redux/actions/modalActions";
 import ButtonsGroup from "./common/button";
 import FollowUnfollowBtn from "./common/followUnfollowBtn";
 import ProfileForm from "./ProfileForm";
-
+import routes from "../config/routes.json";
 function ProfileCardBottom() {
   const { location } = useHistory();
   const { path } = useRouteMatch();
   const dispatch = useDispatch();
   const profileCardUser = useSelector((state) => state.profileCardUser.value);
   const isPostPage =
-    location.pathname === "/posts" || path === "/posts/:postId";
+    location.pathname === routes["posts-route"] ||
+    path === routes["single-post-route"];
 
-  const isAnotherProfilePage = path === "/profile/:userId";
+  const isAnotherProfilePage = path === routes["another-profile-route"];
 
-  const isMyProfile = location.pathname === "/profile";
+  const isMyProfile = location.pathname === routes["profile-route"];
 
   const openProfileEdit = () => {
     dispatch(
@@ -29,7 +30,7 @@ function ProfileCardBottom() {
   };
   return (
     <div className="profile-card-bottom">
-      {isPostPage && <NavLink to="/profile">my profile</NavLink>}
+      {isPostPage && <NavLink to={routes["profile-route"]}>my profile</NavLink>}
 
       {isMyProfile && (
         <ButtonsGroup label="edit profile" onClick={openProfileEdit} />
