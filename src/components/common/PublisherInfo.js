@@ -9,6 +9,7 @@ import OptionsList from "./OptionsList";
 import OutsideAlerter from "../utils/clickOutSideAlert";
 import ProfileImage from "./ProfileImage";
 import "./publisher-info.css";
+import routes from "../../config/routes.json";
 function PublisherInfo({
   data,
   publisher,
@@ -24,10 +25,12 @@ function PublisherInfo({
   const [showOptionsList, setShowOptionsList] = useState(false);
   const history = useHistory();
   const goToProfile = () => {
+    const anotherProfileRoute = `${routes["profile-route"]}/${publisher._id}`;
+    const myProfileRoute = routes["profile-route"];
     if (showModal) dispatch(closeModal());
     if (showNotifications) dispatch(toggleShowNotificationsAction(false));
-    if (user._id !== publisher._id) history.push(`/profile/${publisher._id}`);
-    else history.push("/profile");
+    if (user._id !== publisher._id) history.push(anotherProfileRoute);
+    else history.push(myProfileRoute);
   };
 
   const onMouseEnter = () => {

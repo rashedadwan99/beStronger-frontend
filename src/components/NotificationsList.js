@@ -1,23 +1,32 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import NotificationMessage from "./NotifciationMessage";
-
+import noNotifcationsImage from "./images/mynotifications.svg";
 function NotificationsList() {
   const notifications = useSelector((state) => state.notifications.value);
 
   return (
-    <div className="list">
-      {notifications.map((notification) => {
-        return (
-          <NotificationMessage
-            notification={notification}
-            targetId={notification.targetId}
-            key={notification._id}
-            tagetId={notification.targetId}
-          />
-        );
-      })}
-    </div>
+    <>
+      {notifications.length ? (
+        <div className="list">
+          {notifications.map((notification) => {
+            return (
+              <NotificationMessage
+                notification={notification}
+                targetId={notification.targetId}
+                key={notification._id}
+                tagetId={notification.targetId}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <div className="no-notifications">
+          <h6>no notifcations</h6>
+          <img src={noNotifcationsImage} />
+        </div>
+      )}
+    </>
   );
 }
 

@@ -8,7 +8,7 @@ import {
   toggleShowNotificationsAction,
 } from "../redux/actions/notificationsActions";
 import PublisherInfo from "./common/PublisherInfo";
-
+import routes from "../config/routes.json";
 function NotifciationMessage({ notification, targetId }) {
   const [disbleGoToTarget, setDisableGoToTarget] = useState(false);
 
@@ -16,17 +16,16 @@ function NotifciationMessage({ notification, targetId }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const { sender } = notification;
-
+  const singlePostRoute = `${routes["posts-route"]}/${targetId}`;
+  const anotherProfileRoute = `${routes["profile-route"]}/${sender._id}`;
   const goToTarget = () => {
     const isPostTarget = posts.find((p) => p._id === targetId);
     if (isPostTarget) {
-      history.push(`/posts/${targetId}`);
-    } else history.push(`/profile/${sender._id}`);
+      history.push(singlePostRoute);
+    } else history.push(anotherProfileRoute);
     dispatch(toggleShowNotificationsAction(false));
   };
-  const isSendingDeleteRequest = useSelector(
-    (state) => state.notifications.isSendingDeleteRequest
-  );
+
   const options = [
     {
       label: "delete",

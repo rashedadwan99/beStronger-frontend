@@ -4,28 +4,27 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Header from "../components/Header";
 import Communication from "../components/Communication";
 import Profile from "../components/Profile";
-import { useEffect } from "react";
+import routes from "../config/routes.json";
 
 function HomePage() {
   const user = useSelector((state) => state.user.value);
 
-  useEffect(() => {}, []);
   if (user._id) {
     return (
       <div className="home-page">
         <Header />
         <Switch>
           <Route
-            path={["/profile", "/profile/:userId"]}
+            path={[routes["profile-route"], routes["another-profile-route"]]}
             component={Profile}
             exact
           />
           <Route
-            path={["/posts", "/posts/:postId"]}
+            path={[routes["posts-route"], routes["single-post-route"]]}
             component={Communication}
             exact
           />
-          <Redirect to="/posts" />
+          <Redirect to={routes["posts-route"]} />
         </Switch>
       </div>
     );

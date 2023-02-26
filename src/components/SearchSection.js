@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { searchUsers } from "../services/userService";
 import Button from "./common/button";
 import RenderInputField from "./common/Forms";
+import { Toast } from "./common/Toast";
 import UserList from "./common/UsersList";
 import "./searchsection.css";
 import UserListSkeleton from "./skeleton/UserListSkeleton";
@@ -27,37 +28,18 @@ function SearchSection() {
   }, [showCanvas, searchQuery]);
   const handleSearch = async () => {
     if (!searchQuery.length) {
-      toast.info("please enter something in searching field", {
-        position: "top-left",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      Toast("info", "please enter something in searching field");
       return;
     }
     try {
       setIsLoading(true);
+      setIsEmptyResult(false);
       const { data: results } = await searchUsers(searchQuery);
       setResults(results);
       setIsLoading(false);
       if (!results.length) setIsEmptyResult(true);
     } catch (error) {
-      if (error.response && error.response.status === 400) {
-        toast.error(error.response.data, {
-          position: "top-left",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-      }
+      Toast("error", error);
       setIsLoading(false);
     }
   };

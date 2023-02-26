@@ -104,6 +104,22 @@
   background-color: initial;
 }
 
+.no-notifications {
+  padding: 10px;
+}
+
+.no-notifications h6 {
+  font-weight: var(--font-weight);
+  padding: 5px;
+}
+
+.no-notifications img {
+  width: 100%;
+  height: 150px;
+  border-radius: 0;
+
+}
+
 .notification-message-container .three-dots-options .options-list {
   top: 43%;
   right: 0;

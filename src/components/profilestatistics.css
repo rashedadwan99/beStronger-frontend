@@ -26,6 +26,10 @@
   padding: 5px;
 }
 
+.followers-following-list {
+  padding: 10px;
+}
+
 .profile-statistics .top span {
   border-top: 0;
 }
@@ -43,4 +47,9 @@
 .profile-statistics .top span:last-child,
 .profile-statistics .bottom span:last-child {
   border-right: 0;
+}
+
+.profile-statistics .bottom span:first-child,
+.profile-statistics .bottom span:nth-child(2) {
+  cursor: pointer;
 }

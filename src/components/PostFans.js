@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getPostFans } from "../services/postService";
 import UsersList from "./common/UsersList";
 import "./postfans.css";
+import UserListSkeleton from "./skeleton/UserListSkeleton";
 function PostFans({ postId }) {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -18,7 +19,11 @@ function PostFans({ postId }) {
   }, []);
   return (
     <div className="post-fans">
-      {!isLoading ? <UsersList users={users} /> : <p>loading...</p>}
+      {!isLoading ? (
+        <UsersList users={users} />
+      ) : (
+        <UserListSkeleton number={1} />
+      )}
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { closeOffCanvas } from "../../redux/actions/offCanvasActions";
 import { closeModal } from "../../redux/actions/modalActions";
+import routes from "../../config/routes.json";
 import "./userlist.css";
 function UsersList({ users }) {
   const history = useHistory();
@@ -13,10 +14,12 @@ function UsersList({ users }) {
   const isModalShowed = useSelector((state) => state.modal.show);
   const dispatch = useDispatch();
   const handleClick = (user) => {
+    const anotherProfileRoute = `/profile/${user._id}`;
+    const myProfileRoute = routes["profile-route"];
     if (isCanvasShowed) dispatch(closeOffCanvas());
     if (isModalShowed) dispatch(closeModal());
-    if (currentUserId !== user._id) history.push(`/profile/${user._id}`);
-    else history.push("/profile");
+    if (currentUserId !== user._id) history.push(anotherProfileRoute);
+    else history.push(myProfileRoute);
   };
   return users.map((user) => {
     return (
@@ -29,7 +32,9 @@ function UsersList({ users }) {
             {currentUserId === user._id ? "you" : user.name}
           </span>
         </div>
-        {user.followingList && <FollowUnfollowButton user={user} />}
+        {user.followingList && user._id !== currentUserId && (
+          <FollowUnfollowButton user={user} />
+        )}
       </div>
     );
   });

@@ -16,14 +16,13 @@ const initialState = {
   isLoading: false,
   show: false,
   isSendingDeleteRequest: false,
-  noNotifcations: false,
-  noNotifications: false,
 };
 
 export const notificationsReducers = (state = initialState, action) => {
   switch (action.type) {
     case IS_LOADING_NOTIFICATION:
       return { ...state, isLoading: !state.isLoading };
+
     case GET_USER_NOTIFICATIONS:
       return {
         ...state,
@@ -81,7 +80,6 @@ export const notificationsReducers = (state = initialState, action) => {
       );
       const indexOfNotification = notifications.indexOf(notification);
       notifications[indexOfNotification].isRead = true;
-      console.log(notifications[indexOfNotification]);
       return { ...state, value: [...notifications] };
     }
     case RESET_ALL_NOTIFICATIONS:

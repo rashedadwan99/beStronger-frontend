@@ -8,7 +8,7 @@ import { resetAllProfileCardData } from "../redux/actions/ProfileCardActions";
 import { disconnectSocket } from "../redux/actions/socketAction";
 import { logout } from "../services/authService";
 import OptionsList from "./common/OptionsList";
-
+import routes from "../config/routes.json";
 function RightHeaderList({ setShow }) {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -20,7 +20,9 @@ function RightHeaderList({ setShow }) {
       label: "profile",
 
       onClick: () => {
-        history.push("/profile");
+        const myProfileRoute = routes["profile-route"];
+
+        history.push(myProfileRoute);
         setShow(false);
       },
     },
@@ -31,6 +33,10 @@ function RightHeaderList({ setShow }) {
         socket.emit("leave room", user._id);
         logout();
         dispatch(toggleAppDependency(!appDependency));
+        dispatch(disconnectSocket(socket));
+        dispatch(resetAllNotifications());
+        dispatch(resetAllPosts());
+        dispatch(resetAllProfileCardData());
       },
     },
   ];
