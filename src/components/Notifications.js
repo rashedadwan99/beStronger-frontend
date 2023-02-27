@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { BsBellFill } from "react-icons/bs";
+import { IoMdNotifications } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getNotificationsAction,
@@ -76,7 +76,7 @@ function Notifications() {
           className="notification-bell-num"
           onClick={() => handleHideNotifications(!showNotifications)}
         >
-          <BsBellFill />
+          <IoMdNotifications />
           <NotificationNum />
         </span>
       </div>

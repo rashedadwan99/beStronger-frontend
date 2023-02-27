@@ -194,6 +194,9 @@
 
 
 @media (max-width:645px) {
+  .post-creation-section-top {
+    padding: 8px 5px;
+  }
 
   .left-communication-section,
   .right-communication-section {

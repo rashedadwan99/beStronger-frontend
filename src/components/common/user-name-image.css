@@ -11,9 +11,19 @@
   border-radius: var(--circle-border-radius);
 }
 
-.name {
-  padding: 0 5px;
+.name-time-message {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
 }
+
+.time {
+  font-weight: 100;
+  font-size: 12px;
+
+}
+
+
 
 .name-profile-image span:last-child {
   padding-left: 1px;

@@ -100,6 +100,11 @@
   background-color: var(--light-gray);
 }
 
+.notifications-list .time {
+  font-size: 10px;
+  font-weight: var(--font-weight);
+}
+
 .notification-message-container.unread-notification .tooltip-list {
   background-color: initial;
 }

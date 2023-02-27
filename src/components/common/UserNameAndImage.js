@@ -25,6 +25,7 @@ function UserNameAndImage({
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         message={message}
+        data={data}
       />
       {showDots && (
         <ThreeDotsOption
