@@ -5,7 +5,7 @@ import {
   deleteCommentHandler,
   getPostCommentsHandler,
 } from "../redux/actions/postActions";
-import PublisherInfo from "./common/PublisherInfo";
+import UserNameAndImage from "./common/UserNameAndImage";
 import PostOrCommentContent from "./PostOrCommentContent";
 
 function Comments({ post }) {
@@ -34,7 +34,7 @@ function Comments({ post }) {
         posts[indexOfPost].comments.map((comment) => {
           return (
             <div className="comment-card" key={comment._id}>
-              <PublisherInfo
+              <UserNameAndImage
                 data={comment}
                 publisher={comment.commenter}
                 options={commentOptions}

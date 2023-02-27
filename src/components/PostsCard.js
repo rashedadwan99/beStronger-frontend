@@ -4,7 +4,7 @@ import { FaEdit } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "../redux/actions/modalActions";
 import { handleDeletePost } from "../redux/actions/postActions";
-import PublisherInfo from "./common/PublisherInfo";
+import UserNameAndImage from "./common/UserNameAndImage";
 import LikeAndComment from "./LikeAndComment";
 import PostForm from "./PostForm";
 import PostOrCommentContent from "./PostOrCommentContent";
@@ -37,7 +37,7 @@ function PostsCard() {
   return posts.map((post) => {
     return (
       <article className="post-card" key={post._id}>
-        <PublisherInfo
+        <UserNameAndImage
           data={post}
           publisher={post.publisher}
           options={postOptions}
