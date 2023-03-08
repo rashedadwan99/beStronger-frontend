@@ -247,10 +247,19 @@
   align-self: baseline;
 }
 
+.slide-description div {
+  font-size: 20px !important;
+}
+
 @media (max-width:600px) {
   .slide-show .options-list li {
-    font-size: 11px;
+    font-size: 14px;
     padding: 0;
     flex: 1;
+  }
+
+  .slide-description div,
+  .slide-description button {
+    font-size: 14px !important;
   }
 }

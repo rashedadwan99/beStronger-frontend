@@ -7,10 +7,10 @@ export const slides = [
     description: "social media app",
 
     component: (
-      <h4>
+      <p>
         share posts with your friends and communicate with nutritionists,
         traniers and body builders
-      </h4>
+      </p>
     ),
   },
   {

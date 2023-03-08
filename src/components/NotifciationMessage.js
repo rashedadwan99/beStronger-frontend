@@ -19,10 +19,10 @@ function NotifciationMessage({ notification, targetId }) {
   const { sender } = notification;
   const singlePostRoute = `${routes["posts-route"]}/${targetId}`;
   const anotherProfileRoute = `${routes["profile-route"]}/${sender._id}`;
+  const user = useSelector((state) => state.user.value);
   const goToTarget = () => {
     const isPostTarget = posts.find((p) => p._id === targetId);
-
-    if (isPostTarget || path === routes["another-profile-route"]) {
+    if (isPostTarget || !user.followersList.includes(targetId)) {
       history.push(singlePostRoute);
     } else history.push(anotherProfileRoute);
     dispatch(toggleShowNotificationsAction(false));

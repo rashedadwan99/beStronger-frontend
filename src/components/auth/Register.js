@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../common/button";
 import RenderInputField from "../common/Forms";
-import { toggleAppDependency } from "../../redux/actions/appUseEffectDependencyAction";
 import { Toast } from "../common/Toast";
 import { registerUserAction } from "../../redux/actions/userActions";
 function Register() {
@@ -14,37 +13,37 @@ function Register() {
     name: "",
     password2: "",
   });
-  const appDependency = useSelector((state) => state.appUseEffectDependency);
+
   const isLoading = useSelector((state) => state.user.isLoading);
   const dispatch = useDispatch();
 
   const { email, password, name, password2 } = data;
   const handleSubmit = async () => {
     if (!email || !password || !password2 || !name) {
-      Toast("error", "please fill all fields", "left-right");
+      Toast("error", "please fill all fields", "left-top");
       return;
     }
     if (name.length <= 3) {
       Toast(
         "error",
         "name must consist from at least 3 characters",
-        "left-right"
+        "left-top"
       );
       return;
     }
     if (password !== password2) {
-      Toast("error", "both password should be the same", "left-right");
+      Toast("error", "both password should be the same", "left-top");
       return;
     }
     if (password.length <= 4) {
-      toast("error", "password should be at least 5 characters", "left-right");
+      Toast("error", "password should be at least 5 characters", "left-top");
       return;
     }
     const emailPattern =
       "^[a-zA-Z0-9]+(?:.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:.[a-zA-Z0-9]+)*$";
     const regex = new RegExp(emailPattern);
     if (!regex.test(email)) {
-      Toast("error", "please enter a valid email", "left-right");
+      Toast("error", "please enter a valid email", "left-top");
       return;
     }
     dispatch(registerUserAction(data));
@@ -59,7 +58,6 @@ function Register() {
           type="text"
           data={data}
           setData={setData}
-          label="name"
           isRequired
         />
         <RenderInputField
@@ -68,7 +66,6 @@ function Register() {
           name="email"
           data={data}
           setData={setData}
-          label="email"
           isRequired
         />
         <RenderInputField
@@ -78,7 +75,6 @@ function Register() {
           type="password"
           data={data}
           setData={setData}
-          label="password"
           isRequired
         />
         <RenderInputField
@@ -88,7 +84,6 @@ function Register() {
           type="password"
           data={data}
           setData={setData}
-          label="confirm password"
           isRequired
         />
         <div className="button-container">

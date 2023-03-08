@@ -13,7 +13,6 @@ export function Toast(status = "", value, position = "top-left") {
   };
   if (value.response && value.response.status === 400) {
     return toast[`${status}`](value.response.data.message, options);
-  } else if (status === "error")
-    return toast[`${status}`]("an error occured", options);
+  } else if (status === "error") return toast[`${status}`](value, options);
   return toast[`${status}`](value, options);
 }

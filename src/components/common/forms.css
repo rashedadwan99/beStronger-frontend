@@ -11,6 +11,7 @@
   border-radius: 5px;
   background-color: var(--white);
   width: 100%;
+  font-weight: var(--font-weight);
 }
 
 .common-textarea {
@@ -37,4 +38,22 @@
   bottom: 25%;
   cursor: pointer;
   font-size: 20px;
+}
+
+.edit-eye-icon .eye-icon {
+  bottom: 34%;
+}
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear {
+  display: none;
+}
+
+@media (max-width:600px) {
+
+  .input-container,
+  form button {
+    font-size: 12px !important;
+  }
+
 }

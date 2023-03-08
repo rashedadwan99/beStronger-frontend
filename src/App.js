@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import { io } from "socket.io-client";
@@ -17,6 +17,7 @@ function App() {
   const data = JSON.parse(localStorage.getItem("user"));
   const appDependency = useSelector((state) => state.appUseEffectDependency);
   const socket = useSelector((state) => state.socket);
+  const history = useHistory();
   useEffect(() => {
     if (data && data.user) {
       dispatch(userLoggedIn());
@@ -60,7 +61,7 @@ function App() {
           }}
         />
         <Route path={routes["notfound-route"]} component={NotFound} />
-        <Redirect to={routes["notfound-route"]} />
+        <Redirect to="/not-found" />
       </Switch>
       <Canvas />
       <Modal />

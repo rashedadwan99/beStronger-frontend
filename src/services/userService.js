@@ -90,3 +90,15 @@ export const updateUserInLocalStorage = (data) => {
   });
   updatedUser = localStorage.setItem(userKey, updatedUser);
 };
+
+export const changePassword = (data) => {
+  return http.put(
+    apiEndpoint + "/changepassword",
+
+    data,
+
+    {
+      headers: { "x-auth-token": getJwt() },
+    }
+  );
+};

@@ -9,6 +9,7 @@
     "@types/jquery": "^3.5.16",
     "axios": "^0.18.1",
     "bcryptjs": "^2.4.3",
+    "bcryptjs-react": "^2.4.6",
     "bootstrap": "^5.2.3",
     "caniuse-lite": "^1.0.30001367",
     "convert-svg-react": "^1.0.0-beta.8",

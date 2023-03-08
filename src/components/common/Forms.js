@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { useEffect } from "react";
 import IsRequired from "../IsRequired";
 import EyeFormIcon from "../EyeFormIcon";
+import bcrypt from "bcryptjs-react";
+
 import "./forms.css";
 const RenderInputField = ({
   data,
@@ -47,7 +48,7 @@ const RenderInputField = ({
     !showPassword ? setInputType("text") : setInputType("password");
   };
   return (
-    <div className="input-container">
+    <div className={`input-container ${!label&&"edit-eye-icon"}`}>
       {label && (
         <label htmlFor={name}>
           {label}
@@ -87,4 +88,10 @@ RenderInputField.propTypes = {
   value: PropTypes.string,
   type: PropTypes.string,
   isRequired: PropTypes.bool,
+};
+
+export const hashPassword = async (password) => {
+  const salt = await bcrypt.genSalt(10);
+  const hash = await bcrypt.hash(password, salt);
+  return hash;
 };

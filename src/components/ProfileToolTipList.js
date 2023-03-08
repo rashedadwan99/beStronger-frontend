@@ -9,6 +9,8 @@ import { disconnectSocket } from "../redux/actions/socketAction";
 import { logout } from "../services/authService";
 import OptionsList from "./common/OptionsList";
 import routes from "../config/routes.json";
+import { openModal } from "../redux/actions/modalActions";
+import ChangePassword from "./ChangePassword";
 function RightHeaderList({ setShow }) {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -24,6 +26,19 @@ function RightHeaderList({ setShow }) {
 
         history.push(myProfileRoute);
         setShow(false);
+      },
+    },
+    {
+      label: "settings",
+      onClick: () => {
+        setShow(false);
+
+        dispatch(
+          openModal({
+            title: "Change Password",
+            Component: <ChangePassword />,
+          })
+        );
       },
     },
     {

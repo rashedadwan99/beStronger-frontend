@@ -55,8 +55,10 @@ function SlideShowBody({
         <div className="slide-body">
           <div className="slide-description">
             <h1>{title}</h1>
-            <h4>{description}</h4>
-            {component}
+            <div>
+              <p>{description}</p>
+              {component}
+            </div>
           </div>
         </div>
       </div>

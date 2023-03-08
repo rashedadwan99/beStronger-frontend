@@ -6,7 +6,7 @@ function JoinUs() {
   const history = useHistory();
   return (
     <ButtonsGroup
-      label="login / signup"
+      label="login / register"
       onClick={() => {
         history.replace(routes["login-route"]);
       }}

@@ -38,7 +38,6 @@ function Login() {
           name="email"
           data={data}
           setData={setData}
-          label="email"
         />
         <RenderInputField
           placeholder="password"
@@ -47,7 +46,6 @@ function Login() {
           type="password"
           data={data}
           setData={setData}
-          label="password"
         />
         <div className="button-container">
           <Button
