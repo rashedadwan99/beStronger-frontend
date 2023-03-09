@@ -167,6 +167,11 @@
     left: 2%;
   }
 
+  .notifications-section .notifications-number {
+    right: -4px;
+    top: -30%
+  }
+
   .notifications-list .publiser-info .three-dots-options {
     flex: 0;
   }

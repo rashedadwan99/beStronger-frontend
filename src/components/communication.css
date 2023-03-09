@@ -39,7 +39,7 @@
 
 .post-creation-section-top {
   background-color: var(--white);
-  padding: 15px;
+  padding: 10px 13px;
   margin: 0 5px;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
@@ -59,8 +59,8 @@
 }
 
 .post-creation-section-top .profile-image img {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   margin-right: 5px;
   border-radius: var(--circle-border-radius);
 }

@@ -78,7 +78,7 @@
 }
 
 .aboutus-background {
-  background-image: url("../components/images/authBackGround.svg");
+  background-image: url("../components/images/bestrongerLogo.png");
   background-position: center;
   background-size: contain;
   height: 50%;
@@ -90,6 +90,11 @@
 .computer-view {
   margin: 0 auto;
 }
+
+
+
+
+
 
 .auth-box {
   z-index: 2;
@@ -203,6 +208,15 @@
 }
 
 @media (max-width:614px) {
+  .auth-top-section {
+    padding: 0 5px;
+  }
+
+  .auth-forms .spinner-border {
+    width: 1rem;
+    height: 1rem;
+  }
+
   .auth-container {
     width: 100%;
   }
@@ -217,10 +231,18 @@
   }
 
   .auth-container .mobile-view {
-    font-size: 20px;
-    display: block;
-    position: relative;
-    text-align: center;
+    padding-right: 5px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    font-weight: var(--font-weight);
+
+    width: 100%;
+  }
+
+  .mobile-view img {
+
+    width: 100px;
   }
 
   .auth-box .tabs a {

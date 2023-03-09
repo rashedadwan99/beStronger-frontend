@@ -61,7 +61,7 @@ function App() {
           }}
         />
         <Route path={routes["notfound-route"]} component={NotFound} />
-        <Redirect to="/not-found" />
+        <Redirect to={routes["notfound-route"]} />
       </Switch>
       <Canvas />
       <Modal />
