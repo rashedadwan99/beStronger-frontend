@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "./images/bestrongerLogo.png";
+import Logo from "../images/bestrongerLogo.png";
 function AuthAboutUs() {
   return (
     <div className="auth-aboutus">

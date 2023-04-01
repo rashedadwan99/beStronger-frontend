@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../images/beStrongerLogo.png";
+import logo from "../images/beStrongerLogo.png";
 function Logo() {
   return (
     <div className="logo">
