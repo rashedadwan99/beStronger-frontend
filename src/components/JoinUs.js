@@ -8,7 +8,7 @@ function JoinUs() {
     <ButtonsGroup
       label="login / register"
       onClick={() => {
-        history.replace(routes["login-route"]);
+        history.push(routes["login-route"]);
       }}
     />
   );
