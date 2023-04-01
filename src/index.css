@@ -41,3 +41,9 @@ button {
   background-color: var(--blue) !important;
   border-color: var(--blue) !important;
 }
+
+@media (max-width:330px) {
+  *>div {
+    font-size: 14px !important;
+  }
+}

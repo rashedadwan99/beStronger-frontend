@@ -4,18 +4,22 @@ import { FaSearch } from "react-icons/fa";
 import SearchSection from "./SearchSection";
 import { useDispatch, useSelector } from "react-redux";
 import { openOffCanvas } from "../redux/actions/offCanvasActions";
+import { toggleShowNotificationsAction } from "../redux/actions/notificationsActions";
 
 function HeaderLeftSection() {
-  const showCanvas = useSelector((state) => state.canvas.state);
+  const showCanvas = useSelector((state) => state.canvas.show);
+  const showNotifications = useSelector((state) => state.notifications.show);
   const dispatch = useDispatch();
-
+  const handleShowing = () => {
+    dispatch(openOffCanvas(<SearchSection />, "search for users"));
+    if (showNotifications) dispatch(toggleShowNotificationsAction(false));
+  };
   return (
     <div className="header-left-section">
       <Tooltip
         show={showCanvas}
-        setshow={() =>
-          dispatch(openOffCanvas(<SearchSection />, "search for users"))
-        }
+        setshow={handleShowing}
+        style={{ zIndex: "50001" }}
       >
         <FaSearch />
         <span>search</span>

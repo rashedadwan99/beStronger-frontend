@@ -3,7 +3,7 @@ import JoinUs from "./components/JoinUs";
 
 export const slides = [
   {
-    title: "beStronger",
+    title: "beStrong",
     description: "social media app",
 
     component: (

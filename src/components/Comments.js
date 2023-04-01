@@ -7,11 +7,15 @@ import {
 } from "../redux/actions/postActions";
 import UserNameAndImage from "./common/UserNameAndImage";
 import PostOrCommentContent from "./PostOrCommentContent";
+import UserListSkeleton from "./skeleton/UserListSkeleton";
 
 function Comments({ post }) {
   const ref = useRef();
   const user = useSelector((state) => state.user.value);
   const posts = useSelector((state) => state.posts.value);
+  const isLoadingComments = useSelector(
+    (state) => state.posts.isLoadingComments
+  );
   const socket = useSelector((state) => state.socket);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -30,7 +34,8 @@ function Comments({ post }) {
 
   return (
     <div className="comments-list" ref={ref}>
-      {posts[indexOfPost].comments &&
+      {!isLoadingComments ? (
+        posts[indexOfPost].comments &&
         posts[indexOfPost].comments.map((comment) => {
           return (
             <div className="comment-card" key={comment._id}>
@@ -46,7 +51,10 @@ function Comments({ post }) {
               <PostOrCommentContent data={comment} />
             </div>
           );
-        })}
+        })
+      ) : (
+        <UserListSkeleton number={1} />
+      )}
     </div>
   );
 }

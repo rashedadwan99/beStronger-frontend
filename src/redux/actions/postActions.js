@@ -25,6 +25,7 @@ import { deleteNotification } from "../../services/notificiationServices";
 export const CREATE_POST = "CREATE_POST";
 export const GET_ALL_POSTS = "GET_ALL_POSTS";
 export const TOGGLE_LOADING_POSTS = "TOGGLE_LOADING_POSTS";
+export const TOGGLE_LOADING_COMMENTS = "TOGGLE_LOADING_COMMENTS";
 export const FETCH_ONLY_ONE_POST = "FETCH_ONLY_ONE_POST";
 export const GET_ONLY_ONE_POST = "GET_ONLY_ONE_POST";
 export const NO_POSTS = "NO_POSTS";
@@ -215,11 +216,15 @@ export const getPostCommentsHandler = (originalPost) => {
   return async (dispatch) => {
     try {
       const { data: comments } = await getPostComments(originalPost._id);
+      dispatch({ type: TOGGLE_LOADING_COMMENTS, payload: true });
       dispatch({
         type: GET_POST_COMMENTS,
         payload: { comments, originalPost },
       });
+      dispatch({ type: TOGGLE_LOADING_COMMENTS, payload: false });
     } catch (error) {
+      dispatch({ type: TOGGLE_LOADING_COMMENTS, payload: false });
+
       Toast("error", error);
     }
   };
@@ -305,8 +310,8 @@ export const getProfilePosts = (userId) => {
     }
   };
 };
-export const resetAllPosts=()=>{
+export const resetAllPosts = () => {
   return {
     type: RESET_ALL_POSTS,
   };
-}
+};

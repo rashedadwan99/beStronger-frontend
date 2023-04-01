@@ -9,7 +9,7 @@
 .notifications-list {
   position: absolute;
   z-index: 1000000000000000;
-  top: 90%;
+  top: 100%;
   right: 5%;
   min-width: 35vw;
   max-height: 70vh;
@@ -100,10 +100,7 @@
   background-color: var(--light-gray);
 }
 
-.notifications-list .time {
-  font-size: 10px;
-  font-weight: var(--font-weight);
-}
+
 
 .notification-message-container.unread-notification .tooltip-list {
   background-color: initial;
@@ -123,12 +120,15 @@
   height: 150px;
   border-radius: 0;
 
+
 }
 
+
 .notification-message-container .three-dots-options .options-list {
-  top: 43%;
+  top: 35%;
   right: 0;
-  width: 60%;
+  /* width: 80%; */
+  width: 80px;
 }
 
 .notification-message-container:hover .tooltip-list {
@@ -146,21 +146,45 @@
   background-color: initial;
 }
 
+
+
 .notification-message-container .three-dots-options .options-list li {
-  padding: 2px;
+  padding: 8px;
+
 }
 
-.notification-message-container span {
-  font-size: 14px;
+
+
+.notification-message-container div:first-child {
+  font-size: 15px;
 }
 
 @media (max-width:992px) {
   .notifications-list {
     width: 65%;
   }
+
+  /* .notification-message-container .three-dots-options .options-list {
+    width: 70%;
+  } */
+}
+
+@media (max-width:768px) {
+  /* .notification-message-container .three-dots-options .options-list {
+    width: 85%;
+  } */
 }
 
 @media (max-width:600px) {
+  .notification-message-container div:first-child {
+    font-size: 13px;
+  }
+
+  .time {
+    font-size: 10px !important;
+    font-weight: var(--font-weight);
+  }
+
   .notifications-list {
     width: 96%;
     right: 2%;
@@ -174,18 +198,27 @@
 
   .notifications-list .publiser-info .three-dots-options {
     flex: 0;
+
   }
 
-  .notification-message-container .three-dots-options .options-list {
-    width: 50px
+  .notifications-list svg {
+    font-size: 15px !important;
   }
+
+  /* .notification-message-container .three-dots-options .options-list {
+    width: 80px
+  } */
 
   .notifications-list .profile-image-container {
     padding: 0;
   }
 
-  .notification-message-container span {
-    font-size: 12px !important;
-  }
 
+
+}
+
+@media (max-width:330px) {
+  .notifications-list .list {
+    padding: 5px 0;
+  }
 }

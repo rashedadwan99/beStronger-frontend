@@ -8,6 +8,13 @@
   box-shadow: var(--box-shadow);
   overflow: hidden !important;
   z-index: 5;
+  right: 0;
+}
+
+.options-list li span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .options-list ul {
@@ -16,6 +23,7 @@
 
   width: 100%;
   margin: 0;
+
 }
 
 .options-list li {
@@ -23,8 +31,7 @@
   border-bottom: 1px solid var(--light-gray);
   font-weight: 300;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+
   font-weight: var(--font-weight);
 }
 

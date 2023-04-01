@@ -1,11 +1,9 @@
 import React from "react";
-import BeStrongerInfo from "./BeStrongerInfo";
-
+import Logo from "./images/bestrongerLogo.png";
 function AuthAboutUs() {
   return (
     <div className="auth-aboutus">
-      <BeStrongerInfo />
-      <div className="aboutus-background" />
+      <img src={Logo} alt="logo" />
     </div>
   );
 }

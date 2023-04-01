@@ -37,17 +37,19 @@ function NameProfileImage({
         />
       </ProfileImage>
       <div className="name-time-message">
-        <span
-          onClick={goToProfile}
-          className="name"
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-        >
-          {publisher.name.length >= 25
-            ? publisher.name.slice(0, 27) + "..."
-            : publisher.name}
+        <div>
+          <span
+            onClick={goToProfile}
+            className="name"
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+          >
+            {publisher.name.length >= 25
+              ? publisher.name.slice(0, 27) + "..."
+              : publisher.name}
+          </span>
           <span style={{ fontWeight: "initial" }}>{message}</span>
-        </span>
+        </div>
         <TimeComponent date={data.createdAt} />
       </div>
     </div>

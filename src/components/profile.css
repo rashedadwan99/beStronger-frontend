@@ -1,6 +1,6 @@
 .profile-page {
   min-width: 100vw;
-  min-height: 88vh;
+  height: 88vh;
   background-color: var(--light-gray);
   padding: 0;
   display: flex;
@@ -18,12 +18,13 @@
 }
 
 .profile-page_posts {
-  width: 45vw;
-
+  width: 50vw;
+  display: flex;
 }
 
 .profile-page_posts .posts-container {
-  width: 80%;
+  height: 100%;
+  width: 100%;
 }
 
 
@@ -50,11 +51,15 @@
 
   .profile-page_posts .posts-container {
     width: 100%;
+
   }
 
 }
 
 @media (max-width:600px) {
+  .profile-page {
+    height: initial;
+  }
 
   .profile-page_card,
   .profile-page_posts {
@@ -82,6 +87,7 @@
   .profile-page .posts-container {
     overflow: initial;
     padding: 5px;
+    height: initial;
   }
 
   .profile-page {

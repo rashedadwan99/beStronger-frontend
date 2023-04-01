@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useRouteMatch } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { AiTwotoneDelete } from "react-icons/ai";
+
 import {
   deleteNotificationByReciverUser,
   readNotificationAction,
@@ -15,14 +17,13 @@ function NotifciationMessage({ notification, targetId }) {
   const posts = useSelector((state) => state.posts.value);
   const dispatch = useDispatch();
   const history = useHistory();
-  const { path } = useRouteMatch();
   const { sender } = notification;
   const singlePostRoute = `${routes["posts-route"]}/${targetId}`;
   const anotherProfileRoute = `${routes["profile-route"]}/${sender._id}`;
   const user = useSelector((state) => state.user.value);
   const goToTarget = () => {
     const isPostTarget = posts.find((p) => p._id === targetId);
-    if (isPostTarget || !user.followersList.includes(targetId)) {
+    if (isPostTarget && !user.followersList.includes(targetId)) {
       history.push(singlePostRoute);
     } else history.push(anotherProfileRoute);
     dispatch(toggleShowNotificationsAction(false));
@@ -31,7 +32,7 @@ function NotifciationMessage({ notification, targetId }) {
   const options = [
     {
       label: "delete",
-      icon: "",
+      icon: <AiTwotoneDelete />,
       onClick: (n) => {
         dispatch(deleteNotificationByReciverUser(n.targetId, n.sender._id));
       },

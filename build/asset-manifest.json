@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2522ba97.css",
+    "main.js": "/static/js/main.5196f205.js",
+    "static/media/bestrongerLogo.png": "/static/media/bestrongerLogo.e80e8c63e12e5d4ae969.png",
+    "static/media/logo.png": "/static/media/logo.515980ba18c22f29b251.png",
+    "static/media/mynotifications.svg": "/static/media/mynotifications.e4a6cf7adc0cd220c7fdc79a2aed6dc5.svg",
+    "static/media/noPosts.svg": "/static/media/noPosts.4ac5b5009ee8f3eccb461a3885f51e2d.svg",
+    "index.html": "/index.html",
+    "main.2522ba97.css.map": "/static/css/main.2522ba97.css.map",
+    "main.5196f205.js.map": "/static/js/main.5196f205.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2522ba97.css",
+    "static/js/main.5196f205.js"
+  ]
+}

@@ -1,6 +1,6 @@
 .posts-container {
-  flex: 1;
-  height: 80vh;
+
+  height: 100%;
   overflow-y: scroll;
   padding: 5px;
   scroll-behavior: smooth;
@@ -102,8 +102,5 @@
     padding: 5px;
   }
 
-  /* 
-  .three-dots-options .options-list li svg {
-    display: none;
-  } */
+
 }

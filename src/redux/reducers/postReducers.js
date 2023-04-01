@@ -13,6 +13,7 @@ import {
   IS_SENDING_POSTS_REQUEST,
   GET_PROFILE_POSTS,
   RESET_ALL_POSTS,
+  TOGGLE_LOADING_COMMENTS,
 } from "../actions/postActions";
 
 const initialState = {
@@ -20,6 +21,7 @@ const initialState = {
   isLoading: false,
   noPosts: false,
   isSendingRequest: false,
+  isLoadingComments: false,
 };
 
 export const postsReducer = (state = initialState, action) => {
@@ -100,12 +102,14 @@ export const postsReducer = (state = initialState, action) => {
       }
       return { ...state, value: posts };
     }
-
+    case TOGGLE_LOADING_COMMENTS: {
+      return { ...state, isLoadingComments: action.payload };
+    }
     case GET_POST_COMMENTS: {
       const posts = [...state.value];
       const index = findPostIndex(posts, action);
       posts[index].comments = action.payload.comments;
-      return { ...state, value: [...posts] };
+      return { ...state, value: [...posts], isLoadingComments: false };
     }
 
     case ADD_COMMENT:

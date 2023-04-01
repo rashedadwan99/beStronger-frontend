@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BsTrash } from "react-icons/bs";
+import { IoMdPhotos } from "react-icons/io";
 import Button from "./common/button";
+import { Toast } from "./common/Toast";
 import RenderInputField from "./common/Forms";
-
 import { addPost, editPostHandler } from "../redux/actions/postActions";
 import "./postform.css";
-import { Toast } from "./common/Toast";
 function PostForm({ isEditForm, post }) {
   const [postContent, setPostContent] = useState("");
   const [picture, setPicture] = useState("");
@@ -87,7 +87,7 @@ function PostForm({ isEditForm, post }) {
                 setData={setPicture}
                 accept={"image/png, image/jpeg, image/jpg"}
               />
-              <Button label="choose a photo" />
+              <Button label={<IoMdPhotos />} />
             </div>
           </div>
           <Button

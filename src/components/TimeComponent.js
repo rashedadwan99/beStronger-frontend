@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { formatTime } from "./utils/timeHandler";
-
+import "./timecomponent.css";
 function TimeComponent({ date }) {
   const [updatedDate, setUpdatedDate] = useState(formatTime(date));
   const interval = useRef();

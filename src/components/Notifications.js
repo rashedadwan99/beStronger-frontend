@@ -76,7 +76,9 @@ function Notifications() {
           className="notification-bell-num"
           onClick={() => handleHideNotifications(!showNotifications)}
         >
-          <IoMdNotifications />
+          <IoMdNotifications
+            style={{ color: showNotifications ? "var(--blue)" : "initial" }}
+          />
           <NotificationNum />
         </span>
       </div>

@@ -13,7 +13,7 @@ function NotificationsContainer() {
       />
       <div className="notifications-list">
         <div className="title">
-          <h3>Notifications</h3>
+          <span>Notifications</span>
         </div>
         <NotificationsList />
       </div>

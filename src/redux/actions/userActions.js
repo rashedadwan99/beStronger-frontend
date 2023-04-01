@@ -90,7 +90,8 @@ export const sendFollowOrUFollowAction = (
   reciverUserId,
   isNotMe,
   unFollow,
-  socket
+  socket,
+  senderUserId
 ) => {
   return async (dispatch) => {
     try {
@@ -110,7 +111,7 @@ export const sendFollowOrUFollowAction = (
           sendNotificationAction(
             ` started following you`,
             reciverUserId,
-            reciverUserId,
+            senderUserId,
             socket
           )
         );

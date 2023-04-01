@@ -6,7 +6,6 @@ function AuthTopSection() {
       <h3 className="computer-view">log in or create your account</h3>
       <div className="mobile-view">
         <img src={Logo} alt="logo" />
-        <span>login or create your account</span>
       </div>
     </div>
   );

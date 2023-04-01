@@ -16,7 +16,10 @@
 
 .auth-aboutus {
   width: 60%;
-
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-items: center;
 
 }
 
@@ -54,9 +57,7 @@
   text-align: center;
 }
 
-.auth-aboutus .animations-section {
-  height: 50%;
-}
+
 
 .auth-container .mobile-view {
   display: none;
@@ -67,23 +68,22 @@
 
 
 .bestonger-info {
+  display: flex;
   flex-direction: column;
-  padding: 30px;
-  align-items: flex-start;
+  padding-top: 30px;
+  align-items: center;
+  justify-content: center;
   font-weight: var(--font-weight);
 }
 
-.bestonger-info p:first-child {
-  font-size: 35px;
+.bestonger-info p {
+  font-size: 25px;
+  width: 100%;
 }
 
-.aboutus-background {
-  background-image: url("../components/images/bestrongerLogo.png");
-  background-position: center;
-  background-size: contain;
-  height: 50%;
-  width: 100%;
-  background-repeat: no-repeat;
+.auth-aboutus img {
+  width: 80%;
+
 }
 
 .mobile-view,
@@ -180,12 +180,24 @@
 
 
 @media (max-width:992px) {
-  .auth-container {
-    width: 50%;
+
+
+
+  .auth-aboutus img {
+    width: 100%;
+
   }
 
   .auth-container h3 {
     font-size: 23px;
+  }
+
+  .auth-aboutus {
+    width: 40%;
+  }
+
+  .auth-container {
+    width: 60%;
   }
 }
 
@@ -196,14 +208,20 @@
     font-size: 13px;
   }
 
+  .auth-container {
+    width: 70%
+  }
+
   .auth-container h3 {
     font-size: 20px;
 
     text-align: center;
   }
 
+
+
   .auth-aboutus {
-    width: 50%
+    display: 30%;
   }
 }
 
@@ -231,7 +249,7 @@
   }
 
   .auth-container .mobile-view {
-    padding-right: 5px;
+    /* padding-right: 5px; */
     font-size: 15px;
     display: flex;
     align-items: center;
@@ -241,8 +259,8 @@
   }
 
   .mobile-view img {
-
-    width: 100px;
+    width: 100%;
+    height: 70px;
   }
 
   .auth-box .tabs a {
@@ -251,5 +269,11 @@
 
   .auth-aboutus {
     display: none;
+  }
+}
+
+@media (min-height:1024px) {
+  .auth-box {
+    height: 40rem;
   }
 }
