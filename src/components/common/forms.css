@@ -28,8 +28,8 @@
 .common-input:focus,
 .common-textarea:focus {
   background-color: var(--light-gray);
-  outline-color: none;
-
+  outline-color: var(--blue);
+  border-radius: 5px;
 }
 
 .eye-icon {
