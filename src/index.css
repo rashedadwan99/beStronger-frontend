@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Estonia&family=Montagu+Slab:wght@500;700&family=Nunito:wght@200&family=Poppins:wght@300&family=Road+Rage&family=Roboto:wght@900&family=Work+Sans:wght@300&display=swap');
 
 :root {
-  --black: black;
+  --black: #000000;
   --light-gray: #e7e5e6;
   --blue: #1a96c0;
   --white: #ffffff;

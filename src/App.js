@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     if (data && data.user) {
       dispatch(userLoggedIn());
-      dispatch(getSocketAction(io("http://localhost:5000")));
+      dispatch(getSocketAction(io("https://bestrong.onrender.com")));
     } else {
       dispatch(userLoggedOut());
     }
