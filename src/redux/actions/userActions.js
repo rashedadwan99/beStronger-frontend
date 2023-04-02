@@ -99,10 +99,10 @@ export const sendFollowOrUFollowAction = (
       let response;
       if (unFollow) {
         response = await sendUnFollowRequest(reciverUserId);
+
         const { data: notification } = await deleteNotification(
           response.data.senderUser._id,
-
-          reciverUserId
+          response.data.senderUser._id
         );
         socket.emit("delete notification", reciverUserId, notification);
       } else {

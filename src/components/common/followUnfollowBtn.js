@@ -33,7 +33,7 @@ function FollowUnfollowBtn({ user }) {
         params.userId,
         followEachOther || followHim,
         socket,
-        currentUser
+        currentUser._id
       )
     );
   };
