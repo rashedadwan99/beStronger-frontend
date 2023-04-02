@@ -159,6 +159,7 @@ export const handleDeletePost = (postId) => {
 };
 
 export const likeAction = (originalPost, socket, senderUser) => {
+  console.log(originalPost._id);
   return async (dispatch) => {
     dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: true });
     try {
