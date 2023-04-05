@@ -28,6 +28,7 @@ function ProfileStatistics() {
       })
     );
   };
+
   return (
     <div className="profile-statistics">
       <div className="top">
@@ -38,6 +39,7 @@ function ProfileStatistics() {
       <div className="bottom">
         <span
           onClick={() =>
+            profileCardUser.followersNum &&
             showFollowingOrFollowersList("Followers List", getFollowersList)
           }
         >
@@ -45,6 +47,7 @@ function ProfileStatistics() {
         </span>
         <span
           onClick={() =>
+            profileCardUser.followingNum &&
             showFollowingOrFollowersList("Following List", getFollowingList)
           }
         >
