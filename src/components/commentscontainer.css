@@ -18,6 +18,10 @@
   padding: 0 15px;
 }
 
+.comments-list .skeleton-user-container {
+  margin: 15px 0;
+}
+
 .comment-creation {
   display: flex;
   align-items: center;
@@ -34,4 +38,11 @@
   width: 95%;
   padding: 7px;
 
+}
+
+@media (max-width:600px) {
+  .comment-creation button {
+    padding: 7px;
+    font-size: 11px;
+  }
 }

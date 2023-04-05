@@ -29,3 +29,10 @@
   width: 100%;
   padding-left: 15px;
 }
+
+@media (max-width:600px) {
+  .search-section .search-input button {
+    padding: 6px;
+    font-size: 11px;
+  }
+}
