@@ -216,8 +216,8 @@ export const disLikeAction = (originalPost, socket, senderUser) => {
 export const getPostCommentsHandler = (originalPost) => {
   return async (dispatch) => {
     try {
-      const { data: comments } = await getPostComments(originalPost._id);
       dispatch({ type: TOGGLE_LOADING_COMMENTS, payload: true });
+      const { data: comments } = await getPostComments(originalPost._id);
       dispatch({
         type: GET_POST_COMMENTS,
         payload: { comments, originalPost },
