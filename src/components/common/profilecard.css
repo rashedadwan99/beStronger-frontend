@@ -82,3 +82,9 @@
     border-radius: var(--circle-border-radius);
   }
 }
+
+@media (max-width:600px) {
+  .profile-page_card .profile-card-skeleton {
+    width: 100%
+  }
+}

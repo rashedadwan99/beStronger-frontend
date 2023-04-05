@@ -7,7 +7,7 @@ import { closeOffCanvas } from "../../redux/actions/offCanvasActions";
 import { closeModal } from "../../redux/actions/modalActions";
 import routes from "../../config/routes.json";
 import "./userlist.css";
-function UsersList({ users }) {
+function UsersList({ users, showEmail }) {
   const history = useHistory();
   const currentUserId = useSelector((state) => state.user.value._id);
   const isCanvasShowed = useSelector((state) => state.canvas.show);
@@ -28,9 +28,13 @@ function UsersList({ users }) {
           <ProfileImage>
             <img src={user.picture} alt={`${user.name}'s picture`} />
           </ProfileImage>
-          <span onClick={() => handleClick(user)}>
-            {currentUserId === user._id ? "you" : user.name}
-          </span>
+          <div className="user-name-email">
+            <span onClick={() => handleClick(user)}>
+              {currentUserId === user._id ? "you" : user.name}
+            </span>
+
+            {showEmail && <span className="user-email">{user.email}</span>}
+          </div>
         </div>
         {user.followingList && user._id !== currentUserId && (
           <FollowUnfollowButton user={user} />
