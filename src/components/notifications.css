@@ -169,15 +169,11 @@
   } */
 }
 
-@media (max-width:768px) {
-  /* .notification-message-container .three-dots-options .options-list {
-    width: 85%;
-  } */
-}
+
 
 @media (max-width:600px) {
   .notification-message-container div:first-child {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .time {
