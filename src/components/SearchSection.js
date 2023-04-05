@@ -49,7 +49,7 @@ function SearchSection() {
       <div className="search-input">
         <RenderInputField
           type="text"
-          placeholder="search for users"
+          placeholder="search by name or email"
           value={searchQuery}
           data={searchQuery}
           setData={setSearchQuery}
