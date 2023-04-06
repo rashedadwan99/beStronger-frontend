@@ -1,7 +1,7 @@
 .canvas {
   position: fixed;
   top: 0;
-  bottom: 0;
+  bottom: -100%;
   left: -100%;
 
   background-color: var(--white);
