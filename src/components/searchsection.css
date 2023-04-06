@@ -24,7 +24,7 @@
   align-items: center;
   padding: 0 10px;
   overflow-y: auto;
-  max-height: 74vh;
+  max-height: 77vh;
 
 }
 
@@ -37,5 +37,9 @@
   .search-section .search-input button {
     padding: 6px;
     font-size: 11px;
+  }
+
+  .search-results {
+    max-height: 79vh;
   }
 }
