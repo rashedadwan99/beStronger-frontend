@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import Communication from "../components/Communication";
 import Profile from "../components/Profile";
 import routes from "../config/routes.json";
-
+import "./homepage.css";
 function HomePage() {
   const user = useSelector((state) => state.user.value);
 
