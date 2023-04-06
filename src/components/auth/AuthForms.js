@@ -5,7 +5,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Tabs from "./Tabs";
 
-function AuthBox() {
+function AuthForms() {
   const tabs = [
     { label: "Login", path: routes["login-route"] },
     { label: "Register", path: routes["register-route"] },
@@ -23,4 +23,4 @@ function AuthBox() {
   );
 }
 
-export default AuthBox;
+export default AuthForms;

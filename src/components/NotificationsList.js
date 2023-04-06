@@ -23,7 +23,6 @@ function NotificationsList() {
       ) : (
         <div className="no-notifications">
           <h6>no notifcations</h6>
-          <img src={noNotifcationsImage} />
         </div>
       )}
     </>

@@ -1,6 +1,6 @@
 import React from "react";
 import AuthTopSection from "../components/auth/AuthTopSection";
-import AuthBox from "../components/auth/AuthBox";
+import AuthForms from "../components/auth/AuthForms";
 import AuthAboutUs from "../components/auth/AuthAboutUs";
 import "./authenticanions.css";
 
@@ -9,7 +9,7 @@ function Authentications() {
     <div className="auth-page">
       <div className="auth-container">
         <AuthTopSection />
-        <AuthBox />
+        <AuthForms />
       </div>
       <AuthAboutUs />
     </div>

@@ -5,6 +5,7 @@ function Tabs({ tabs }) {
   const handleClassName = (tab) => {
     return window.location.pathname === tab.path ? "active-tab" : "default-tab";
   };
+
   return (
     <div className="tabs">
       <ul>
