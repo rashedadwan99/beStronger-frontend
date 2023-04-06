@@ -23,15 +23,17 @@ function UsersList({ users, showEmail }) {
   };
   return users.map((user) => {
     return (
-      <div className="user-container" key={user._id}>
+      <div
+        className="user-container"
+        key={user._id}
+        onClick={() => handleClick(user)}
+      >
         <div className="user-picture-name">
           <ProfileImage>
             <img src={user.picture} alt={`${user.name}'s picture`} />
           </ProfileImage>
           <div className="user-name-email">
-            <span onClick={() => handleClick(user)}>
-              {currentUserId === user._id ? "you" : user.name}
-            </span>
+            <span>{currentUserId === user._id ? "you" : user.name}</span>
 
             {showEmail && <span className="user-email">{user.email}</span>}
           </div>
