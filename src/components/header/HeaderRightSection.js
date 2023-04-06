@@ -1,5 +1,5 @@
 import React from "react";
-import Notifications from "./Notifications";
+import Notifications from ".././Notifications";
 import HeaderHomeIcon from "./HeaderHomeIcon";
 import HeaderProfileToolTip from "./HeaderProfileToolTip";
 function HeaderRightSection() {

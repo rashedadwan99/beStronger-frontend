@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IoMdArrowDropdown } from "react-icons/io";
-import ToolTip from "./common/Tooltip";
-import OutsideAlerter from "./utils/clickOutSideAlert";
-import ProfileImage from "./common/ProfileImage";
-import ProfileToolTipList from "./ProfileToolTipList";
-import { toggleShowNotificationsAction } from "../redux/actions/notificationsActions";
+import ToolTip from ".././common/Tooltip";
+import OutsideAlerter from ".././utils/clickOutSideAlert";
+import ProfileImage from ".././common/ProfileImage";
+import ProfileToolTipList from ".././ProfileToolTipList";
+import { toggleShowNotificationsAction } from "../../redux/actions/notificationsActions";
 
 function HeaderProfileToolTip() {
   const user = useSelector((state) => state.user.value);

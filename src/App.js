@@ -41,7 +41,7 @@ function App() {
           ]}
           render={(props) => {
             if (data && data.user) return <HomePage {...props} />;
-            return <Redirect to={routes["landing-page-route"]} />;
+            return <Redirect to={routes["login-route"]} />;
           }}
           exact
         />

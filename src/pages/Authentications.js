@@ -1,7 +1,7 @@
 import React from "react";
-import AuthTopSection from "../components/AuthTopSection";
-import AuthBox from "../components/AuthBox";
-import AuthAboutUs from "../components/AuthAboutUs";
+import AuthTopSection from "../components/auth/AuthTopSection";
+import AuthBox from "../components/auth/AuthBox";
+import AuthAboutUs from "../components/auth/AuthAboutUs";
 import "./authenticanions.css";
 
 function Authentications() {

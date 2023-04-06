@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import routes from "../config/routes.json";
-import Login from "./auth/Login";
-import Register from "./auth/Register";
-import Tabs from "./auth/Tabs";
+import routes from "../../config/routes.json";
+import Login from "./Login";
+import Register from "./Register";
+import Tabs from "./Tabs";
 
 function AuthBox() {
   const tabs = [
