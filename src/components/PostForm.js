@@ -41,6 +41,7 @@ function PostForm({ isEditForm, post }) {
   };
 
   const handleHowImageName = () => {
+    console.log(URL.createObjectURL(picture));
     return (
       <>
         <img src={URL.createObjectURL(picture)} />
