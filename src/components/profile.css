@@ -22,6 +22,10 @@
   display: flex;
 }
 
+.profile-page_posts .post-skeleton {
+  margin: 0;
+}
+
 .profile-page_posts .post-card:first-child {
   margin-top: 0;
 }
