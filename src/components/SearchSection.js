@@ -63,7 +63,7 @@ function SearchSection() {
       </div>
       <div className="search-results">
         {!isLoading ? (
-          <UserList users={results} showEmail={true} />
+          <UserList users={results} showEmail={true} clickOnContainer={true} />
         ) : (
           <UserListSkeleton number={5} />
         )}

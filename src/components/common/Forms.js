@@ -48,7 +48,7 @@ const RenderInputField = ({
     !showPassword ? setInputType("text") : setInputType("password");
   };
   return (
-    <div className={`input-container ${!label&&"edit-eye-icon"}`}>
+    <div className={`input-container ${!label && "edit-eye-icon"}`}>
       {label && (
         <label htmlFor={name}>
           {label}

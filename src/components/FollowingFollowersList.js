@@ -1,18 +1,22 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
 import { Toast } from "./common/Toast";
 import UsersList from "./common/UsersList";
 import UserListSkeleton from "./skeleton/UserListSkeleton";
 
-function FollowingFollowersList({ users, profileCardUser, service }) {
+function FollowingFollowersList({ profileCardUser,service }) {
   const [isLoading, setIsLoading] = useState(false);
   const [usersList, setUsersList] = useState([]);
+  // const service = useSelector((state) => state.modal.service);
+
   useEffect(() => {
     async function getData() {
       try {
         setIsLoading(true);
+
         const { data: users } = await service(profileCardUser._id);
+
         setIsLoading(false);
         setUsersList([...users]);
       } catch (error) {

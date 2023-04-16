@@ -6,6 +6,7 @@ import { openModal } from "../redux/actions/modalActions";
 import { disLikeAction, likeAction } from "../redux/actions/postActions";
 import CommentsContainer from "./CommentsContainer";
 import PostFans from "./PostFans";
+import { Modal } from "react-bootstrap";
 function LikeAndComment({ post }) {
   const user = useSelector((state) => state.user.value);
   const socket = useSelector((state) => state.socket);
@@ -31,11 +32,11 @@ function LikeAndComment({ post }) {
       openModal({
         title: `${post.publisher.name}'s post`,
         Component: <CommentsContainer post={post} />,
-        className: "comments-modal",
+        className: ".comments-modal",
       })
     );
   };
-  const handleClickLike = async () => {
+  const handleClickLike = () => {
     if (isSendingRequest) return;
 
     if (!posts[indexOfPost].likes.includes(user._id)) {
@@ -45,7 +46,7 @@ function LikeAndComment({ post }) {
     }
   };
 
-  const handleShowPostFans = async (post) => {
+  const handleShowPostFans = (post) => {
     if (!post.numOfLikes) return;
     dispatch(
       openModal({
@@ -55,43 +56,51 @@ function LikeAndComment({ post }) {
     );
   };
   return (
-    <div className="like-and-comment">
-      {postStatistics.map((postStatistic, index) => {
-        return (
-          <div
-            className={`post-statistic ${
-              posts[indexOfPost].likes.includes(user._id) && "is-liked"
-            }`}
-            key={index}
-          >
-            <p
-              onClick={() =>
-                postStatistic.label === "like"
-                  ? handleClickLike()
-                  : handleClickComment()
-              }
-              className={postStatistic.label}
+    <>
+      <div className="like-and-comment">
+        {postStatistics.map((postStatistic, index) => {
+          return (
+            <div
+              className={`post-statistic ${
+                posts[indexOfPost].likes.includes(user._id) && "is-liked"
+              }`}
+              key={index}
             >
-              {postStatistic.icon}
-            </p>
-            <p
-              onClick={
-                postStatistic.label === "like"
-                  ? () => handleShowPostFans(post)
-                  : () => handleClickComment()
-              }
-              className={
-                postStatistic.label === "like" && post.numOfLikes
-                  ? "num-of-likes"
-                  : ""
-              }
-            >
-              {postStatistic.label === "like" && postStatistic.number}
-            </p>
-          </div>
-        );
-      })}
-    </div>
+              <p
+                onClick={() =>
+                  postStatistic.label === "like"
+                    ? handleClickLike()
+                    : handleClickComment()
+                }
+                className={postStatistic.label}
+              >
+                {postStatistic.icon}
+              </p>
+              <p
+                onClick={
+                  postStatistic.label === "like"
+                    ? () => handleShowPostFans(post)
+                    : () => handleClickComment()
+                }
+                className={
+                  postStatistic.label === "like" && post.numOfLikes
+                    ? "num-of-likes"
+                    : ""
+                }
+              >
+                {postStatistic.label === "like" && postStatistic.number}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+      {/* <Modal>
+        <PostFans postId={post._id} />
+      </Modal>
+      <Modal>
+        <CommentsContainer post={post} />
+      </Modal> */}
+    </>
   );
 }
 

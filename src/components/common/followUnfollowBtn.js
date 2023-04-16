@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { sendFollowOrUFollowAction } from "../../redux/actions/userActions";
 import Button from "./button";
 import "./followunfollowbtn.css";
-function FollowUnfollowBtn({ user }) {
+function FollowUnfollowBtn({ user, isUserListButton }) {
   const socket = useSelector((state) => state.socket);
   const currentUser = useSelector((state) => state.user.value);
   const isSendingRequest = useSelector((state) => state.user.isSendingRequest);
   const [disabledButton, setDisabledButton] = useState([]);
-  const { params } = useRouteMatch();
+  const match = useRouteMatch();
   const dispatch = useDispatch();
   const followEachOther =
     currentUser.followersList.includes(user._id) &&
@@ -25,15 +25,16 @@ function FollowUnfollowBtn({ user }) {
   /** */
   const isBlocked =
     currentUser.blockList && currentUser.blockList.includes(user._id);
-
   const handleClickFollowUnFollow = () => {
     dispatch(
       sendFollowOrUFollowAction(
         user._id,
-        params.userId,
+        match.params.userId === user._id ||
+          (match.path === "/profile/:userId" && !isUserListButton),
         followEachOther || followHim,
         socket,
-        currentUser._id
+        currentUser._id,
+        match.path === "/profile/:userId" && isUserListButton
       )
     );
   };

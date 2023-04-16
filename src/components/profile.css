@@ -13,7 +13,7 @@
 
 .profile-page_card {
   width: 35vw;
-  /* padding: 5px; */
+
 
 }
 
@@ -22,13 +22,17 @@
   display: flex;
 }
 
+.profile-page_posts .post-card:first-child {
+  margin-top: 0;
+}
+
 .profile-page_posts .posts-container {
   height: 100%;
   width: 100%;
 }
 
 
-.profile-page button {
+.profile-page .profile-card-bottom button {
   margin-bottom: 5px;
 }
 
@@ -68,6 +72,10 @@
     justify-content: center;
   }
 
+  .profile-page_posts .post-card:first-child {
+    margin-top: 10px;
+  }
+
   .profile-page_card {
     padding: 5px;
   }
@@ -84,7 +92,7 @@
     align-items: center;
   }
 
-  .profile-page button {
+  .profile-page .profile-card-bottom button {
     margin-bottom: 0;
     margin-top: 10px;
   }

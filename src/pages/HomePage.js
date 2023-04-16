@@ -6,8 +6,11 @@ import Communication from "../components/Communication";
 import Profile from "../components/Profile";
 import routes from "../config/routes.json";
 import "./homepage.css";
+import Modal from "../components/common/Modal";
+
 function HomePage() {
   const user = useSelector((state) => state.user.value);
+  const modalChild = useSelector((state) => state.modal.Component);
 
   if (user._id) {
     return (
@@ -26,6 +29,7 @@ function HomePage() {
           />
           <Redirect to={routes["posts-route"]} />
         </Switch>
+        <Modal>{modalChild}</Modal>
       </div>
     );
   }

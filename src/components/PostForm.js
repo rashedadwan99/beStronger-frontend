@@ -11,7 +11,7 @@ function PostForm({ isEditForm, post }) {
   const [postContent, setPostContent] = useState("");
   const [picture, setPicture] = useState("");
   const isSendingRequest = useSelector((state) => state.posts.isSendingRequest);
-
+  const substring = "https://";
   useEffect(() => {
     if (isEditForm) {
       setPostContent(post.content);
@@ -32,8 +32,8 @@ function PostForm({ isEditForm, post }) {
     const contentPattern = "^[a-zA-Z0-9]+|[\u0621-\u064A]+";
     const regex = new RegExp(contentPattern);
     const isValidContent = regex.test(postContent);
-    if (!isValidContent) {
-      Toast("info", "write at least one character");
+    if (!isValidContent && !picture) {
+      Toast("info", "write at least one character or upload a photo");
       return;
     }
 
@@ -41,14 +41,11 @@ function PostForm({ isEditForm, post }) {
   };
 
   const handleHowImageName = () => {
-    return !isEditForm && picture.name ? (
-      <p>
-        {picture.name.length <= 15
-          ? picture.name
-          : picture.name.slice(0, 15) + "..."}
-      </p>
-    ) : (
-      <p>{picture.name}</p>
+    return (
+      <>
+        <img src={URL.createObjectURL(picture)} />
+        <BsTrash onClick={() => setPicture("")} />
+      </>
     );
   };
 
@@ -77,8 +74,13 @@ function PostForm({ isEditForm, post }) {
           value={postContent}
           postPicture={picture}
         />
+        {isEditForm && handleShowImageElement()}
+        {picture && !isEditForm && (
+          <div className="picture-name-container">{handleHowImageName()}</div>
+        )}
+
         <div className="post-form-footer">
-          <div className="post-form-footer-left-section">
+          <div className="post-form-footer-right-section">
             <div className="upload-photo">
               <RenderInputField
                 type="file"
@@ -89,16 +91,14 @@ function PostForm({ isEditForm, post }) {
               />
               <Button label={<IoMdPhotos />} />
             </div>
+            <Button
+              label="Post"
+              onClick={handleClickPost}
+              isLoading={isSendingRequest}
+              disabled={isSendingRequest}
+            />
           </div>
-          <Button
-            label="Post"
-            onClick={handleClickPost}
-            isLoading={isSendingRequest}
-            disabled={isSendingRequest}
-          />
         </div>
-        {isEditForm && handleShowImageElement()}
-        <div className="picture-name-container">{handleHowImageName()}</div>
       </form>
     </div>
   );

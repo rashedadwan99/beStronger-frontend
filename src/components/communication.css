@@ -181,7 +181,7 @@
     width: 95%;
   }
 
-  .right-communication-section .profile-card img {
+  .right-communication-section .profile-card #profile-card-img {
     height: 130px;
     width: 130px;
   }

@@ -10,7 +10,8 @@
   flex-direction: column-reverse;
   max-height: 90%;
   overflow-y: scroll;
-  /* padding: 7px 30px; */
+  padding-bottom: 18px;
+
 }
 
 .comments-list {
@@ -28,7 +29,7 @@
   justify-content: space-between;
   width: 100%;
   position: absolute;
-  bottom: -13px;
+  bottom: -1px;
   padding: 0 15px;
 
 }

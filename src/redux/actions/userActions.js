@@ -91,7 +91,8 @@ export const sendFollowOrUFollowAction = (
   isNotMe,
   unFollow,
   socket,
-  senderUserId
+  senderUserId,
+  OpenTheFollowersOrFollowingModal
 ) => {
   return async (dispatch) => {
     try {
@@ -118,12 +119,14 @@ export const sendFollowOrUFollowAction = (
       }
       const { data } = response;
       dispatch({ type: UPDATE_USER_DATA, payload: data.senderUser });
+
       if (isNotMe) {
         dispatch({
           type: UPDATE_PROFILE_DATA,
           payload: data.reciverUser,
         });
-      } else dispatch({ type: UPDATE_PROFILE_DATA, payload: data.senderUser });
+      } else if (!OpenTheFollowersOrFollowingModal)
+        dispatch({ type: UPDATE_PROFILE_DATA, payload: data.senderUser });
 
       updateUserInLocalStorage(data.senderUser);
     } catch (error) {

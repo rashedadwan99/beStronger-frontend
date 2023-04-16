@@ -13,6 +13,7 @@ function ProfileCardTop() {
             <img
               src={profileCardUser.picture}
               alt={`${profileCardUser.name}'s picture`}
+              id="profile-card-img"
             />
           </ProfileImage>
         )}

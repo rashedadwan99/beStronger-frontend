@@ -28,6 +28,8 @@
 
 .followers-following-list {
   padding: 10px;
+  max-height: 50vh;
+  overflow: auto
 }
 
 .profile-statistics .top span {

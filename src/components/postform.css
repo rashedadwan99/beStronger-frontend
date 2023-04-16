@@ -4,7 +4,18 @@
 }
 
 .post-form-container textarea {
-  height: 17em;
+  height: 10em;
+}
+
+.picture-name-container {
+  display: flex;
+  align-items: center;
+}
+
+.picture-name-container svg {
+  color: var(--blue) !important;
+  margin-left: 3px;
+  cursor: pointer;
 }
 
 .post-form-footer {
@@ -21,9 +32,10 @@
 
 
 
-.post-form-footer-left-section {
+.post-form-footer-right-section {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   margin-right: 5px;
 
 }
@@ -52,6 +64,7 @@
 .upload-photo {
   position: relative;
   overflow: hidden;
+  margin-right: 5px;
 }
 
 .upload-photo .common-input {
@@ -73,10 +86,17 @@
   font-size: 20px;
   margin-left: 5px;
   transform: scale(1.1);
+  color: var(--blue);
 }
 
 .image-delete-icon svg:hover {
   color: var(--blue);
   font-weight: var(--font-weight);
   cursor: pointer;
+}
+
+@media (max-width:600px) {
+  .post-form-image-container img {
+    width: 100px;
+  }
 }

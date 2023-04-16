@@ -7,7 +7,7 @@ import { closeOffCanvas } from "../../redux/actions/offCanvasActions";
 import { closeModal } from "../../redux/actions/modalActions";
 import routes from "../../config/routes.json";
 import "./userlist.css";
-function UsersList({ users, showEmail }) {
+function UsersList({ users, showEmail, clickOnContainer }) {
   const history = useHistory();
   const currentUserId = useSelector((state) => state.user.value._id);
   const isCanvasShowed = useSelector((state) => state.canvas.show);
@@ -21,14 +21,18 @@ function UsersList({ users, showEmail }) {
     if (currentUserId !== user._id) history.push(anotherProfileRoute);
     else history.push(myProfileRoute);
   };
+
   return users.map((user) => {
     return (
       <div
         className="user-container"
         key={user._id}
-        onClick={() => handleClick(user)}
+        onClick={() => clickOnContainer && handleClick(user)}
       >
-        <div className="user-picture-name">
+        <div
+          className="user-picture-name"
+          onClick={() => !clickOnContainer && handleClick(user)}
+        >
           <ProfileImage>
             <img src={user.picture} alt={`${user.name}'s picture`} />
           </ProfileImage>
@@ -38,8 +42,9 @@ function UsersList({ users, showEmail }) {
             {showEmail && <span className="user-email">{user.email}</span>}
           </div>
         </div>
+
         {user.followingList && user._id !== currentUserId && (
-          <FollowUnfollowButton user={user} />
+          <FollowUnfollowButton user={user} isUserListButton={true} />
         )}
       </div>
     );

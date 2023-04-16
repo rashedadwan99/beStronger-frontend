@@ -8,8 +8,8 @@ export const modalReducer = (state = initialState, action) => {
       return {
         ...state,
         show: true,
-        Component: action.payload.Component,
         title: action.payload.title,
+        Component: action.payload.Component,
         className: action.payload.className,
       };
     }
@@ -17,7 +17,7 @@ export const modalReducer = (state = initialState, action) => {
       return {
         ...state,
         show: false,
-
+        Component: "",
         title: "",
       };
     }

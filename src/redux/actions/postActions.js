@@ -159,7 +159,6 @@ export const handleDeletePost = (postId) => {
 };
 
 export const likeAction = (originalPost, socket, senderUser) => {
-  console.log(originalPost._id);
   return async (dispatch) => {
     dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: true });
     try {
@@ -300,6 +299,7 @@ export const getPostFansAction = (post) => {
 export const getProfilePosts = (userId) => {
   return async (dispatch) => {
     try {
+      dispatch({ type: RESET_ALL_POSTS });
       dispatch({ type: TOGGLE_LOADING_POSTS });
       dispatch({ type: NO_POSTS, payload: false });
       const { data: posts } = await getUserPosts(userId);

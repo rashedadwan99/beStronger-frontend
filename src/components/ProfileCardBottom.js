@@ -7,15 +7,17 @@ import FollowUnfollowBtn from "./common/followUnfollowBtn";
 import ProfileForm from "./ProfileForm";
 import routes from "../config/routes.json";
 function ProfileCardBottom() {
+  const user = useSelector((state) => state.user.value);
   const { location } = useHistory();
-  const { path } = useRouteMatch();
+  const { path, params } = useRouteMatch();
   const dispatch = useDispatch();
   const profileCardUser = useSelector((state) => state.profileCardUser.value);
   const isPostPage =
     location.pathname === routes["posts-route"] ||
     path === routes["single-post-route"];
 
-  const isAnotherProfilePage = path === routes["another-profile-route"];
+  const isAnotherProfilePage =
+    path === routes["another-profile-route"] || params.userId === user._id;
 
   const isMyProfile = location.pathname === routes["profile-route"];
 

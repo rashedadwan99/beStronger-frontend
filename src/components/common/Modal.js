@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { closeModal } from "../../redux/actions/modalActions";
 import ModalCanvasHeader from "./ModalCanvasHeader";
 import "./modal.css";
-function Modal() {
+function Modal({ children }) {
   const modal = useSelector((state) => state.modal);
   const dispatch = useDispatch();
   const handleClickClose = () => {
@@ -22,7 +22,7 @@ function Modal() {
             title={modal.title}
             handleClickClose={handleClickClose}
           />
-          <div className="modal-body">{modal.Component}</div>
+          <div className="modal-body">{children}</div>
         </div>
       </>
     )

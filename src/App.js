@@ -6,12 +6,13 @@ import { io } from "socket.io-client";
 import Authentications from "./pages/Authentications";
 import { userLoggedIn, userLoggedOut } from "./redux/actions/userActions";
 import HomePage from "./pages/HomePage";
-import Canvas from "./components/common/Canvas";
-import Modal from "./components/common/Modal";
+
 import NotFound from "./pages/NotFound";
 import { getSocketAction } from "./redux/actions/socketAction";
 import LandingPage from "./pages/LandingPage";
 import routes from "./config/routes.json";
+import Modal from "./components/common/Modal";
+import Canvas from "./components/common/Canvas";
 function App() {
   const dispatch = useDispatch();
   const data = JSON.parse(localStorage.getItem("user"));
@@ -26,7 +27,7 @@ function App() {
       dispatch(userLoggedOut());
     }
   }, [appDependency]);
-
+  const modalChild = useSelector((state) => state.modal.Component);
   return (
     <>
       <ToastContainer />
@@ -64,7 +65,6 @@ function App() {
         <Redirect to={routes["notfound-route"]} />
       </Switch>
       <Canvas />
-      <Modal />
     </>
   );
 }
