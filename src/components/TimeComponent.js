@@ -10,7 +10,7 @@ function TimeComponent({ date }) {
   useEffect(() => {
     interval.current = setInterval(() => {
       setUpdatedDate(formatTime(date));
-    }, [1000]);
+    }, [10000]);
     return () => clearInterval(interval.current);
   });
   return <span className="time">{updatedDate}</span>;

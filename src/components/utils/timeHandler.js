@@ -16,6 +16,7 @@ export const formatTime = (time) => {
     const daysDifference = today - dayOfCreation;
     const hoursDifference = hour - hourOfCreation;
     const minutesDifference = minute - minuteOfCreation;
+    console.log(hoursDifference);
     if (!daysDifference) {
       if (hoursDifference >= 1) {
         return `${hoursDifference} hour${hoursDifference !== 1 ? `s` : ""} ago`;

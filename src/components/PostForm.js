@@ -31,7 +31,11 @@ function PostForm({ isEditForm, post }) {
     const contentPattern = "^[a-zA-Z0-9]+|[\u0621-\u064A]+";
     const regex = new RegExp(contentPattern);
     const isValidContent = regex.test(postContent);
-    if (!isValidContent || !picture) {
+    if (picture) {
+      togglePostFormFunctions();
+
+      return;
+    } else if (!isValidContent) {
       Toast("info", "write at least one character or upload a photo");
       return;
     }
