@@ -41,7 +41,6 @@ function PostForm({ isEditForm, post }) {
   };
 
   const handleHowImageName = () => {
-    console.log(URL.createObjectURL(picture));
     return (
       <>
         <img src={URL.createObjectURL(picture)} />
@@ -75,9 +74,16 @@ function PostForm({ isEditForm, post }) {
           value={postContent}
           postPicture={picture}
         />
-        {isEditForm && handleShowImageElement()}
-        {picture && !isEditForm && (
-          <div className="picture-name-container">{handleHowImageName()}</div>
+
+        {picture && (
+          <div className="picture-name-container">
+            <div className="image-delete-icon">
+              <img
+                src={picture.type ? URL.createObjectURL(picture) : picture}
+              />
+              <BsTrash onClick={() => setPicture("")} />
+            </div>
+          </div>
         )}
 
         <div className="post-form-footer">
