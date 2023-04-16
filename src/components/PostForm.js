@@ -11,7 +11,6 @@ function PostForm({ isEditForm, post }) {
   const [postContent, setPostContent] = useState("");
   const [picture, setPicture] = useState("");
   const isSendingRequest = useSelector((state) => state.posts.isSendingRequest);
-  const substring = "https://";
   useEffect(() => {
     if (isEditForm) {
       setPostContent(post.content);
@@ -32,35 +31,12 @@ function PostForm({ isEditForm, post }) {
     const contentPattern = "^[a-zA-Z0-9]+|[\u0621-\u064A]+";
     const regex = new RegExp(contentPattern);
     const isValidContent = regex.test(postContent);
-    if (!isValidContent && !picture) {
+    if (!isValidContent || !picture) {
       Toast("info", "write at least one character or upload a photo");
       return;
     }
 
     togglePostFormFunctions();
-  };
-
-  const handleHowImageName = () => {
-    return (
-      <>
-        <img src={URL.createObjectURL(picture)} />
-        <BsTrash onClick={() => setPicture("")} />
-      </>
-    );
-  };
-
-  const handleShowImageElement = () => {
-    return (
-      typeof picture === "string" &&
-      picture.length > 0 && (
-        <div className="post-form-image-container">
-          <div className="image-delete-icon">
-            <img src={picture} alt="post photo" />
-            <BsTrash onClick={() => setPicture("")} />
-          </div>
-        </div>
-      )
-    );
   };
 
   return (
