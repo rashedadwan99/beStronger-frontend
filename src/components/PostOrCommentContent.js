@@ -25,7 +25,11 @@ function PostOrCommentContent({ data }) {
   return (
     <div className="post-or-comment-content">
       <p>{organizeContent()}</p>
-      {data.picture && <img src={data.picture} alt="picture" />}
+      {data.picture && (
+        <div className="post-image">
+          <img src={data.picture} alt="picture" />
+        </div>
+      )}
     </div>
   );
 }

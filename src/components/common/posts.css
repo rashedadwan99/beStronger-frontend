@@ -27,7 +27,6 @@
   white-space: pre-wrap;
   word-wrap: break-word;
 
-
 }
 
 .post-or-comment-content p {
@@ -36,9 +35,16 @@
   padding-bottom: 0px;
 }
 
-.post-or-comment-content img {
+.post-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  max-height: 23em;
+}
+
+.post-image img {
+  width: 100%;
+  height: 100%;
 }
 
 .like-and-comment {
