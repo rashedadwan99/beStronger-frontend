@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ClickAbleImage from "./common/ClickAbleImage";
 
 function PostOrCommentContent({ data }) {
   const [showSeeMore, setShowMore] = useState(false);
@@ -27,7 +28,7 @@ function PostOrCommentContent({ data }) {
       <p>{organizeContent()}</p>
       {data.picture && (
         <div className="post-image">
-          <img src={data.picture} alt="picture" />
+          <ClickAbleImage src={data.picture} alt="post media" />
         </div>
       )}
     </div>

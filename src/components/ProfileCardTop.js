@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import ClickAbleImage from "./common/ClickAbleImage";
 import ProfileImage from "./common/ProfileImage";
 
 function ProfileCardTop() {
@@ -10,7 +11,7 @@ function ProfileCardTop() {
       <div className="profile-image-name">
         {profileCardUser.picture && (
           <ProfileImage>
-            <img
+            <ClickAbleImage
               src={profileCardUser.picture}
               alt={`${profileCardUser.name}'s picture`}
               id="profile-card-img"

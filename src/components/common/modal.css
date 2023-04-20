@@ -1,6 +1,6 @@
 .modal-container {
   position: fixed;
-  top: 15%;
+  top: 10%;
   /* bottom: 15%; */
   right: 30%;
   left: 30%;
@@ -13,12 +13,13 @@
 
 .modal-background {
   position: fixed;
+  background-color: var(--light-gray);
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
   background-color: var(--black);
-  opacity: 0.1;
+  opacity: 0.8;
   width: 100vw;
   height: 100vh;
   z-index: 50000;
