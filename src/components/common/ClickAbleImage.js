@@ -12,6 +12,7 @@ function ClickAbleImage({ src, alt, id }) {
       openModal({
         title: alt,
         Component: <ShowImageInModal src={src} alt={alt} />,
+        className: "post-image-modal",
       })
     );
   };

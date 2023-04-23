@@ -11,6 +11,11 @@
   overflow: hidden;
 }
 
+.post-image-modal {
+  top: 2%;
+
+}
+
 .modal-background {
   position: fixed;
   background-color: var(--light-gray);
