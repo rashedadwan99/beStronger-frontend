@@ -125,9 +125,8 @@
 
 
 .notification-message-container .three-dots-options .options-list {
-  top: 35%;
+  top: 26%;
   right: 0;
-  /* width: 80%; */
   width: 80px;
 }
 
@@ -164,9 +163,7 @@
     width: 65%;
   }
 
-  /* .notification-message-container .three-dots-options .options-list {
-    width: 70%;
-  } */
+
 }
 
 
@@ -201,9 +198,7 @@
     font-size: 15px !important;
   }
 
-  /* .notification-message-container .three-dots-options .options-list {
-    width: 80px
-  } */
+
 
   .notifications-list .profile-image-container {
     padding: 0;

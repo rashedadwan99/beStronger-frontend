@@ -1,6 +1,6 @@
 .modal-image-container {
   width: 100%;
-  height: 34em;
+  max-height: 34em;
   display: flex;
   justify-content: center;
 }
@@ -8,11 +8,4 @@
 .modal-image-container img {
   width: 100%;
 
-}
-
-@media (max-width:600px) {
-  .modal-image-container {
-    height: 30em;
-
-  }
 }

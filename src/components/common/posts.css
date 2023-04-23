@@ -99,14 +99,16 @@
   font-weight: var(--font-weight);
 }
 
+.three-dots-options .options-list li {
+  padding: 12px;
+}
+
 @media (max-width:768px) {
   .three-dots-options .options-list {
     width: 112%;
   }
 
-  .three-dots-options .options-list li {
-    padding: 5px;
-  }
+
 
 
 }
