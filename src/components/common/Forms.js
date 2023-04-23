@@ -5,6 +5,7 @@ import EyeFormIcon from "../EyeFormIcon";
 import bcrypt from "bcryptjs-react";
 
 import "./forms.css";
+import { Toast } from "./Toast";
 const RenderInputField = ({
   data,
   setData,
@@ -27,13 +28,19 @@ const RenderInputField = ({
     }
   }, []);
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
+    const file = e.target.files[0];
     if (type === "file") {
-      if (e.target.files[0] === undefined) {
+      if (file === undefined) {
         setData("");
         return;
       }
-      setData(e.target.files[0]);
+      if (file.size <= 1028) {
+        Toast("error", "the image is too small, please select another image");
+        return;
+      }
+      setData(file);
+
       return;
     }
     let { name, value } = e.target;
