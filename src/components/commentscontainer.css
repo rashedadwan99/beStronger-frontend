@@ -1,6 +1,7 @@
 .comments-container {
 
-  height: 23em;
+  height: 30em;
+  padding-bottom: 10px;
   position: relative;
 
 }
