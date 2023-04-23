@@ -1,11 +1,13 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "../../redux/actions/modalActions";
 import ShowImageInModal from "../ShowImageInModal";
 
 function ClickAbleImage({ src, alt, id }) {
+  const showNotifications = useSelector((state) => state.notifications.show);
   const dispatch = useDispatch();
   const openImageModal = () => {
+    if (showNotifications) return;
     dispatch(
       openModal({
         title: alt,
