@@ -29,8 +29,8 @@ const RenderInputField = ({
   }, []);
 
   const handleChange = async (e) => {
-    const file = e.target.files[0];
     if (type === "file") {
+      const file = e.target.files[0];
       if (file === undefined) {
         setData("");
         return;
