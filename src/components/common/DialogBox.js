@@ -33,7 +33,6 @@ function DialogBox({ state, content, handleConfirmBtn }) {
         />
         <ButtonsGroup
           label="confirm"
-          variant="success"
           onClick={handleConfirmBtn}
           isLoading={isSendingPostRequest}
           disabled={isSendingPostRequest}

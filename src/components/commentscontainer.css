@@ -15,6 +15,10 @@
 
 }
 
+.scrollable-comments::-webkit-scrollbar {
+  display: none;
+}
+
 .comments-list {
   max-height: 95%;
   padding: 0 15px;
