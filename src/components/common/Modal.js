@@ -18,10 +18,12 @@ function Modal({ children }) {
             modal.className ? ` ${modal.className}` : ""
           }`}
         >
-          <ModalCanvasHeader
-            title={modal.title}
-            handleClickClose={handleClickClose}
-          />
+          {modal.title && (
+            <ModalCanvasHeader
+              title={modal.title}
+              handleClickClose={handleClickClose}
+            />
+          )}
           <div className="modal-body">{children}</div>
         </div>
       </>

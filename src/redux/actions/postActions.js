@@ -146,11 +146,18 @@ export const editPostHandler = (originalPost, { postContent, picture }) => {
 export const handleDeletePost = (postId) => {
   return async (dispatch) => {
     try {
+      dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: true });
       const { data: post } = await deletePost(postId);
       dispatch({ type: DELETE_POST, payload: { post } });
+
       dispatch(deleteNotificationByTargetId(post._id));
+      dispatch({ type: CLOSE_MODAL });
+
       Toast("info", "the post was deleted successfully!");
+      dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
     } catch (error) {
+      dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
+
       const backToOriginalPosts = true;
       dispatch({ type: DELETE_POST, payload: { backToOriginalPosts } });
       Toast("error", error);

@@ -6,6 +6,10 @@
   scroll-behavior: smooth;
 }
 
+.posts-container::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
 
 .post-card,
 .comment-card {
@@ -101,6 +105,12 @@
 
 .three-dots-options .options-list li {
   padding: 12px;
+}
+
+@media (max-width:992px) {
+  .three-dots-options .options-list {
+    width: 80%;
+  }
 }
 
 @media (max-width:768px) {

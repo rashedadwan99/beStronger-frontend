@@ -9,6 +9,7 @@
   --circle-border-radius: 100%;
   --font-weight: bold;
   --box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  --warining: #dc3545;
 }
 
 body {
@@ -27,9 +28,53 @@ body {
     "footer";
 }
 
-*::-webkit-scrollbar {
-  display: none;
+body::-webkit-scrollbar {
   width: 0;
+}
+
+*::-webkit-scrollbar {
+
+  display: block;
+  height: 100%;
+  position: relative;
+
+  width: 3px;
+
+}
+
+*::-webkit-scrollbar-thumb {
+  color: var(--black);
+  background-color: var(--black);
+  height: 5px;
+}
+
+
+
+
+.custom-scrollbars__track-and-thumb {
+  display: block;
+  height: 100%;
+  /* must have some height */
+  position: relative;
+  width: 16px;
+  /* must have some width */
+}
+
+/* The track is meant to fill the space it's given, so top and bottom are set to 0. */
+.custom-scrollbars__track {
+  bottom: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  width: 16px;
+  /* must have some width */
+}
+
+/* No top or bottom set for the thumb. That will be controlled by JavaScript. */
+.custom-scrollbars__thumb {
+  position: absolute;
+  width: 16px;
+  /* must have some width */
 }
 
 .Toastify__toast-container {
@@ -37,10 +82,10 @@ body {
 }
 
 
-button {
+/* button {
   background-color: var(--blue) !important;
   border-color: var(--blue) !important;
-}
+} */
 
 @media (max-width:330px) {
   *>div {

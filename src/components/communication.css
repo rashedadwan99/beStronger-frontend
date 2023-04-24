@@ -108,6 +108,10 @@
   padding-right: 0.5%;
 }
 
+.right-communication-section::-webkit-scrollbar {
+  display: none;
+}
+
 .right-communication-section .profile-card {
   display: none;
 

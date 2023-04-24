@@ -8,7 +8,7 @@ import UserNameAndImage from "./common/UserNameAndImage";
 import LikeAndComment from "./LikeAndComment";
 import PostForm from "./PostForm";
 import PostOrCommentContent from "./PostOrCommentContent";
-
+import DialogBox from "./common/DialogBox";
 function PostsCard() {
   const posts = useSelector((state) => state.posts.value);
   const user = useSelector((state) => state.user.value);
@@ -16,11 +16,28 @@ function PostsCard() {
   const deletePostHandler = (postId) => {
     dispatch(handleDeletePost(postId));
   };
+  const handleOpenDeleteDialogBox = (post, handleConfirmBtn) => {
+    dispatch(
+      openModal({
+        title: null,
+        className: "delete-modal",
+        Component: (
+          <DialogBox
+            state="warning"
+            content="are you sure ?"
+            handleConfirmBtn={() => {
+              deletePostHandler(post._id);
+            }}
+          />
+        ),
+      })
+    );
+  };
   const postOptions = [
     {
       label: "delete",
       icon: <AiTwotoneDelete />,
-      onClick: (post) => deletePostHandler(post._id),
+      onClick: (post) => handleOpenDeleteDialogBox(post),
     },
     {
       label: "edit",

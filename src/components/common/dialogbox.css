@@ -1,0 +1,40 @@
+.dialog-container {
+  height: 18em;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: center;
+  padding: 10px;
+  position: relative;
+
+}
+
+.dialog-header {
+  position: absolute;
+  top: -60px;
+  background-color: var(--white);
+  border-radius: 100%;
+  z-index: 200000;
+  padding: 20px;
+}
+
+
+.dialog-header svg {
+  font-size: 100px;
+}
+
+.dialog-body {
+  font-weight: bold;
+  position: absolute;
+  top: 33%
+}
+
+.dialog-footer {
+  position: absolute;
+  top: 50%;
+}
+
+.dialog-footer button:first-child {
+  margin: 0 5px;
+
+}
