@@ -1,4 +1,4 @@
- .un-follow-btn-style {
+ button.un-follow-btn-style {
    background-color: var(--white) !important;
    color: var(--black) !important;
    border: 1px solid var(--blue) !important;

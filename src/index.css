@@ -86,6 +86,7 @@ body::-webkit-scrollbar {
 .btn-primary {
   background-color: var(--blue) !important;
   border-color: var(--blue) !important;
+  color: var(--white) !important
 }
 
 @media (max-width:330px) {
