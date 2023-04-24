@@ -1,5 +1,6 @@
 import React from "react";
 import { AiFillWarning } from "react-icons/ai";
+import { MdOutlineDone } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal } from "../../redux/actions/modalActions";
 import ButtonsGroup from "./button";
@@ -15,6 +16,8 @@ function DialogBox({ state, content, handleConfirmBtn }) {
   const handleIcon = () => {
     if (state === "warning")
       return <AiFillWarning style={{ color: "var(--warining)" }} />;
+    else if (state === "success");
+    return <MdOutlineDone style={{ color: "var(--success)" }} />;
   };
   return (
     <div className="dialog-container">
@@ -30,6 +33,7 @@ function DialogBox({ state, content, handleConfirmBtn }) {
         />
         <ButtonsGroup
           label="confirm"
+          variant="success"
           onClick={handleConfirmBtn}
           isLoading={isSendingPostRequest}
           disabled={isSendingPostRequest}

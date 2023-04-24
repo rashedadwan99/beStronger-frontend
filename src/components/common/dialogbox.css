@@ -1,8 +1,7 @@
 .dialog-container {
-  height: 18em;
+  height: 12em;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   align-items: center;
   padding: 10px;
   position: relative;
@@ -16,22 +15,38 @@
   border-radius: 100%;
   z-index: 200000;
   padding: 20px;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
 .dialog-header svg {
-  font-size: 100px;
+  /* font-size: 100px; */
+  animation: icon-animation 0.4s ease-in 0s alternate forwards;
+}
+
+@keyframes icon-animation {
+  0% {
+    font-size: 0px;
+  }
+
+  100% {
+    font-size: 100px;
+  }
 }
 
 .dialog-body {
   font-weight: bold;
   position: absolute;
-  top: 33%
+  top: 50%
 }
 
 .dialog-footer {
   position: absolute;
-  top: 50%;
+  top: 74%;
 }
 
 .dialog-footer button:first-child {

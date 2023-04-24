@@ -10,6 +10,7 @@
   --font-weight: bold;
   --box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   --warining: #dc3545;
+  --success: #198754
 }
 
 body {
@@ -82,10 +83,10 @@ body::-webkit-scrollbar {
 }
 
 
-/* button {
+.btn-primary {
   background-color: var(--blue) !important;
   border-color: var(--blue) !important;
-} */
+}
 
 @media (max-width:330px) {
   *>div {
