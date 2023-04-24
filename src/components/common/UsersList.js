@@ -7,6 +7,10 @@ import { closeOffCanvas } from "../../redux/actions/offCanvasActions";
 import { closeModal } from "../../redux/actions/modalActions";
 import routes from "../../config/routes.json";
 import "./userlist.css";
+import {
+  RESET_PROFILE_CARD_DATA,
+  TOGGLE_LOADING,
+} from "../../redux/actions/ProfileCardActions";
 function UsersList({ users, showEmail, clickOnContainer }) {
   const history = useHistory();
   const currentUserId = useSelector((state) => state.user.value._id);
