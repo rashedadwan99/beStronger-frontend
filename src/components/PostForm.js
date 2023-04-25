@@ -33,7 +33,6 @@ function PostForm({ isEditForm, post }) {
     const isValidContent = regex.test(postContent);
     if (picture) {
       togglePostFormFunctions();
-
       return;
     } else if (!isValidContent) {
       Toast("info", "write at least one character or upload a photo");

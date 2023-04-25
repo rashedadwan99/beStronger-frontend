@@ -109,7 +109,7 @@ export const editPostHandler = (originalPost, { postContent, picture }) => {
     dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: true });
     let postResponse;
     try {
-      if (originalPost.picture !== picture) {
+      if (originalPost.picture !== picture && picture !== "") {
         const response = await uploadPicture(picture);
         if (response) {
           postResponse = await editPost(originalPost._id, {
@@ -137,6 +137,7 @@ export const editPostHandler = (originalPost, { postContent, picture }) => {
       dispatch(closeModal());
       Toast("info", "the post was editted successfully!");
     } catch (error) {
+      console.log(error);
       dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
       Toast("error", error);
     }
