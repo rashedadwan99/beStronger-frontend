@@ -25,6 +25,10 @@
 
 }
 
+.common-textarea::-webkit-scrollbar {
+  display: none;
+}
+
 .common-input:focus,
 .common-textarea:focus {
   background-color: var(--light-gray);

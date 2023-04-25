@@ -15,6 +15,7 @@ function PostInput() {
       openModal({
         title: "share a post",
         Component: <PostForm />,
+        className: "post-form-modal",
       })
     );
   };

@@ -56,10 +56,8 @@ function PostForm({ isEditForm, post }) {
 
         {picture && (
           <div className="picture-name-container">
+            <img src={picture.type ? URL.createObjectURL(picture) : picture} />
             <div className="image-delete-icon">
-              <img
-                src={picture.type ? URL.createObjectURL(picture) : picture}
-              />
               <BsTrash onClick={() => setPicture("")} />
             </div>
           </div>
