@@ -9,3 +9,9 @@
   width: 100%;
 
 }
+
+@media (max-width:600px) {
+  .modal-image-container {
+    max-height: 35em;
+  }
+}
