@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import { IoMdNotifications } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,7 +19,6 @@ import "./notifications.css";
 function Notifications() {
   const socket = useSelector((state) => state.socket);
   const user = useSelector((state) => state.user.value);
-  // const [socketConnected, setSocketConnected] = useState(false);
   const notifications = useSelector((state) => state.notifications.value);
   const showNotifications = useSelector((state) => state.notifications.show);
   const dispatch = useDispatch();
@@ -36,26 +35,26 @@ function Notifications() {
 
     const updateUserFollowersList = (
       notification,
-      userId,
+
       decrease = false
     ) => {
-      if (notification.targetId === userId) {
-        if (!decrease) {
-          dispatch(increaseFollowersList(notification.sender._id));
-        } else {
-          dispatch(decreaseFollowersList(notification.sender._id));
-        }
+      if (!decrease) {
+        dispatch(increaseFollowersList(notification.sender._id));
+      } else {
+        dispatch(decreaseFollowersList(notification.sender._id));
       }
     };
     socket.on("notification recived", (notification) => {
       if (!notifications.includes(notification)) {
         dispatch(reciveNotificiation(notification));
-        updateUserFollowersList(notification, user._id);
+        if (notification.targetId === user._id)
+          updateUserFollowersList(notification, user._id);
       }
     });
     socket.on("remove notification", (notification) => {
       dispatch(removeNotificiation(notification._id));
-      updateUserFollowersList(notification, user._id, true);
+      if (notification.targetId === user._id)
+        updateUserFollowersList(notification, true);
     });
   }, [socket]);
 

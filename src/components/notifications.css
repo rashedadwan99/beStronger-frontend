@@ -32,6 +32,11 @@
   max-height: 20rem;
 }
 
+.notifications-list .list::-webkit-scrollbar-button {
+  border-radius: var(--border-radius);
+
+}
+
 .notifications-list .sender-name {
   font-weight: var(--font-weight);
 }
