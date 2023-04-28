@@ -19,7 +19,7 @@ import "./notifications.css";
 function Notifications() {
   const socket = useSelector((state) => state.socket);
   const user = useSelector((state) => state.user.value);
-  const [socketConnected, setSocketConnected] = useState(false);
+  // const [socketConnected, setSocketConnected] = useState(false);
   const notifications = useSelector((state) => state.notifications.value);
   const showNotifications = useSelector((state) => state.notifications.show);
   const dispatch = useDispatch();
@@ -27,20 +27,10 @@ function Notifications() {
   const handleHideNotifications = (showState) => {
     dispatch(toggleShowNotificationsAction(showState));
   };
-  useEffect(() => {
-    socket.emit("setup", user._id);
-  }, []);
+
   useEffect(() => {
     dispatch(getNotificationsAction());
-
-    socket.on("connected", () => {
-      setSocketConnected(socket.connected);
-    });
-    socket.on("disconnect", () => {
-      setSocketConnected(socket.connected);
-    });
   }, []);
-
   useEffect(() => {
     if (!socket) return;
 

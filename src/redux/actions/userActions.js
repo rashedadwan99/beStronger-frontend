@@ -27,11 +27,12 @@ export const UPDATE_USER_DATA = "UPDATE_USER_DATA";
 export const IS_SENDING_USER_REQUEST = "IS_SENDING_USER_REQUEST";
 export const INCREASE_FOLLOWERS_LIST = "INCREASE_FOLLOWERS_LIST";
 export const DECREASE_FOLLOWERS_LIST = "DECREASE_FOLLOWERS_LIST";
-export const loginAction = (data) => {
+export const loginAction = (data, socket) => {
   return async (dispatch) => {
     dispatch({ type: TOGGLE_LOADING });
     try {
       const response = await auth.login(data);
+      socket.emit("setup", response.data._id);
 
       auth.loginWithJwt({
         user: response.data,

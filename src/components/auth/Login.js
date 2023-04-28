@@ -12,7 +12,7 @@ function Login() {
   });
 
   const isLoading = useSelector((state) => state.user.isLoading);
-
+  const socket = useSelector((state) => state.socket);
   const dispatch = useDispatch();
   const { email, password } = data;
   const handleSubmit = async () => {
@@ -27,7 +27,7 @@ function Login() {
       Toast("error", "please enter a valid email");
       return;
     }
-    dispatch(loginAction(data));
+    dispatch(loginAction(data, socket));
   };
   return (
     <div className="login-form">

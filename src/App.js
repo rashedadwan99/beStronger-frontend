@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Switch, Route, Redirect, useHistory } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import { io } from "socket.io-client";
@@ -8,26 +8,31 @@ import { userLoggedIn, userLoggedOut } from "./redux/actions/userActions";
 import HomePage from "./pages/HomePage";
 
 import NotFound from "./pages/NotFound";
-import { getSocketAction } from "./redux/actions/socketAction";
+import {
+  disconnectSocket,
+  getSocketAction,
+} from "./redux/actions/socketAction";
 import LandingPage from "./pages/LandingPage";
 import routes from "./config/routes.json";
-import Modal from "./components/common/Modal";
 import Canvas from "./components/common/Canvas";
 function App() {
   const dispatch = useDispatch();
   const data = JSON.parse(localStorage.getItem("user"));
   const appDependency = useSelector((state) => state.appUseEffectDependency);
   const socket = useSelector((state) => state.socket);
-  const history = useHistory();
+  useEffect(() => {
+    dispatch(getSocketAction(io("https://bestrong.onrender.com")));
+    return () => {
+      dispatch(disconnectSocket(socket));
+    };
+  }, []);
   useEffect(() => {
     if (data && data.user) {
       dispatch(userLoggedIn());
-      dispatch(getSocketAction(io("https://bestrong.onrender.com")));
     } else {
       dispatch(userLoggedOut());
     }
   }, [appDependency]);
-  const modalChild = useSelector((state) => state.modal.Component);
   return (
     <>
       <ToastContainer />

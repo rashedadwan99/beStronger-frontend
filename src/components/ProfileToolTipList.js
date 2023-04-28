@@ -52,7 +52,6 @@ function RightHeaderList({ setShow }) {
         socket.emit("leave room", user._id);
         logout();
         dispatch(toggleAppDependency(!appDependency));
-        dispatch(disconnectSocket(socket));
         dispatch(resetAllNotifications());
         dispatch(resetAllPosts());
         dispatch(resetAllProfileCardData());
