@@ -1,5 +1,5 @@
 export const GET_SOCKET = "GET_SOCKET";
-export const DIS_CONNECT="DIS_CONNECT"
+export const DIS_CONNECT = "DIS_CONNECT";
 export const getSocketAction = (socket) => {
   return {
     type: GET_SOCKET,
@@ -7,9 +7,8 @@ export const getSocketAction = (socket) => {
   };
 };
 
-export const disconnectSocket = (socket) => {
-  socket.disconnect();
+export const disconnectSocket = () => {
   return {
-    type:DIS_CONNECT
-  }
+    type: DIS_CONNECT,
+  };
 };

@@ -7,12 +7,14 @@ import { appUseEffectDependencyReducder } from "./appUseEffectDependencyReducer"
 import { ProfilCardReucers } from "./ProfileCardReducers";
 import { socketReducers } from "./socketReducers";
 import { notificationsReducers } from "./notificationsReducers";
+import { commentReducers } from "./commentReducers";
 
 export const rootReducer = combineReducers({
   // Define a top-level state field named `todos`, handled by `todosReducer`
   canvas: offCanvasReducer,
   modal: modalReducer,
   posts: postsReducer,
+  comments: commentReducers,
   user: usersReducers,
   appUseEffectDependency: appUseEffectDependencyReducder,
   profileCardUser: ProfilCardReucers,

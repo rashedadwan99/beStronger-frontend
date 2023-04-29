@@ -22,8 +22,10 @@ function App() {
   const socket = useSelector((state) => state.socket);
   useEffect(() => {
     dispatch(getSocketAction(io("https://bestrong.onrender.com")));
+
     return () => {
       dispatch(disconnectSocket(socket));
+      socket.disconnect();
     };
   }, []);
   useEffect(() => {
@@ -44,6 +46,7 @@ function App() {
             routes["single-post-route"],
             routes["profile-route"],
             routes["another-profile-route"],
+            "/chats",
           ]}
           render={(props) => {
             if (data && data.user) return <HomePage {...props} />;

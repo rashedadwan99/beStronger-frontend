@@ -2,41 +2,44 @@ import React, { useEffect, useRef, useState } from "react";
 import { AiTwotoneDelete } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  deleteCommentHandler,
-  getPostCommentsHandler,
-} from "../redux/actions/postActions";
+  deleteCommentAction,
+  getCommentsAction,
+  resetCommentsAction,
+} from "../redux/actions/commentsActions";
+import { deleteCommentHandler } from "../redux/actions/postActions";
+
 import UserNameAndImage from "./common/UserNameAndImage";
 import PostOrCommentContent from "./PostOrCommentContent";
 import UserListSkeleton from "./skeleton/UserListSkeleton";
 
 function Comments({ post }) {
-  const ref = useRef();
+  const comments = useSelector((state) => state.comments.value);
   const user = useSelector((state) => state.user.value);
-  const posts = useSelector((state) => state.posts.value);
-  const isLoadingComments = useSelector(
-    (state) => state.posts.isLoadingComments
-  );
+
   const socket = useSelector((state) => state.socket);
+  const isLoadingComments = useSelector(
+    (state) => state.comments.isLoadingComments
+  );
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getPostCommentsHandler(post));
+    dispatch(getCommentsAction(post._id));
+    return () => dispatch(resetCommentsAction());
   }, []);
-  const indexOfPost = posts.indexOf(post);
+
   const commentOptions = [
     {
       label: "delete",
       icon: <AiTwotoneDelete />,
       onClick: (comment) => {
-        dispatch(deleteCommentHandler(post, comment, user, socket));
+        dispatch(deleteCommentAction(post, comment._id, socket, user));
       },
     },
   ];
 
   return (
-    <div className="comments-list" ref={ref}>
+    <div className="comments-list">
       {!isLoadingComments ? (
-        posts[indexOfPost].comments &&
-        posts[indexOfPost].comments.map((comment) => {
+        comments.map((comment) => {
           return (
             <div className="comment-card" key={comment._id}>
               <UserNameAndImage

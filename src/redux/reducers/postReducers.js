@@ -105,19 +105,6 @@ export const postsReducer = (state = initialState, action) => {
     case TOGGLE_LOADING_COMMENTS: {
       return { ...state, isLoadingComments: action.payload };
     }
-    case GET_POST_COMMENTS: {
-      const posts = [...state.value];
-      const index = findPostIndex(posts, action);
-      posts[index].comments = action.payload.comments;
-      return { ...state, value: [...posts], isLoadingComments: false };
-    }
-
-    case ADD_COMMENT:
-      return handleComments(state, action, "comments", "numOfComments");
-
-    case DELETE_COMMENT:
-      return handleComments(state, action, "comments", "numOfComments");
-
     case GET_ONLY_ONE_POST:
       return {
         ...state,
