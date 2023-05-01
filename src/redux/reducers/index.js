@@ -8,6 +8,8 @@ import { ProfilCardReucers } from "./ProfileCardReducers";
 import { socketReducers } from "./socketReducers";
 import { notificationsReducers } from "./notificationsReducers";
 import { commentReducers } from "./commentReducers";
+import { chatReducers } from "./chatReducers";
+import { messageReducers } from "./messageReducers";
 
 export const rootReducer = combineReducers({
   // Define a top-level state field named `todos`, handled by `todosReducer`
@@ -15,6 +17,8 @@ export const rootReducer = combineReducers({
   modal: modalReducer,
   posts: postsReducer,
   comments: commentReducers,
+  chats: chatReducers,
+  messages: messageReducers,
   user: usersReducers,
   appUseEffectDependency: appUseEffectDependencyReducder,
   profileCardUser: ProfilCardReucers,

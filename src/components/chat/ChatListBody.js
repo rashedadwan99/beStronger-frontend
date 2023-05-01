@@ -5,23 +5,14 @@ import { getAllChats } from "../../services/chatService";
 import { Toast } from "../common/Toast";
 import ChatInfo from "./ChatInfo";
 import UserListSkeleton from "../skeleton/UserListSkeleton";
+import { useDispatch, useSelector } from "react-redux";
+import { geChatListAction } from "../../redux/actions/chatActions";
 function ChatListBody() {
-  const [chats, setChats] = useState([]);
-  const [isLoadingChats, setIsLoadingChats] = useState(false);
+  const dispatch = useDispatch();
+  const chats = useSelector((state) => state.chats.value);
+  const isLoadingChats = useSelector((state) => state.chats.isLoadingChats);
   useEffect(() => {
-    const getChatsList = async () => {
-      try {
-        setIsLoadingChats(true);
-
-        const { data: chats } = await getAllChats();
-        setIsLoadingChats(false);
-        setChats(chats);
-      } catch (error) {
-        setIsLoadingChats(false);
-        Toast("error", error);
-      }
-    };
-    getChatsList();
+    dispatch(geChatListAction());
   }, []);
   return (
     <div className="chat-list-body">
