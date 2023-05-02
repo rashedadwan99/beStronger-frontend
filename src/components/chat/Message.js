@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { handleStyle } from "../utils/handleMessageStyle";
-import { isLastMessageRecieved } from "../utils/handleSenderMessagePicture";
+import { isLastMessageRecieved } from "../utils/handleRecivedMessagePicture";
 
 function Message({ message }) {
   const { content, sender } = message;
