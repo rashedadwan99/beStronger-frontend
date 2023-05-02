@@ -2,6 +2,7 @@ import {
   GET_CHAT_LIST,
   IS_LOADING_CHATS,
   SELECT_CHAT,
+  UNSELECT_CHAT,
 } from "../actions/chatActions";
 
 const initialState = {
@@ -23,6 +24,11 @@ export const chatReducers = (state = initialState, action) => {
       return {
         ...state,
         selectedChat: { ...action.payload },
+      };
+    case UNSELECT_CHAT:
+      return {
+        ...state,
+        selectedChat: {},
       };
     default: {
       return state;

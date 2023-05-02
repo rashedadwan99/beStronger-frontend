@@ -5,26 +5,39 @@ import { MdSend } from "react-icons/md";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sendMessageAction } from "../../redux/actions/messageActions";
-function SelectedChatBottom({ setTheShownMessageWhenSending }) {
+function SelectedChatBottom({
+  setTheShownMessageWhenSending,
+  theShownMessageWhenSending,
+}) {
   const [content, setContent] = useState("");
   const selectedChat = useSelector((state) => state.chats.selectedChat);
-  const isSendingMessage = useSelector(
-    (state) => state.messages.isSendingMessage
-  );
   const user = useSelector((state) => state.user.value);
+  const messages = useSelector((state) => state.messages.value);
   const dispatch = useDispatch();
   const handleSendMessage = () => {
     if (!content) return;
-    setTheShownMessageWhenSending({
+    const messageInfo = {
       content,
       sender: {
         picture: user.picture,
         _id: user._id,
       },
-    });
+    };
+    let messagesWhenSending = theShownMessageWhenSending;
+    if (!messagesWhenSending.includes(messageInfo)) {
+      messagesWhenSending = [messageInfo, ...messagesWhenSending];
+      setTheShownMessageWhenSending([messagesWhenSending[0]]);
+    }
     setContent("");
 
-    dispatch(sendMessageAction(selectedChat._id, content));
+    dispatch(
+      sendMessageAction(
+        selectedChat._id,
+        content,
+        setTheShownMessageWhenSending,
+        theShownMessageWhenSending
+      )
+    );
   };
   return (
     <div className="selected-chat-bottom">
@@ -35,11 +48,7 @@ function SelectedChatBottom({ setTheShownMessageWhenSending }) {
         value={content}
         name="content"
       />
-      <Button
-        label={<MdSend />}
-        disabled={isSendingMessage}
-        onClick={handleSendMessage}
-      />
+      <Button label={<MdSend />} onClick={handleSendMessage} />
     </div>
   );
 }

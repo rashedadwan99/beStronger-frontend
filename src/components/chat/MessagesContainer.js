@@ -21,14 +21,14 @@ function MessagesContainer({ theShownMessageWhenSending }) {
   }, []);
   return (
     <div className="messages-container">
-      {isSendingMessage && (
-        <div style={{ opacity: "0.5" }}>
-          <Message
-            message={theShownMessageWhenSending}
-            key={theShownMessageWhenSending.sender._id}
-          />
-        </div>
-      )}
+      {/* {isSendingMessage &&
+        theShownMessageWhenSending.map((m, i) => {
+          return (
+            <div style={{ opacity: "0.5" }} key={m.sender._id + i}>
+              <Message message={theShownMessageWhenSending[0]} />
+            </div>
+          );
+        })} */}
       {!isLoadingMessages ? (
         messages.map((m) => <Message message={m} key={m._id} />)
       ) : (

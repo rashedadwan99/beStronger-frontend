@@ -6,7 +6,7 @@ import SelectedChatHeader from "./SelectedChatHeader";
 
 function SelectedChat() {
   const [theShownMessageWhenSending, setTheShownMessageWhenSending] = useState(
-    {}
+    []
   );
   return (
     <div className="selected-chat">
@@ -15,6 +15,7 @@ function SelectedChat() {
         theShownMessageWhenSending={theShownMessageWhenSending}
       />
       <SelectedChatBottom
+        theShownMessageWhenSending={theShownMessageWhenSending}
         setTheShownMessageWhenSending={setTheShownMessageWhenSending}
       />
     </div>

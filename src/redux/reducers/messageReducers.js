@@ -2,6 +2,7 @@ import {
   GET_MESSAGES,
   IS_LOADING_MESSAGES,
   IS_SENDING_MESSAGE,
+  RESET_MESSAGES,
   SEND_MESSAGE,
 } from "../actions/messageActions";
 
@@ -21,7 +22,8 @@ export const messageReducers = (state = initialState, action) => {
       return { ...state, value: [action.payload.message, ...state.value] };
     case IS_SENDING_MESSAGE:
       return { ...state, isSendingMessage: action.payload };
-
+    case RESET_MESSAGES:
+      return { ...state, value: [] };
     default:
       return state;
   }

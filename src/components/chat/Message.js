@@ -9,11 +9,23 @@ function Message({ message }) {
   const messages = useSelector((state) => state.messages.value);
   const isMyMessage = user._id === sender._id;
   return (
-    <div className={`message-sender-content ${isMyMessage && "my-message"}`}>
+    <div
+      className={`message-sender-content ${isMyMessage && "my-message"}`}
+      style={
+        isLastMessageRecieved(messages, message, user)
+          ? {}
+          : { marginLeft: "33px" }
+      }
+    >
       {isLastMessageRecieved(messages, message, user) && (
         <img src={message.sender.picture} alt="" />
       )}
-      <span className="message-content" style={handleStyle(message, user)}>
+      <span
+        className={`message-content ${
+          isLastMessageRecieved(messages, message, user) && "recived-message"
+        }`}
+        style={handleStyle(message, user)}
+      >
         {content}
       </span>
     </div>
