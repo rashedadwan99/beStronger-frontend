@@ -14,7 +14,7 @@
 
 .chat-list,
 .chat-box {
-
+  height: 100%;
   background-color: var(--white);
   border-radius: 2px;
   box-shadow: var(--box-shadow);
@@ -26,18 +26,20 @@
 
 .chat-box {
   width: 64%;
-
 }
 
 .selected-chat {
   height: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .messages-container {
   padding: 2px 10px;
   width: 100%;
-  height: 74%;
+  height: 80%;
   overflow-y: auto;
   display: flex;
   flex-direction: column-reverse;
@@ -187,14 +189,13 @@
   display: flex;
   align-items: center;
   border-top: 2px solid var(--light-gray);
-  height: 50px;
-  padding: 0 15px;
+  padding: 0px 15px;
   padding-bottom: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .selected-chat-bottom button {
-  background-color: var(--light-gray) !important;
+  background-color: var(--white) !important;
   border: 0;
   color: var(--blue) !important;
   font-size: 25px;
@@ -214,7 +215,6 @@
 }
 
 
-
 .selected-chat-bottom .input-container {
   margin-right: 15px;
 }
@@ -222,7 +222,7 @@
 .selected-chat-bottom input {
   border: 0;
   border-radius: 0;
-
+  padding: 2px;
   border-right: 1px solid var(--light-gray);
 
 }
@@ -244,9 +244,10 @@
 }
 
 @media (max-width:600px) {
-  .messages-container {
-    height: 75.5%;
+  .chat-container {
+    height: 91vh;
   }
+
 
   .chat-info img,
   .selected-chat-header img {

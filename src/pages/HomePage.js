@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Header from "../components/header/Header";
 import Communication from "../components/Communication";
@@ -8,11 +8,16 @@ import routes from "../config/routes.json";
 import "./homepage.css";
 import Modal from "../components/common/Modal";
 import Chat from "../components/chat/Chat";
+import { geChatListAction } from "../redux/actions/chatActions";
+import { useEffect } from "react";
 
 function HomePage() {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
   const modalChild = useSelector((state) => state.modal.Component);
-
+  useEffect(() => {
+    dispatch(geChatListAction());
+  }, []);
   if (user._id) {
     return (
       <div className="home-page">
