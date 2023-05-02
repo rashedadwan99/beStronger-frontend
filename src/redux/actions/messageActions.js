@@ -1,5 +1,6 @@
 import { Toast } from "../../components/common/Toast";
 import { getMessages, sendMessage } from "../../services/messageService";
+import { UPDATE_LATEST_MESSAGE } from "./chatActions";
 
 export const GET_MESSAGES = "GET_MESSAGES";
 export const SEND_MESSAGE = "SEND_MESSAGE";
@@ -33,6 +34,10 @@ export const sendMessageAction = (
       const { data: message } = await sendMessage(chatId, content);
       setTheShownMessageWhenSending([message, ...theShownMessageWhenSending]);
       dispatch({ type: SEND_MESSAGE, payload: { message } });
+      dispatch({
+        type: UPDATE_LATEST_MESSAGE,
+        payload: { chatId: message.chatId, message },
+      });
       dispatch({ type: IS_SENDING_MESSAGE, payload: false });
     } catch (error) {
       dispatch({ type: IS_SENDING_MESSAGE, payload: false });

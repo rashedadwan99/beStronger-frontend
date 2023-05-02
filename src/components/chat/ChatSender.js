@@ -6,7 +6,7 @@ import {
   handleLatestMessage,
 } from "../utils/handleChatUserInfo";
 
-function ChatInfo({ chat }) {
+function ChatSender({ chat }) {
   const user = useSelector((state) => state.user.value);
   const selectedChat = useSelector((state) => state.chats.selectedChat);
   const dispatch = useDispatch();
@@ -39,4 +39,4 @@ function ChatInfo({ chat }) {
   );
 }
 
-export default ChatInfo;
+export default ChatSender;

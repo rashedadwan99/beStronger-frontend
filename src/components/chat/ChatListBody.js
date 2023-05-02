@@ -1,6 +1,6 @@
 import React from "react";
 
-import ChatInfo from "./ChatInfo";
+import ChatSender from "./ChatSender";
 import UserListSkeleton from "../skeleton/UserListSkeleton";
 import { useSelector } from "react-redux";
 function ChatListBody() {
@@ -11,7 +11,7 @@ function ChatListBody() {
     <div className="chat-list-body">
       {!isLoadingChats ? (
         chats.map((chat) => {
-          return <ChatInfo chat={chat} key={chat._id} />;
+          return <ChatSender chat={chat} key={chat._id} />;
         })
       ) : (
         <UserListSkeleton number={1} />

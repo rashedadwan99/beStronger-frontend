@@ -3,6 +3,7 @@ import {
   IS_LOADING_CHATS,
   SELECT_CHAT,
   UNSELECT_CHAT,
+  UPDATE_LATEST_MESSAGE,
 } from "../actions/chatActions";
 
 const initialState = {
@@ -30,6 +31,17 @@ export const chatReducers = (state = initialState, action) => {
         ...state,
         selectedChat: {},
       };
+    case UPDATE_LATEST_MESSAGE: {
+      return {
+        ...state,
+        value: state.value.map((c) => {
+          if (c._id === action.payload.chatId) {
+            return { ...c, latestMessage: action.payload.message };
+          }
+          return c;
+        }),
+      };
+    }
     default: {
       return state;
     }
