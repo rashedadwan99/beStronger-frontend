@@ -191,7 +191,7 @@
   border-top: 2px solid var(--light-gray);
   padding: 0px 15px;
   padding-bottom: 0;
-  /* overflow: hidden; */
+
 }
 
 .selected-chat-bottom button {
@@ -244,6 +244,11 @@
 }
 
 @media (max-width:600px) {
+  .selected-chat-bottom {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
   .chat-container {
     height: 91vh;
   }
