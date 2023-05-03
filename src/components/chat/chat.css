@@ -106,6 +106,8 @@
 
 .chat-list-body {
   padding: 10px;
+  height: 88%;
+  overflow: auto;
 }
 
 .chat-list-body p {

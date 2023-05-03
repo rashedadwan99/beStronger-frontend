@@ -48,11 +48,9 @@ function ProfileCardBottom() {
       dispatch(createChatAction([user._id, profileCardUser._id], false, push));
     } else {
       const chat = chats.find((c) => {
-        return (
-          c.users.includes(handleChatUserData(user)) &&
-          c.users.includes(handleChatUserData(profileCardUser))
-        );
+        return c.users.find((u) => u._id === profileCardUser._id) ? c : null;
       });
+
       if (chat) {
         dispatch(selectChatAction(chat));
         push("/chats");
