@@ -168,13 +168,13 @@ export const handleDeletePost = (postId) => {
 
 export const likeAction = (originalPost, socket, senderUser) => {
   return async (dispatch) => {
-    dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: true });
     try {
-      await onClickLike(originalPost._id);
+      dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: true });
       dispatch({
         type: UPDATE_POST_LIKES,
         payload: { senderUser, originalPost },
       });
+      await onClickLike(originalPost._id);
       if (senderUser._id !== originalPost.publisher._id) {
         dispatch(
           sendNotificationAction(
@@ -194,13 +194,13 @@ export const likeAction = (originalPost, socket, senderUser) => {
 };
 export const disLikeAction = (originalPost, socket, senderUser) => {
   return async (dispatch) => {
-    dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: true });
     try {
-      await onClickDisLike(originalPost._id);
+      dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: true });
       dispatch({
         type: UPDATE_POST_LIKES,
         payload: { senderUser, originalPost },
       });
+      await onClickDisLike(originalPost._id);
       dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
     } catch (error) {
       dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
@@ -237,62 +237,6 @@ export const getPostCommentsHandler = (originalPost) => {
     }
   };
 };
-export const addCommentAction = (post, comment, socket, user) => {
-  return async (dispatch) => {
-    dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: true });
-    try {
-      const { data: updatedPost } = await addComment(post._id, comment);
-      dispatch({
-        type: ADD_COMMENT,
-        payload: { updatedPost, originalPost: post },
-      });
-      if (post.publisher._id !== user._id) {
-        dispatch(
-          sendNotificationAction(
-            ` commented on your post`,
-            post.publisher._id,
-            post._id,
-            socket
-          )
-        );
-      }
-    } catch (error) {
-      dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
-      Toast("error", error);
-    }
-  };
-};
-
-export const deleteCommentHandler = (originalPost, comment, user, socket) => {
-  return async (dispatch) => {
-    try {
-      const { data: updatedPost } = await deleteComment(
-        originalPost._id,
-        comment._id
-      );
-      dispatch({
-        type: DELETE_COMMENT,
-        payload: { updatedPost, originalPost },
-      });
-      if (user._id !== originalPost.publisher._id) {
-        const { data: notification } = await deleteNotification(
-          user._id,
-          originalPost._id
-        );
-        if (originalPost.publisher._id !== user._id) {
-          socket.emit(
-            "delete notification",
-            originalPost.publisher._id,
-            notification
-          );
-        }
-      }
-    } catch (error) {
-      Toast("error", error);
-    }
-  };
-};
-
 export const getPostFansAction = (post) => {
   return async (dispatch) => {
     try {
