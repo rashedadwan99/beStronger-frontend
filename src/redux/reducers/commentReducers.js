@@ -34,7 +34,10 @@ export const commentReducers = (state = initialState, action) => {
         value: state.value.filter((c) => c._id !== action.payload.commentId),
       };
     case RESET_COMMENTS:
-      return state;
+      return {
+        ...state,
+        value: [],
+      };
 
     default:
       return state;

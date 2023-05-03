@@ -16,8 +16,9 @@
 .chat-box {
   height: 100%;
   background-color: var(--white);
-  border-radius: 2px;
+  border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
+
 }
 
 .chat-list {
@@ -105,6 +106,11 @@
 
 .chat-list-body {
   padding: 10px;
+}
+
+.chat-list-body p {
+  text-align: center;
+  font-weight: var(--font-weight);
 }
 
 .chat-info {

@@ -65,6 +65,7 @@ const RenderInputField = ({
       {element !== "textarea" ? (
         <input
           {...rest}
+          autoComplete="off"
           onChange={handleChange}
           className="common-input"
           name={name}
@@ -77,6 +78,7 @@ const RenderInputField = ({
           onChange={handleChange}
           className="common-textarea"
           value={value}
+          autoComplete="off"
         ></textarea>
       )}
       <EyeFormIcon

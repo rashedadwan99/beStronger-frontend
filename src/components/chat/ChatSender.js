@@ -18,6 +18,7 @@ function ChatSender({ chat }) {
 
     dispatch(selectChatAction(chat));
   };
+
   return (
     <div
       className={`chat-info ${
@@ -29,10 +30,12 @@ function ChatSender({ chat }) {
         <img src={senderUser.picture} alt="" />
         <div className="chat-sender-name-content">
           <span>{senderUser.name}</span>
-          <span>
-            {chat.latestMessage.sender._id === user._id && "you : "}
-            {handleLatestMessage(chat.latestMessage.content)}
-          </span>
+          {chat.latestMessage && (
+            <span>
+              {chat.latestMessage.sender._id === user._id && "you : "}
+              {handleLatestMessage(chat.latestMessage.content)}
+            </span>
+          )}
         </div>
       </div>
     </div>
