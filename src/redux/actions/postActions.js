@@ -175,6 +175,7 @@ export const likeAction = (originalPost, socket, senderUser) => {
         payload: { senderUser, originalPost },
       });
       await onClickLike(originalPost._id);
+      dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
       if (senderUser._id !== originalPost.publisher._id) {
         dispatch(
           sendNotificationAction(
@@ -185,7 +186,6 @@ export const likeAction = (originalPost, socket, senderUser) => {
           )
         );
       }
-      dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
     } catch (error) {
       dispatch({ type: IS_SENDING_POSTS_REQUEST, payload: false });
       Toast("error", error);
