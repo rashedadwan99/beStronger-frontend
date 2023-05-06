@@ -12,6 +12,7 @@ function SelectedChatBottom({
   const [content, setContent] = useState("");
   const selectedChat = useSelector((state) => state.chats.selectedChat);
   const user = useSelector((state) => state.user.value);
+  const socket=useSelector(state=>state.socket)
   const messages = useSelector((state) => state.messages.value);
   const dispatch = useDispatch();
   const handleSendMessage = () => {

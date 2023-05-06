@@ -16,9 +16,7 @@ function MessagesContainer({ theShownMessageWhenSending }) {
   const isSendingMessage = useSelector(
     (state) => state.messages.isSendingMessage
   );
-  useEffect(() => {
-    if (selectedChat) dispatch(getMessagesAction(selectedChat._id));
-  }, [selectedChat]);
+
   return (
     <div className="messages-container">
       {/* {isSendingMessage &&

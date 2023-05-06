@@ -36,13 +36,7 @@ function ProfileCardBottom() {
       })
     );
   };
-  const handleChatUserData = (user) => {
-    return {
-      name: user.name,
-      picture: user.picture,
-      _id: user._id,
-    };
-  };
+
   const handleStartChatting = () => {
     if (!chats.length) {
       dispatch(createChatAction([user._id, profileCardUser._id], false, push));
@@ -72,13 +66,13 @@ function ProfileCardBottom() {
       {isAnotherProfilePage && (
         <>
           <FollowUnfollowBtn user={profileCardUser} />
-          <ButtonsGroup
+          {/* <ButtonsGroup
             label="message"
             style={{ marginLeft: "5px" }}
             onClick={handleStartChatting}
             isLoading={isCreatingChat}
             disabled={isCreatingChat}
-          />
+          /> */}
         </>
       )}
     </div>
