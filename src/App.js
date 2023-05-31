@@ -21,7 +21,7 @@ function App() {
   const appDependency = useSelector((state) => state.appUseEffectDependency);
   const socket = useSelector((state) => state.socket);
   useEffect(() => {
-    dispatch(getSocketAction(io("http://localhost:5000")));
+    dispatch(getSocketAction(io("https://bestrong.onrender.com")));
 
     return () => {
       dispatch(disconnectSocket(socket));
