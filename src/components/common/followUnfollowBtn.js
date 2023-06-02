@@ -5,10 +5,10 @@ import { sendFollowOrUFollowAction } from "../../redux/actions/userActions";
 import Button from "./button";
 import "./followunfollowbtn.css";
 function FollowUnfollowBtn({ user, isUserListButton }) {
+  const [disableExactFollowButton, setDisableExactFollowButton] = useState();
   const socket = useSelector((state) => state.socket);
   const currentUser = useSelector((state) => state.user.value);
   const isSendingRequest = useSelector((state) => state.user.isSendingRequest);
-  const [disabledButton, setDisabledButton] = useState([]);
   const match = useRouteMatch();
   const dispatch = useDispatch();
   const followEachOther =
@@ -25,7 +25,8 @@ function FollowUnfollowBtn({ user, isUserListButton }) {
   /** */
   const isBlocked =
     currentUser.blockList && currentUser.blockList.includes(user._id);
-  const handleClickFollowUnFollow = () => {
+  const handleClickFollowUnFollow = (userId) => {
+    setDisableExactFollowButton(userId);
     dispatch(
       sendFollowOrUFollowAction(
         user._id,
@@ -49,18 +50,15 @@ function FollowUnfollowBtn({ user, isUserListButton }) {
   const toggleClasses = () => {
     return followEachOther || followHim ? "un-follow-btn-style" : "";
   };
-
   return (
     <Button
-      onMouseEnter={() => {
-        setDisabledButton([]);
-        setDisabledButton([user._id]);
-      }}
-      onMouseLeave={() => setDisabledButton([])}
+      onMouseLeave={() => setDisableExactFollowButton()}
       label={handleButtonLabel()}
-      onClick={!isSendingRequest ? handleClickFollowUnFollow : () => {}}
+      onClick={
+        !isSendingRequest ? () => handleClickFollowUnFollow(user._id) : () => {}
+      }
       className={toggleClasses()}
-      disabled={isSendingRequest && disabledButton.includes(user._id)}
+      disabled={isSendingRequest && user._id === disableExactFollowButton}
     />
   );
 }

@@ -6,7 +6,6 @@ import { io } from "socket.io-client";
 import Authentications from "./pages/Authentications";
 import { userLoggedIn, userLoggedOut } from "./redux/actions/userActions";
 import HomePage from "./pages/HomePage";
-
 import NotFound from "./pages/NotFound";
 import {
   disconnectSocket,
