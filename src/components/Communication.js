@@ -1,6 +1,6 @@
 import React from "react";
-import ProfileCardContainer from "./ProfileCardContainer";
-import SharePostsSection from "./SharePostsSection";
+import ProfileCardContainer from "./profile/ProfileCardContainer";
+import SharePostsSection from "./posts/SharePostsSection";
 import SuggestionsSection from "./SuggestionsSection";
 import "./communication.css";
 

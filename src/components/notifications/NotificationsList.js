@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import NotificationMessage from "./NotifciationMessage";
-import noNotifcationsImage from "../images/mynotifications.svg";
+
 function NotificationsList() {
   const notifications = useSelector((state) => state.notifications.value);
 

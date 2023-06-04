@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { getPostFans } from "../services/postService";
-import UsersList from "./common/UsersList";
+import { getPostFans } from "../../services/postService";
+import UsersList from "../common/UsersList";
 import "./postfans.css";
-import UserListSkeleton from "./skeleton/UserListSkeleton";
+import UserListSkeleton from "../skeleton/UserListSkeleton";
 function PostFans({ postId }) {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);

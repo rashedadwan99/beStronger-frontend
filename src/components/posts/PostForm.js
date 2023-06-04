@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BsTrash } from "react-icons/bs";
 import { IoMdPhotos } from "react-icons/io";
-import Button from "./common/button";
-import { Toast } from "./common/Toast";
-import RenderInputField from "./common/Forms";
-import { addPost, editPostHandler } from "../redux/actions/postActions";
+import Button from "../common/button";
+import { Toast } from "../common/Toast";
+import RenderInputField from "../common/Forms";
+import { addPost, editPostHandler } from "../../redux/actions/postActions";
 import "./postform.css";
 function PostForm({ isEditForm, post }) {
   const [postContent, setPostContent] = useState("");

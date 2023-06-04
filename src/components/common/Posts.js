@@ -6,8 +6,8 @@ import {
   getProfilePosts,
   getOnlyOnePost,
 } from "../../redux/actions/postActions";
-import PostsCard from "../PostsCard";
-import NoPosts from "../NoPosts";
+import PostsCard from "../posts/PostsCard";
+import NoPosts from "../posts/NoPosts";
 import PostSkeleton from "../skeleton/PostSkeleton";
 
 import "./posts.css";

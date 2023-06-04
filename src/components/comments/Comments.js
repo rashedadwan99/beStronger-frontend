@@ -5,12 +5,11 @@ import {
   deleteCommentAction,
   getCommentsAction,
   resetCommentsAction,
-} from "../redux/actions/commentsActions";
-import { deleteCommentHandler } from "../redux/actions/postActions";
+} from "../../redux/actions/commentsActions";
 
-import UserNameAndImage from "./common/UserNameAndImage";
-import PostOrCommentContent from "./PostOrCommentContent";
-import UserListSkeleton from "./skeleton/UserListSkeleton";
+import UserNameAndImage from "../common/UserNameAndImage";
+import PostOrCommentContent from "../posts/PostOrCommentContent";
+import UserListSkeleton from "../skeleton/UserListSkeleton";
 
 function Comments({ post }) {
   const comments = useSelector((state) => state.comments.value);

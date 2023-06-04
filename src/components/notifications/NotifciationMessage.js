@@ -8,9 +8,9 @@ import {
   deleteNotificationByReciverUser,
   readNotificationAction,
   toggleShowNotificationsAction,
-} from "../redux/actions/notificationsActions";
-import UserNameAndImage from "./common/UserNameAndImage";
-import routes from "../config/routes.json";
+} from "../../redux/actions/notificationsActions";
+import UserNameAndImage from "../common/UserNameAndImage";
+import routes from "../../config/routes.json";
 function NotifciationMessage({ notification, targetId }) {
   const [disableGoToTarget, setDisableGoToTarget] = useState(false);
 

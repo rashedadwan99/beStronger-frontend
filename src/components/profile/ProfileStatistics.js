@@ -1,10 +1,8 @@
 import React from "react";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useRouteMatch } from "react-router-dom";
-import { openModal } from "../redux/actions/modalActions";
-import { getFollowersList, getFollowingList } from "../services/userService";
-import Modal from "./common/Modal";
+import { openModal } from "../../redux/actions/modalActions";
+import { getFollowersList, getFollowingList } from "../../services/userService";
+import { useDispatch, useSelector } from "react-redux";
 
 import FollowingFollowersList from "./FollowingFollowersList";
 import "./profilestatistics.css";

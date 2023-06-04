@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addCommentAction } from "../redux/actions/commentsActions";
+import { addCommentAction } from "../../redux/actions/commentsActions";
 
-import Button from "./common/button";
-import RenderInputField from "./common/Forms";
+import Button from "../common/button";
+import RenderInputField from "../common/Forms";
 
 function CommentCreation({ post }) {
   const dispatch = useDispatch();

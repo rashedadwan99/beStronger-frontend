@@ -3,6 +3,14 @@
 
 }
 
+.search-section .user-list-skeleton {
+  margin: 0 10px;
+}
+
+.search-section .user-list-button {
+  width: 15%;
+}
+
 .search-input {
   width: 100%;
   font-size: 16px;

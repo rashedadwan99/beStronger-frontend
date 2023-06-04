@@ -5,9 +5,6 @@ import {
   UPDATE_POST_LIKES,
   GET_ALL_POSTS,
   GET_ONLY_ONE_POST,
-  ADD_COMMENT,
-  DELETE_COMMENT,
-  GET_POST_COMMENTS,
   TOGGLE_LOADING_POSTS,
   NO_POSTS,
   IS_SENDING_POSTS_REQUEST,
@@ -118,18 +115,4 @@ export const postsReducer = (state = initialState, action) => {
     default:
       return state;
   }
-};
-
-const findPostIndex = (posts, action) => {
-  return posts.findIndex(
-    (post) => post._id === action.payload.originalPost._id
-  );
-};
-
-const handleComments = (state, action, data, numOfData) => {
-  const posts = [...state.value];
-  const index = findPostIndex(posts, action);
-  posts[index][`${data}`] = action.payload.updatedPost[`${data}`];
-  posts[index][`${numOfData}`] = action.payload.updatedPost[`${numOfData}`];
-  return { ...state, value: [...posts], isSendingRequest: false };
 };

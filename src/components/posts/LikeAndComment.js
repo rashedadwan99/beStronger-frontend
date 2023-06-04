@@ -2,11 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineLike } from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
-import { openModal } from "../redux/actions/modalActions";
-import { disLikeAction, likeAction } from "../redux/actions/postActions";
-import CommentsContainer from "./CommentsContainer";
+import { openModal } from "../../redux/actions/modalActions";
+import { disLikeAction, likeAction } from "../../redux/actions/postActions";
+import CommentsContainer from "../comments/CommentsContainer";
 import PostFans from "./PostFans";
-import { Modal } from "react-bootstrap";
 function LikeAndComment({ post }) {
   const user = useSelector((state) => state.user.value);
   const socket = useSelector((state) => state.socket);

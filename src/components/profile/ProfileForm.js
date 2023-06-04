@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { editUserInfoAction } from "../redux/actions/userActions";
-import ButtonsGroup from "./common/button";
-import RenderInputField from "./common/Forms";
-import ProfileImage from "./common/ProfileImage";
+import { editUserInfoAction } from "../../redux/actions/userActions";
+import ButtonsGroup from "../common/button";
+import RenderInputField from "../common/Forms";
+import ProfileImage from "../common/ProfileImage";
 import "./profileform.css";
 function ProfileForm() {
   const user = useSelector((state) => state.user.value);

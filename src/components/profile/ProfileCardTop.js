@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import ClickAbleImage from "./common/ClickAbleImage";
-import ProfileImage from "./common/ProfileImage";
+import ClickAbleImage from "../common/ClickAbleImage";
+import ProfileImage from "../common/ProfileImage";
 
 function ProfileCardTop() {
   const profileCardUser = useSelector((state) => state.profileCardUser.value);

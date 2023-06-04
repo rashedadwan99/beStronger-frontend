@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toggleShowNotificationsAction } from "../redux/actions/notificationsActions";
+import { toggleShowNotificationsAction } from "../../redux/actions/notificationsActions";
 import NotificationsList from "./NotificationsList";
 
 function NotificationsContainer() {

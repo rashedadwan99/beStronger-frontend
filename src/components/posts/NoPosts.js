@@ -1,5 +1,5 @@
 import React from "react";
-import noPosts from "../images/noPosts.png";
+import noPosts from "../../images/noPosts.png";
 function NoPosts() {
   return (
     <div className="no-posts">

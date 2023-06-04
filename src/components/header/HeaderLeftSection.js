@@ -1,7 +1,7 @@
 import React from "react";
 import Tooltip from "../common/Tooltip";
 import { FaSearch } from "react-icons/fa";
-import SearchSection from ".././SearchSection";
+import SearchSection from "../search/SearchSection";
 import { useDispatch, useSelector } from "react-redux";
 import { openOffCanvas } from "../../redux/actions/offCanvasActions";
 import { toggleShowNotificationsAction } from "../../redux/actions/notificationsActions";

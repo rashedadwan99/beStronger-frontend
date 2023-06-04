@@ -88,7 +88,7 @@ export const updateUserInLocalStorage = (data) => {
     user: data,
     token: userInfo.token,
   });
-  updatedUser = localStorage.setItem(userKey, updatedUser);
+  localStorage.setItem(userKey, updatedUser);
 };
 
 export const changePassword = (data) => {

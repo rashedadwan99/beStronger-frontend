@@ -1,5 +1,5 @@
 import React from "react";
-import Posts from "./common/Posts";
+import Posts from "../common/Posts";
 import PostTopCreationSection from "./PostTopCreationSection";
 
 function SharePostsSection() {

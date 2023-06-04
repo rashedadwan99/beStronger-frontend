@@ -1,15 +1,15 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useRouteMatch } from "react-router-dom";
-import { openModal } from "../redux/actions/modalActions";
-import ButtonsGroup from "./common/button";
-import FollowUnfollowBtn from "./common/followUnfollowBtn";
+import { openModal } from "../../redux/actions/modalActions";
+import ButtonsGroup from "../common/button";
+import FollowUnfollowBtn from "../common/followUnfollowBtn";
 import ProfileForm from "./ProfileForm";
-import routes from "../config/routes.json";
+import routes from "../../config/routes.json";
 import {
   createChatAction,
   selectChatAction,
-} from "../redux/actions/chatActions";
+} from "../../redux/actions/chatActions";
 function ProfileCardBottom() {
   const user = useSelector((state) => state.user.value);
   const { location, push } = useHistory();

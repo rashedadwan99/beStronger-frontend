@@ -1,6 +1,6 @@
 import React from "react";
-import Posts from "./common/Posts";
-import ProfileCard from "./common/ProfileCard";
+import Posts from "../common/Posts";
+import ProfileCard from "../common/ProfileCard";
 import "./profile.css";
 function Profile() {
   return (

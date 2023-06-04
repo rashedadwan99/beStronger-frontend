@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useRouteMatch } from "react-router-dom";
-import { openModal } from "../redux/actions/modalActions";
-import ProfileImage from "./common/ProfileImage";
+import { openModal } from "../../redux/actions/modalActions";
+import ProfileImage from "../common/ProfileImage";
 import PostForm from "./PostForm";
-import routes from "../config/routes.json";
+import routes from "../../config/routes.json";
 function PostInput() {
   const user = useSelector((state) => state.user.value);
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ClickAbleImage from "./common/ClickAbleImage";
+import ClickAbleImage from "../common/ClickAbleImage";
 
 function PostOrCommentContent({ data }) {
   const [showSeeMore, setShowMore] = useState(false);

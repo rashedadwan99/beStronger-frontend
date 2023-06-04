@@ -2,13 +2,13 @@ import React from "react";
 import { AiTwotoneDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { openModal } from "../redux/actions/modalActions";
-import { handleDeletePost } from "../redux/actions/postActions";
-import UserNameAndImage from "./common/UserNameAndImage";
+import { openModal } from "../../redux/actions/modalActions";
+import { handleDeletePost } from "../../redux/actions/postActions";
+import UserNameAndImage from "../common/UserNameAndImage";
 import LikeAndComment from "./LikeAndComment";
 import PostForm from "./PostForm";
 import PostOrCommentContent from "./PostOrCommentContent";
-import { handleOpenDialogBox } from "./utils/openDialogBox";
+import { handleOpenDialogBox } from "../utils/openDialogBox";
 function PostsCard() {
   const posts = useSelector((state) => state.posts.value);
   const user = useSelector((state) => state.user.value);

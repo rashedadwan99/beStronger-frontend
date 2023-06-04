@@ -5,11 +5,9 @@ import {
   getOnePost,
   onClickDisLike,
   onClickLike,
-  deleteComment,
   getPostComments,
   getPosts,
   createPost,
-  addComment,
   getPostFans,
   getUserPosts,
 } from "../../services/postService";

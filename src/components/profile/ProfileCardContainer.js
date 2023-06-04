@@ -1,5 +1,5 @@
 import React from "react";
-import ProfileCard from "./common/ProfileCard";
+import ProfileCard from "../common/ProfileCard";
 
 function ProfileCardContainer() {
   return (

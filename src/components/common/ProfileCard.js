@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouteMatch } from "react-router-dom";
 import { getProfileCardUser } from "../../redux/actions/ProfileCardActions";
-import ProfileCardBottom from "../ProfileCardBottom";
-import ProfileCardMiddle from "../ProfileCardMiddle";
-import ProfileCardTop from "../ProfileCardTop";
+import ProfileCardBottom from "../profile/ProfileCardBottom";
+import ProfileCardMiddle from "../profile/ProfileCardMiddle";
+import ProfileCardTop from "../profile/ProfileCardTop";
 import ProfileCardSkeleton from "../skeleton/ProfileCardSkeleton";
 import "./profilecard.css";
 function ProfileCard() {

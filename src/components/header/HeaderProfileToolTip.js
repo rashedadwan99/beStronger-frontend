@@ -4,7 +4,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import ToolTip from ".././common/Tooltip";
 import OutsideAlerter from ".././utils/clickOutSideAlert";
 import ProfileImage from ".././common/ProfileImage";
-import ProfileToolTipList from ".././ProfileToolTipList";
+import ProfileToolTipList from "../profile/ProfileToolTipList";
 import { toggleShowNotificationsAction } from "../../redux/actions/notificationsActions";
 
 function HeaderProfileToolTip() {

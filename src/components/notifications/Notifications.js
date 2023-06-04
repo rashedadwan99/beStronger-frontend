@@ -7,13 +7,13 @@ import {
   reciveNotificiation,
   removeNotificiation,
   toggleShowNotificationsAction,
-} from "../redux/actions/notificationsActions";
+} from "../../redux/actions/notificationsActions";
 import NotificationNum from "./NotificationNum";
 import NotificationsContainer from "./NotificationsContainer";
 import {
   decreaseFollowersList,
   increaseFollowersList,
-} from "../redux/actions/userActions";
+} from "../../redux/actions/userActions";
 import "./notifications.css";
 
 function Notifications() {
