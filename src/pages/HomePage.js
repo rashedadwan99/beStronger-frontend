@@ -5,12 +5,18 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Header from "../components/header/Header";
 import Communication from "../components/Communication";
 import Profile from "../components/profile/Profile";
-import routes from "../config/routes.json";
 import Modal from "../components/common/Modal";
 import Chat from "../components/chat/Chat";
 import { geChatListAction } from "../redux/actions/chatActions";
 import Socket from "../components/Socket";
 import "./homepage.css";
+import {
+  anotherProfileRoute,
+  chatRoute,
+  postRoute,
+  profileRoute,
+  singlePostRoute,
+} from "../config/routes";
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -27,17 +33,17 @@ function HomePage() {
           <Header />
           <Switch>
             <Route
-              path={[routes["profile-route"], routes["another-profile-route"]]}
+              path={[profileRoute, anotherProfileRoute]}
               component={Profile}
               exact
             />
             <Route
-              path={[routes["posts-route"], routes["single-post-route"]]}
+              path={[postRoute, singlePostRoute]}
               component={Communication}
               exact
             />
-            <Route path="/chats" component={Chat} exact />
-            <Redirect to={routes["posts-route"]} />
+            <Route path={chatRoute} component={Chat} exact />
+            <Redirect to={postRoute} />
           </Switch>
           <Modal>{modalChild}</Modal>
         </Socket>

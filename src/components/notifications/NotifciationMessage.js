@@ -10,7 +10,7 @@ import {
   toggleShowNotificationsAction,
 } from "../../redux/actions/notificationsActions";
 import UserNameAndImage from "../common/UserNameAndImage";
-import routes from "../../config/routes.json";
+import { postRoute, profileRoute } from "../../config/routes";
 function NotifciationMessage({ notification, targetId }) {
   const [disableGoToTarget, setDisableGoToTarget] = useState(false);
 
@@ -18,8 +18,8 @@ function NotifciationMessage({ notification, targetId }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const { sender } = notification;
-  const singlePostRoute = `${routes["posts-route"]}/${targetId}`;
-  const anotherProfileRoute = `${routes["profile-route"]}/${sender._id}`;
+  const singlePostRoute = `${postRoute}/${targetId}`;
+  const anotherProfileRoute = `${profileRoute}/${sender._id}`;
   const user = useSelector((state) => state.user.value);
   const goToTarget = () => {
     if (!user.followersList.includes(targetId)) {

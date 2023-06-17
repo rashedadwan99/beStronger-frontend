@@ -1,12 +1,11 @@
 import React from "react";
 import ProfileImage from "./common/ProfileImage";
-import routes from "../config/routes.json";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal } from "../redux/actions/modalActions";
 import { useHistory } from "react-router-dom";
 import { toggleShowNotificationsAction } from "../redux/actions/notificationsActions";
-import { formatTime } from "./utils/timeHandler";
 import TimeComponent from "./TimeComponent";
+import { profileRoute } from "../config/routes";
 function NameProfileImage({
   publisher,
   onMouseEnter,
@@ -20,8 +19,8 @@ function NameProfileImage({
   const showModal = useSelector((state) => state.modal.show);
   const showNotifications = useSelector((state) => state.notifications.show);
   const goToProfile = () => {
-    const anotherProfileRoute = `${routes["profile-route"]}/${publisher._id}`;
-    const myProfileRoute = routes["profile-route"];
+    const anotherProfileRoute = `${profileRoute}/${publisher._id}`;
+    const myProfileRoute = profileRoute;
     if (showModal) dispatch(closeModal());
     if (showNotifications) dispatch(toggleShowNotificationsAction(false));
 

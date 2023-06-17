@@ -5,12 +5,12 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { closeOffCanvas } from "../../redux/actions/offCanvasActions";
 import { closeModal } from "../../redux/actions/modalActions";
-import routes from "../../config/routes.json";
 import "./userlist.css";
 import {
   RESET_PROFILE_CARD_DATA,
   TOGGLE_LOADING,
 } from "../../redux/actions/ProfileCardActions";
+import { profileRoute } from "../../config/routes";
 function UsersList({ users, showEmail, clickOnContainer }) {
   const history = useHistory();
   const currentUserId = useSelector((state) => state.user.value._id);
@@ -19,7 +19,7 @@ function UsersList({ users, showEmail, clickOnContainer }) {
   const dispatch = useDispatch();
   const handleClick = (user) => {
     const anotherProfileRoute = `/profile/${user._id}`;
-    const myProfileRoute = routes["profile-route"];
+    const myProfileRoute = profileRoute;
     if (isCanvasShowed) dispatch(closeOffCanvas());
     if (isModalShowed) dispatch(closeModal());
     if (currentUserId !== user._id) history.push(anotherProfileRoute);

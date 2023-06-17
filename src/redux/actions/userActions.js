@@ -136,6 +136,7 @@ export const sendFollowOrUFollowAction = (
     }
   };
 };
+
 export const editUserInfoAction = (name, picture, user) => {
   return async (dispatch) => {
     try {

@@ -7,11 +7,11 @@ import { resetAllPosts } from "../../redux/actions/postActions";
 import { resetAllProfileCardData } from "../../redux/actions/ProfileCardActions";
 import { logout } from "../../services/authService";
 import OptionsList from ".././common/OptionsList";
-import routes from "../../config/routes.json";
 import { openModal } from "../../redux/actions/modalActions";
 import ChangePassword from ".././ChangePassword";
 import { IoMdSettings } from "react-icons/io";
 import { FaUserAlt, FaSignOutAlt } from "react-icons/fa";
+import { profileRoute } from "../../config/routes";
 
 function RightHeaderList({ setShow }) {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ function RightHeaderList({ setShow }) {
       label: "profile",
       icon: <FaUserAlt />,
       onClick: () => {
-        const myProfileRoute = routes["profile-route"];
+        const myProfileRoute = profileRoute;
 
         history.push(myProfileRoute);
         setShow(false);

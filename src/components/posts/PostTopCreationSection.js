@@ -4,7 +4,8 @@ import { useHistory, useRouteMatch } from "react-router-dom";
 import { openModal } from "../../redux/actions/modalActions";
 import ProfileImage from "../common/ProfileImage";
 import PostForm from "./PostForm";
-import routes from "../../config/routes.json";
+
+import { postRoute, singlePostRoute } from "../../config/routes";
 function PostInput() {
   const user = useSelector((state) => state.user.value);
   const dispatch = useDispatch();
@@ -19,9 +20,9 @@ function PostInput() {
       })
     );
   };
-  const isSinglePostShowed = path === routes["single-post-route"];
+  const isSinglePostShowed = path === singlePostRoute;
   const returnToHomePage = () => {
-    history.push(routes["posts-route"]);
+    history.push(postRoute);
   };
   return (
     <div

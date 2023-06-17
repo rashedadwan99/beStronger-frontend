@@ -5,11 +5,12 @@ import { openModal } from "../../redux/actions/modalActions";
 import ButtonsGroup from "../common/button";
 import FollowUnfollowBtn from "../common/followUnfollowBtn";
 import ProfileForm from "./ProfileForm";
-import routes from "../../config/routes.json";
+
 import {
   createChatAction,
   selectChatAction,
 } from "../../redux/actions/chatActions";
+import { anotherProfileRoute, postRoute, profileRoute, singlePostRoute } from "../../config/routes";
 function ProfileCardBottom() {
   const user = useSelector((state) => state.user.value);
   const { location, push } = useHistory();
@@ -19,13 +20,13 @@ function ProfileCardBottom() {
   const chats = useSelector((state) => state.chats.value);
   const isCreatingChat = useSelector((state) => state.chats.isCreatingChat);
   const isPostPage =
-    location.pathname === routes["posts-route"] ||
-    path === routes["single-post-route"];
+    location.pathname === postRoute||
+    path === singlePostRoute;
 
   const isAnotherProfilePage =
-    path === routes["another-profile-route"] || params.userId === user._id;
+    path === anotherProfileRoute|| params.userId === user._id;
 
-  const isMyProfile = location.pathname === routes["profile-route"];
+  const isMyProfile = location.pathname === profileRoute;
 
   const openProfileEdit = () => {
     dispatch(
@@ -57,7 +58,7 @@ function ProfileCardBottom() {
   };
   return (
     <div className="profile-card-bottom">
-      {isPostPage && <NavLink to={routes["profile-route"]}>my profile</NavLink>}
+      {isPostPage && <NavLink to={profileRoute}>my profile</NavLink>}
 
       {isMyProfile && (
         <ButtonsGroup label="edit profile" onClick={openProfileEdit} />

@@ -12,8 +12,20 @@ import {
   getSocketAction,
 } from "./redux/actions/socketAction";
 import LandingPage from "./pages/LandingPage";
-import routes from "./config/routes.json";
+
 import Canvas from "./components/common/Canvas";
+import {
+  LandingPageRoute,
+  anotherProfileRoute,
+  chatRoute,
+  homeRoute,
+  loginRoute,
+  notFoundRoute,
+  postRoute,
+  profileRoute,
+  registerRoute,
+  singlePostRoute,
+} from "./config/routes";
 function App() {
   const dispatch = useDispatch();
   const data = JSON.parse(localStorage.getItem("user"));
@@ -40,36 +52,36 @@ function App() {
       <Switch>
         <Route
           path={[
-            routes["home-route"],
-            routes["posts-route"],
-            routes["single-post-route"],
-            routes["profile-route"],
-            routes["another-profile-route"],
-            "/chats",
+            homeRoute,
+            postRoute,
+            singlePostRoute,
+            profileRoute,
+            anotherProfileRoute,
+            chatRoute,
           ]}
           render={(props) => {
             if (data && data.user) return <HomePage {...props} />;
-            return <Redirect to={routes["login-route"]} />;
+            return <Redirect to={loginRoute} />;
           }}
           exact
         />
         <Route
-          path={[routes["register-route"], routes["login-route"]]}
+          path={[registerRoute, loginRoute]}
           render={(props) => {
             if (!data) return <Authentications {...props} />;
-            return <Redirect to={routes["posts-page"]} />;
+            return <Redirect to={postRoute} />;
           }}
           exact
         />
         <Route
-          path={routes["landing-page-route"]}
+          path={LandingPageRoute}
           render={(props) => {
             if (!data) return <LandingPage {...props} />;
-            return <Redirect to={routes["posts-page"]} />;
+            return <Redirect to={postRoute} />;
           }}
         />
-        <Route path={routes["notfound-route"]} component={NotFound} />
-        <Redirect to={routes["notfound-route"]} />
+        <Route path={notFoundRoute} component={NotFound} />
+        <Redirect to={notFoundRoute} />
       </Switch>
       <Canvas />
     </>

@@ -1,0 +1,10 @@
+export const homeRoute = "/";
+export const profileRoute = "/profile";
+export const anotherProfileRoute = "/profile/:userId";
+export const LandingPageRoute = "/landing-page";
+export const loginRoute = "/login";
+export const postRoute = "/posts";
+export const singlePostRoute = "/posts/:postId";
+export const registerRoute = "/register";
+export const notFoundRoute = "/not-found";
+export const chatRoute = "/chats";
