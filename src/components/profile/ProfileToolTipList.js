@@ -19,42 +19,44 @@ function RightHeaderList({ setShow }) {
   const appDependency = useSelector((state) => state.appUseEffectDependency);
   const user = useSelector((state) => state.user.value);
   const socket = useSelector((state) => state.socket);
+
+  const handleShowChangePasswordModal = () => {
+    setShow(false);
+
+    dispatch(
+      openModal({
+        title: "Change Password",
+        Component: <ChangePassword />,
+      })
+    );
+  };
+
+  const handleLogout = () => {
+    socket.emit("leave room", user._id);
+    logout();
+    dispatch(toggleAppDependency(!appDependency));
+    dispatch(resetAllNotifications());
+    dispatch(resetAllPosts());
+    dispatch(resetAllProfileCardData());
+  };
   const options = [
     {
       label: "profile",
       icon: <FaUserAlt />,
       onClick: () => {
-        const myProfileRoute = profileRoute;
-
-        history.push(myProfileRoute);
+        history.push(profileRoute);
         setShow(false);
       },
     },
     {
       label: "change password",
       icon: <IoMdSettings />,
-      onClick: () => {
-        setShow(false);
-
-        dispatch(
-          openModal({
-            title: "Change Password",
-            Component: <ChangePassword />,
-          })
-        );
-      },
+      onClick: () => handleShowChangePasswordModal(),
     },
     {
       label: "logout",
       icon: <FaSignOutAlt />,
-      onClick: () => {
-        socket.emit("leave room", user._id);
-        logout();
-        dispatch(toggleAppDependency(!appDependency));
-        dispatch(resetAllNotifications());
-        dispatch(resetAllPosts());
-        dispatch(resetAllProfileCardData());
-      },
+      onClick: () => handleLogout(),
     },
   ];
   return <OptionsList options={options} />;
