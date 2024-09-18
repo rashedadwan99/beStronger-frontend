@@ -38,7 +38,10 @@ export const addCommentAction = (post, content, socket, user) => {
             ` commented on your post`,
             post.publisher._id,
             post._id,
-            socket
+            socket,
+            post._id,
+            comment._id,
+            ""
           )
         );
       }

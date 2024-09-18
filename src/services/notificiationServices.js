@@ -5,13 +5,23 @@ const apiEndPoint = config.apiUrl + "/notifications";
 export const getUserNotifications = () => {
   return http.get(apiEndPoint, { headers: { "x-auth-token": getJwt() } });
 };
-export const sendNotifications = (message, reciverId, targetId) => {
+export const sendNotifications = (
+  message,
+  reciverId,
+  targetId,
+  postId,
+  commentId,
+  followId
+) => {
   return http.post(
     apiEndPoint,
     {
       reciverId,
       message,
       targetId,
+      postId,
+      commentId,
+      followId,
     },
     { headers: { "x-auth-token": getJwt() } }
   );

@@ -114,7 +114,10 @@ export const sendFollowOrUFollowAction = (
             ` started following you`,
             reciverUserId,
             senderUserId,
-            socket
+            socket,
+            "",
+            "",
+            reciverUserId
           )
         );
       }

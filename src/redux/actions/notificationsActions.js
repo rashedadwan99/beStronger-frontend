@@ -35,14 +35,20 @@ export const sendNotificationAction = (
   message,
   reciverId,
   targetId,
-  socket
+  socket,
+  postId,
+  commentId,
+  followId
 ) => {
   return async (dispatch) => {
     try {
       const { data: notification } = await sendNotifications(
         message,
         reciverId,
-        targetId
+        targetId,
+        postId,
+        commentId,
+        followId
       );
       dispatch({ type: SEND_USER_NOTIFICATIONS });
       socket.emit("new notification", notification);

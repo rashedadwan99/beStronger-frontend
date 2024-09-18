@@ -180,7 +180,10 @@ export const likeAction = (originalPost, socket, senderUser) => {
             ` liked your post`,
             originalPost.publisher._id,
             originalPost._id,
-            socket
+            socket,
+            originalPost._id,
+            "",
+            ""
           )
         );
       }
