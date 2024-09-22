@@ -55,12 +55,13 @@ export const addCommentAction = (post, content, socket, user) => {
   };
 };
 
-export const deleteCommentAction = (post, commentId, socket, user) => {
+export const deleteCommentAction = (post, commentId = "", socket) => {
   return async (dispatch) => {
     try {
       await deleteComment(commentId);
       const { data: notification } = await deleteNotification(
-        user._id,
+        commentId,
+        "",
         post._id
       );
       dispatch({ type: DELETE_COMMENT, payload: { commentId } });

@@ -84,13 +84,22 @@ export const toggleShowNotificationsAction = (show) => {
     payload: show,
   };
 };
-export const deleteNotificationByReciverUser = (targetId, senderId) => {
+export const deleteNotificationByReciverUser = (
+  targetId,
+  senderId,
+  commentId,
+  followerId,
+  postId
+) => {
   return async (dispatch) => {
     try {
       dispatch({ type: IS_SENDING_NOTIFICATION_REQUEST });
       const { data: notification } = await deleteNotification(
         senderId,
-        targetId
+        targetId,
+        commentId,
+        followerId,
+        postId
       );
       dispatch(removeNotificiation(notification._id));
       dispatch({ type: IS_SENDING_NOTIFICATION_REQUEST });

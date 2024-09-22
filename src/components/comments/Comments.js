@@ -30,7 +30,7 @@ function Comments({ post }) {
       label: "delete",
       icon: <AiTwotoneDelete />,
       onClick: (comment) => {
-        dispatch(deleteCommentAction(post, comment._id, socket, user));
+        dispatch(deleteCommentAction(post, comment._id, socket));
       },
     },
   ];
