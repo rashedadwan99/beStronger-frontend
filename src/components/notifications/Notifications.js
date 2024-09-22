@@ -32,7 +32,6 @@ function Notifications() {
   }, []);
   useEffect(() => {
     if (!socket) return;
-
     const updateUserFollowersList = (
       notification,
 
