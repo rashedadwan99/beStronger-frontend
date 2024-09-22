@@ -42,6 +42,7 @@ function App() {
   useEffect(() => {
     if (data && data.user) {
       dispatch(userLoggedIn());
+      socket.emit("setup", data.user._id);
     } else {
       dispatch(userLoggedOut());
     }
