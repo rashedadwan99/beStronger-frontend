@@ -28,9 +28,9 @@ export const sendNotifications = (
 };
 
 export const deleteNotification = (senderId, targetId) => {
-  return http.delete(apiEndPoint, {
+  return http.delete(apiEndPoint + "/mobile/deleteFromSender", {
     headers: { "x-auth-token": getJwt() },
-    params: { senderId, targetId },
+    params: { senderId, targetId, commentId },
   });
 };
 
