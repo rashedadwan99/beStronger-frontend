@@ -209,7 +209,9 @@ export const disLikeAction = (originalPost, socket, senderUser) => {
     }
     if (senderUser._id !== originalPost.publisher._id) {
       const { data: notification } = await deleteNotification(
-        senderUser._id,
+        originalPost._id,
+        "",
+        "",
         originalPost._id
       );
       socket.emit(
